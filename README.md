@@ -4,6 +4,15 @@ This app has been generated using `create-react-app`, then cleaned up a little s
 
 Add components in the `src` folder and use them in `src/app.js` to get started.
 
+## NPM packages installed for the frontend repo:
+- npm i
+- npm i react-router-dom
+- npm i styled-components@latest
+- npm i react-redux
+- npm i @‌reduxjs/toolkit
+- npm i moment
+- npm i swiper
+
 ## Usage
 
 1. On GitHub, click the 'use this template' button to create a new repo on your account
@@ -11,9 +20,3 @@ Add components in the `src` folder and use them in `src/app.js` to get started.
 1. Install required dependencies with npm: `npm install`
 1. Start the project: `npm start`
 
-Alternatively, if you don't want a new git repo on your account;
-
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
