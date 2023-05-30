@@ -6,60 +6,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #7d7897;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
- /*
-:root {
-  --softPurple: #9685F1;
-  --lemon: #E9FE81;
-  --creme: #C39790;
-  --primaryWhite: #F9F7FF;
-  --primaryBlack: #141414;
-  --claret: #B85780;
-} */
-
-
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: "Titillium Web", sans-serif;
-}
-
-.logo-image {
-  height: 50px;
-}
 
 :root {
-	--mainColor: #29335c;
-	--mainColorLight: #5767aa;
-	--secondaryColor: #db2b39;
-	--textColor: #eee;
-}
-
-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 80px;
-	padding: 0 2rem;
-	background-color: var(--mainColor);
-	color: var(--textColor);
+	--softPurple: #9685F1;
+	--lemon: #d2f0b2;
+	--creme: #C39790;
+	--primaryWhite: #F9F7FF;
+	--primaryBlack: #141414;
+	--claret: #872b51;
 }
 
 nav a {
 	margin: 0 1rem;
-	color: var(--textColor);
+	color: var(--primaryWhite);
 	text-decoration: none;
+	border-bottom: 4px solid var(--lemon);
+	padding-bottom: 3px;
 }
 
 nav a:hover {
-	color: var(--secondaryColor);
+	color: var(--primaryWhite);
+	border-bottom: 4px solid var(--softPurple);
 }
 
 header .nav-btn {
@@ -103,12 +76,13 @@ nav {
 
 	header .responsive_nav {
 		transform: translateY(100vh);
+		background-color: var(--claret);
 	}
 
 	nav .nav-close-btn {
 		position: absolute;
-		top: 2rem;
-		right: 2rem;
+		top: 1rem;
+		right: 0;
 	}
 
 	nav a {
