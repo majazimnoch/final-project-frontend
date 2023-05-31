@@ -2,14 +2,14 @@ import React from 'react'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Contact from './Contact'
-import { FaqAccordion } from './Faq/FaqAccordion'
+import Faq from './Faq/Faq'
 
 const PublicMain = () => {
   return (
     <>
       <Navbar />
       <Hero />
-      <FaqAccordion />
+      <Faq />
       <Contact />
     </>
   );

@@ -2,12 +2,6 @@
 // outcommented code at the bottom - need to be refactored or moved /YK
 import styled from 'styled-components';
 
-export const Header = styled.h1`
-    text-align: center;
-    margin: 2rem 0 4rem 0;
-    //the border will be deleted later - just for showing the size of the content
-    border: solid red 1rem;
-`
 // outcommented the Wrapper for now - not sure I'll need it or how I can use it for the styling
 // export const AccordionWrapper = styled.div`
 // need to adjust the width somehow but I think the AccordionWrapper is needed
@@ -19,9 +13,33 @@ export const Header = styled.h1`
 // background-color: #B85780;
 // `
 
+export const AccordionWrapper = styled.div`
+    background-color: var(--claret);
+    display: flex,
+    flex-direction: row;
+    padding: 0 10px;
+
+    @media (min-width:1024px) {
+        
+    } 
+`
+export const SingleSectionAccordion = styled.div`
+        
+    } 
+`
+export const ImgSparkle = styled.img`
+height: 35px;
+transition: transform 0.8s ease;
+&.rotate {
+  transform: rotate(90deg);
+}
+`
+
 export const Accordion = styled.div`
-    max-width: 600px;
-    //margin: 2rem auto;
+
+    @media (min-width:1024px) {
+        
+    } 
 `
 
 // this below might change to something else instead of div
@@ -30,15 +48,21 @@ export const AccordionTitle = styled.div`
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
-    background-color: #B85780;
     padding: 1rem;
     font-weight: bold;
     color: #F9F6FF;
 `
 
 export const AccordionContent = styled.div`
-    background-color: #39b9d2;
-    padding: 1rem;
+    color: var(--snowWhite);
+  padding: ${({ isActive }) => (isActive ? '1rem' : '0')};
+  max-height: ${({ isActive }) => (isActive ? '1000px' : '0')};
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+`;
+
+export const Hr = styled.hr`
+border: .4px solid var(--snowWhite);
 `
 
 // * {
