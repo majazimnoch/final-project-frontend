@@ -11,6 +11,7 @@ const FaqAccordionItem = ({ title, content }) => {
     <Accordion>
       <AccordionTitle onClick={() => setIsActive(!isActive)}>
         <div>{title}</div>
+        <hr />
         <div>{isActive ? '-' : '*'}</div>
       </AccordionTitle>
       {isActive && <AccordionContent>{content}</AccordionContent>}

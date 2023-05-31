@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import heroImage from 'assets/heroImg.png'
+import { Button } from './Button';
 
 const Hero = () => {
   return (
@@ -14,6 +15,8 @@ const Hero = () => {
             <StyledParagraph>Horsey app helps you to track your horses' goals and monitor their
             routines. Sign up now and see what all the neighing is about!
             </StyledParagraph>
+            <Button signup>Sign up</Button>
+            <Button>Log in</Button>
           </TextBlock>
         </div>
       </div>
