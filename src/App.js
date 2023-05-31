@@ -4,6 +4,7 @@ import { Button } from 'components/BeforeLogin/Button'
 // import Navbar from 'components/BeforeLogin/Navbar';
 import Contact from 'components/BeforeLogin/Contact';
 import Hero from 'components/BeforeLogin/Hero';
+import { FaqAccordion } from 'components/BeforeLogin/Faq/FaqAccordion'
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <Button>Submit</Button>
       <Hero />
       <Contact />
+      <FaqAccordion />
     </>
   )
 }
