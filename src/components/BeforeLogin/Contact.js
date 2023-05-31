@@ -10,8 +10,8 @@ const Contact = () => {
   return (
     <StyledSection>
       <StyledTop>
+        <TopTitle>Contact</TopTitle>
         <TopContainer>
-          <TopTitle>Contact</TopTitle>
           <TopInfo>Email</TopInfo>
           <TopEmail>horsey@loremipsum.com</TopEmail>
           {/* icons insta facebook LinkedIn */}
@@ -67,13 +67,17 @@ justify-content: space-between;
 const TopTitle = styled.h1`
 color: #000000;
 margin-top: 5rem;
+font-size: 4rem;
 `;
 
 const TopInfo = styled.h2`
 color: #000000;
+font-size: 1.5rem;
 `;
 
 const TopEmail = styled.h3`
+color: #000000;
+font-size: 1rem;
 `;
 
 const StyledImage = styled.img`
