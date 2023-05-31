@@ -14,7 +14,7 @@ import styled from 'styled-components';
 // `
 
 export const AccordionWrapper = styled.div`
-    background-color: var(--claret);
+    
     display: flex,
     flex-direction: row;
     padding: 0 10px;
