@@ -8,11 +8,22 @@ export const Header = styled.h1`
     //the border will be deleted later - just for showing the size of the content
     border: solid red 1rem;
 `
+// outcommented the Wrapper for now - not sure I'll need it or how I can use it for the styling
+// export const AccordionWrapper = styled.div`
+// need to adjust the width somehow but I think the AccordionWrapper is needed
+// to get the horseshoes showing up
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// max-width: 80%;
+// background-color: #B85780;
+// `
 
 export const Accordion = styled.div`
     max-width: 600px;
-    margin: 2rem auto;
+    //margin: 2rem auto;
 `
+
 // this below might change to something else instead of div
 export const AccordionTitle = styled.div`
     display: flex;
@@ -22,13 +33,7 @@ export const AccordionTitle = styled.div`
     background-color: #B85780;
     padding: 1rem;
     font-weight: bold;
-
-    & :hover {
-        background-color: #B85780;
-        filter: brightness(150%);
-        //might delete the border-radius after when we style together.
-        border-radius: 10rem;
-    }
+    color: #F9F6FF;
 `
 
 export const AccordionContent = styled.div`
