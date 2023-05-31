@@ -17,7 +17,7 @@ const Header = styled.header`
     }   
 `
 const Img = styled.img`
-  height: 80px;
+  height: 100%;
 `
 const Nav = styled.nav`
 display: flex;
@@ -54,7 +54,6 @@ transition: 0.2s;
   font-size: 1.5rem;
 }
 `
-
 const Navbar = () => {
   const navRef = useRef();
 

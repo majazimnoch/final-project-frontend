@@ -1,4 +1,3 @@
-
 .nav-btn {
 	padding: 5px;
 	cursor: pointer;
@@ -14,6 +13,10 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
+}
+
+.logo-container {
+    height: 100%;
 }
 
 
