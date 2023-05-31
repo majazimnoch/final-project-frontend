@@ -1,0 +1,40 @@
+
+.nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+header div,
+nav {
+	display: flex;
+	align-items: center;
+}
+
+
+@media only screen and (max-width: 1024px) {
+	.nav-btn {
+		visibility: visible;
+		opacity: 1;
+		color: var(--primaryWhite);
+		margin-right: 10px;
+	}
+
+	 .responsive_nav {
+		transform: translateY(100vh);
+		background-color: var(--claret);
+	}
+
+	.nav-close-btn {
+		position: absolute;
+		top: 1rem;
+		right: 0;
+	}
+
+	
+}
