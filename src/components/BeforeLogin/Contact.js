@@ -14,7 +14,10 @@ const Contact = () => {
         <TopContainer>
           <TopInfo>Email</TopInfo>
           <TopEmail>horsey@loremipsum.com</TopEmail>
-          {/* icons insta facebook LinkedIn */}
+          {/* <IconsContainer>
+            <i className="fab fa-facebook-f" />
+            <i className="fab fa-instagram" />
+          </IconsContainer> */}
         </TopContainer>
         <StyledImage src={image1} alt="Horses" />
         <StyledImageDesktop src={image2} alt="Horses running" />
@@ -66,19 +69,40 @@ justify-content: space-between;
 
 const TopTitle = styled.h1`
 color: #000000;
-margin-top: 5rem;
-font-size: 4rem;
+margin-top: 3rem;
+font-size: 2rem;
+
+@media (min-width: 668px) {
+  font-size: 3rem;
+  margin-top: 4rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 4rem;
+  margin-top: 5rem;
+}
 `;
 
 const TopInfo = styled.h2`
 color: #000000;
 font-size: 1.5rem;
+margin-top: 1rem;
+
+@media (min-width: 668px) {
+  margin-top: 2rem;
+}
 `;
 
 const TopEmail = styled.h3`
 color: #000000;
 font-size: 1rem;
 `;
+
+// const IconsContainer = styled.div`
+// display: flex;
+// gap: 1rem;
+// justify-content: center;
+// `;
 
 const StyledImage = styled.img`
 width: 100%;
