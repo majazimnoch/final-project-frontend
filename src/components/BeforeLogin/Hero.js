@@ -15,8 +15,10 @@ const Hero = () => {
             <StyledParagraph>Horsey app helps you to track your horses' goals and monitor their
             routines. Sign up now and see what all the neighing is about!
             </StyledParagraph>
-            <Button signup>Sign up</Button>
-            <Button>Log in</Button>
+            <ButtonContainer>
+              <Button signup>Sign up</Button>
+              <Button>Log in</Button>
+            </ButtonContainer>
           </TextBlock>
         </div>
       </div>
@@ -35,7 +37,10 @@ const StyledHero = styled.div`
   background-image: url(${heroImage});
   background-size: cover;
   background-position: center;
-  color: red;
+
+  @media (min-width: 800px) {
+    background-size: 100% 100%;
+  }
 
   @media (min-width: 1024px) {
     background: none;
@@ -48,7 +53,7 @@ const StyledHero = styled.div`
       .left {
         flex: 1;
         background-image: url(${heroImage});
-        background-size: cover;
+        background-size: 100% 100%;
         background-position: center;
       }
 
@@ -76,7 +81,7 @@ padding: 4rem 2rem 4rem 2rem;
 const StyledTitle = styled.h1`
   font-size: 3.5rem;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 3rem;;
   color: #9685f1;
 
   @media (max-width: 1023px) {
@@ -89,15 +94,29 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledParagraph = styled.p`
-  font-size: 1.5rem;
-  margin-bottom: 16px;
+  font-size: 0.9rem;
+  margin-bottom: 3rem;;
   color: #141414;
 
-  @media (max-width: 1023px) {
-    font-size: 1.3rem;
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
   }
 
-  @media (max-width: 668px) {
-    font-size: 0.9rem;
+  @media (min-width: 668px) {
+    font-size: 1.3rem;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  @media (min-width: 668px) {
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 3rem;
   }
 `;
