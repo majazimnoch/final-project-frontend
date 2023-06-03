@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
 import image2 from 'assets/horsesrun.jpg';
 import image3 from 'assets/sandra.jpg';
@@ -7,6 +10,8 @@ import image4 from 'assets/ylva.jpg';
 import image5 from 'assets/maja.jpg';
 
 const Contact = () => {
+  library.add(faFacebookF, faInstagram);
+
   return (
     <StyledSection>
       <StyledTop>
@@ -14,10 +19,14 @@ const Contact = () => {
         <TopContainer>
           <TopInfo>Email</TopInfo>
           <TopEmail>horsey@loremipsum.com</TopEmail>
-          {/* <IconsContainer>
-            <i className="fab fa-facebook-f" />
-            <i className="fab fa-instagram" />
-          </IconsContainer> */}
+          <IconsContainer>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </IconsContainer>
         </TopContainer>
         <StyledImage src={image1} alt="Horses" />
         <StyledImageDesktop src={image2} alt="Horses running" />
@@ -98,11 +107,12 @@ color: #000000;
 font-size: 1rem;
 `;
 
-// const IconsContainer = styled.div`
-// display: flex;
-// gap: 1rem;
-// justify-content: center;
-// `;
+const IconsContainer = styled.div`
+display: flex;
+gap: 1rem;
+justify-content: center;
+margin-top: 2rem;
+`;
 
 const StyledImage = styled.img`
 width: 100%;
