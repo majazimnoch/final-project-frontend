@@ -3,27 +3,20 @@ import { v4 as uuidv4 } from 'uuid';
 export const accordionData = [
   {
     id: uuidv4(),
-    title: 'Section 1',
-    content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
-      laborum cupiditate possimus labore, hic temporibus velit dicta earum
-      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
-      voluptatem.`
+    title: 'What is Horsey App?',
+    content: `Introducing Horsey, the ultimate app for horse riders and enthusiasts. Revolutionizing the equestrian experience, Horsey provides a comprehensive platform to collect horse information, track goals, and establish routines. Create profiles for your horses, capturing vital details like breed, age, and medical history. Set short-term and long-term goals, monitor progress, and stay motivated. Plan personalized routines for feeding, exercise, and appointments. Share experiences from horse events and seek advice. Enhance your equestrian journey with Horsey.
+    `
   },
   {
     id: uuidv4(),
-    title: 'Section 2',
-    content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam
-      reprehenderit nam assumenda voluptatem ut. Ipsum eius dicta, officiis
-      quaerat iure quos dolorum accusantium ducimus in illum vero commodi
-      pariatur? Impedit autem esse nostrum quasi, fugiat a aut error cumque
-      quidem maiores doloremque est numquam praesentium eos voluptatem amet!
-      Repudiandae, mollitia id reprehenderit a ab odit!`
+    title: 'Who can use Horsey App?',
+    content: `Horsey is a versatile app designed for a wide range of equestrian enthusiasts. Stable owners can streamline operations, riders can track goals, routines, and connect with friends. Individual horse owners benefit from detailed horse profiles, progress monitoring, and a supportive community. App can be also used by kids and teenagers.
+    `
   },
   {
     id: uuidv4(),
-    title: 'Section 3',
-    content: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
-      quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
-      dolor ut sequi minus iste? Quas? Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos dolor ut sequi minus iste? Quas? Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos dolor ut sequi minus iste? Quas?`
+    title: 'Is it safe?',
+    content: `Login details are securely stored in a database. We don't share your data with any third-parties. 
+    `
   }
 ];
