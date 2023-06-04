@@ -68,7 +68,7 @@ const Navbar = () => {
       </div>
       <div>
         <Nav ref={navRef}>
-          <StyledLink href="#id_contact">FAQ</StyledLink>
+          <StyledLink href="#id_faq">FAQ</StyledLink>
           <StyledLink href="/contact">Contact</StyledLink>
           <button
             type="button"

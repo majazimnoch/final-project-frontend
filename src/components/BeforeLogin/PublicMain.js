@@ -9,7 +9,7 @@ const PublicMain = () => {
     <>
       <Navbar />
       <Hero />
-      <Faq />
+      <Faq id="#id_faq" />
       <Contact />
     </>
   );
