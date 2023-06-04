@@ -22,7 +22,6 @@ code {
 	--snowWhite: #FFFFFF;
 	--primaryBlack: #141414;
 	--claret: #952453;	
-	--fontHeader:;
-    --fontParagraph:'Poppins', sans-serif;
-    --fontSize: 16px;
+  --fontParagraph:'Poppins', sans-serif;
+
 }

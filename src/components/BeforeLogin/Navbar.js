@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import './NavbarStyle.css'
 import { FaBars, FaTimes } from 'react-icons/fa';
 import LogoIcon from 'assets/horsey.jpg';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Header = styled.header`
     display: flex;
@@ -54,6 +54,33 @@ transition: 0.2s;
   font-size: 1.5rem;
 }
 `
+
+const NavBtn = styled.button`
+padding: 5px;
+cursor: pointer;
+background: transparent;
+border: none;
+outline: none;
+visibility: hidden;
+opacity: 0;
+font-size: 1.8rem;
+
+@media only screen and (max-width: 1024px)  {
+      visibility: visible;
+      opacity: 1;
+      color: var(--primaryWhite);
+      margin-right: 10px;
+}
+
+${(styling) => styling.navclosebtn && css`
+  `
+} 
+@media only screen and (max-width:1024px) {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+}
+`
 const Navbar = () => {
   const navRef = useRef();
 
@@ -77,12 +104,11 @@ const Navbar = () => {
             <FaTimes />
           </button>
         </Nav>
-        <button
+        <NavBtn
           type="button"
-          className="nav-btn"
           onClick={showNavbar}>
           <FaBars />
-        </button>
+        </NavBtn>
       </div>
     </Header>
   )

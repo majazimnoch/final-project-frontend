@@ -31,14 +31,14 @@ padding: 0rem 8rem 2rem 8rem;
 
 @media (min-width: 668px) and (max-width:1023px) {
     padding: 0rem 4rem 2rem 4rem;
-    height: 50vh;
+    min-height: 50vh;
     background-size: 100%;
     background-position: right 50px top 200px;
 } 
 
 @media (max-width:667px) {
     padding: 2rem 1rem;
-    height: 50vh;
+    min-height: 50vh;
 } 
 `
 
