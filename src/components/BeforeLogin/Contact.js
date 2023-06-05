@@ -67,13 +67,18 @@ min-height: 100vh;
 const StyledTop = styled.div`
 display: flex;
 flex-direction: column;
-height: 80vh;
-// align-items: flex-end;
+min-height: 50vh;
 background-color: #f9f7ff;
+position: relative;
+border: solid 2px blue;
 `;
 
 const TopContainer = styled.div`
-justify-content: space-between;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
 `;
 
 const TopTitle = styled.h1`
@@ -94,30 +99,61 @@ font-size: 2rem;
 
 const TopInfo = styled.h2`
 color: #000000;
-font-size: 1.5rem;
+font-size: 1rem;
 margin-top: 1rem;
+margin-bottom: 0;
 
 @media (min-width: 668px) {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
   margin-top: 2rem;
+  font-size: 2rem;
 }
 `;
 
 const TopEmail = styled.h3`
 color: #000000;
-font-size: 1rem;
+font-size: 0.8rem;
+margin-top: 0;
+
+@media (min-width: 668px) {
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 2rem;
+}
 `;
 
 const IconsContainer = styled.div`
 display: flex;
-gap: 1rem;
+gap: 1.5rem;
 justify-content: center;
-margin-top: 2rem;
+margin-top: 4rem;
+border: solid 2px red;
+margin-bottom: 0;
+
+@media (min-width: 668px) {
+  font-size: 1.5rem;
+}
 `;
 
 const StyledImage = styled.img`
 width: 100%;
+height: 8rem;
 margin-bottom: 0;
+margin-top: 0;
 align-self: flex-end;
+position: absolute;
+bottom: 0;
+border: solid 2px yellow;
+
+@media (min-width: 668px) {
+  height: 12rem;
+}
 
 @media (min-width: 1024px) {
   display: none;
@@ -131,7 +167,7 @@ align-self: flex-end;
 @media (max-width: 1023px) {
   display: none;
 }
-`
+`;
 
 const StyledImageProfile = styled.img`
 clip-path: circle();
@@ -139,19 +175,21 @@ max-height: 200px;
 max-width: 200px;
 margin-bottom: 0;
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   display: none;
 }
-`
+`;
+
 const FlexContacts = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 background-color: #9685f1;
 padding-top: 20px;
-height: 80vh;
+min-height: 50vh;
+// margin-bottom: 0;
 
-@media (min-width: 664px) {
+@media (min-width: 668px) {
   flex-direction: row;
   // align-self: center;
   justify-content: space-between;
@@ -173,18 +211,32 @@ position: relative;
 
 const StyledName = styled.h4`
 position: relative;
+font-size: 1rem;
 color: #f9f6ff;
 margin-bottom: 0;
 
-@media (min-width: 664px) {
-  
+@media (min-width: 668px) {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 2rem;
 }
 `;
 
 const StyledEmail = styled.p`
 color: #f9f6ff;
-margin-bottom: 16px;
+font-size: 0.8rem;
+margin-bottom: 2rem;
 margin-top: 0;
+
+@media (min-width: 668px) {
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 2rem;
+}
 `;
 
 const StyledLine = styled.span`
