@@ -15,14 +15,12 @@ code {
 }
 
 :root {
-	--softPurple: #9685F1;
-	--lemon: #e5f7d9;
+	--softPurple: #a1a1f8;
+	--lemon: #b7fdad;
 	--creme: #C39790;
 	--primaryWhite: #F9F7FF;
 	--snowWhite: #FFFFFF;
 	--primaryBlack: #141414;
 	--claret: #952453;	
-	--fontHeader:;
-    --fontParagraph:'Poppins', sans-serif;
-    --fontSize: 16px;
+  --fontParagraph:'Poppins', sans-serif;
 }
