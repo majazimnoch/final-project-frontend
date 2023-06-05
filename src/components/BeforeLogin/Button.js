@@ -15,6 +15,10 @@ export const Button = styled.button`
     transition: 0.2s;
   }
 
+  @media (min-width: 668px) {
+    padding: 0 5rem;
+  }
+
   ${(styling) => styling.signup && css`
 background-color: var(--softPurple); 
 color: var(--primaryWhite);
