@@ -34,7 +34,7 @@ color: var(--primaryWhite);
 `
 const Faq = () => {
   return (
-    <FaqPage>
+    <FaqPage id="faq">
       <HFaq>Questions & Answers</HFaq>
       <FaqAccordion />
     </FaqPage>

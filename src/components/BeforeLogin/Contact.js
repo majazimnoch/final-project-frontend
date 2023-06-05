@@ -8,7 +8,7 @@ import image5 from 'assets/maja.jpg';
 
 const Contact = () => {
   return (
-    <StyledSection>
+    <StyledSection id="contact">
       <StyledTop>
         <TopTitle>Contact</TopTitle>
         <TopContainer>

@@ -3,6 +3,8 @@ import './NavbarStyle.css'
 import { FaBars, FaTimes } from 'react-icons/fa';
 import LogoIcon from 'assets/horsey.jpg';
 import styled from 'styled-components';
+import { HashLink as Link } from 'react-router-hash-link';
+import { BrowserRouter } from 'react-router-dom';
 
 const Header = styled.header`
     display: flex;
@@ -37,23 +39,6 @@ align-items: center;
       transition: 1s;
 } 
 `
-const StyledLink = styled.a`
-margin: 0 1rem;
-color: var(--primaryWhite);
-text-decoration: none;
-border-bottom: 4px solid var(--lemon);
-padding-bottom: 3px;
-
-&:hover {
-color: var(--primaryWhite);
-border-bottom: 4px solid var(--softPurple);
-transition: 0.2s;
-}
-
-@media only screen and (max-width:1024px) {
-  font-size: 1.5rem;
-}
-`
 const Navbar = () => {
   const navRef = useRef();
 
@@ -67,16 +52,18 @@ const Navbar = () => {
         <Img alt="Logo Horsey" src={LogoIcon} />
       </div>
       <div>
-        <Nav ref={navRef}>
-          <StyledLink href="#id_faq">FAQ</StyledLink>
-          <StyledLink href="/contact">Contact</StyledLink>
-          <button
-            type="button"
-            className="nav-btn nav-close-btn"
-            onClick={showNavbar}>
-            <FaTimes />
-          </button>
-        </Nav>
+        <BrowserRouter>
+          <Nav ref={navRef}>
+            <Link to="#faq">FAQ</Link>
+            <Link to="#contact">Contact</Link>
+            <button
+              type="button"
+              className="nav-btn nav-close-btn"
+              onClick={showNavbar}>
+              <FaTimes />
+            </button>
+          </Nav>
+        </BrowserRouter>
         <button
           type="button"
           className="nav-btn"

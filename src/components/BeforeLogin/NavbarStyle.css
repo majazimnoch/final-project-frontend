@@ -19,6 +19,20 @@ nav {
     height: 100%;
 }
 
+a {
+	margin: 0 1rem;
+	color: var(--primaryWhite);
+	text-decoration: none;
+	border-bottom: 4px solid var(--lemon);
+	padding-bottom: 3px;
+  }
+  
+  a:hover {
+	color: var(--primaryWhite);
+	border-bottom: 4px solid var(--softPurple);
+	transition: 0.2s;
+  }
+
 
 @media only screen and (max-width: 1024px) {
 	.nav-btn {
@@ -38,6 +52,11 @@ nav {
 		top: 1rem;
 		right: 0;
 	}
+
+	a {
+		font-size: 1.5rem;
+	  }
+	
 
 	
 }

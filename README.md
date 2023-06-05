@@ -1,8 +1,6 @@
-# Technigo React Starter App
+# Problems
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
-
-Add components in the `src` folder and use them in `src/app.js` to get started.
+I encountered difficulties with using styling components together with Hash Link (BrowserRouter), that's why in the end I replaced Styled components with Vanilla CSS for the nav links (which are navigating to the links on the same page) / Maja. 
 
 ## NPM packages installed for the frontend repo:
 - npm i
@@ -12,6 +10,7 @@ Add components in the `src` folder and use them in `src/app.js` to get started.
 - npm i @‌reduxjs/toolkit
 - npm i moment
 - npm i swiper
+- npm install --save react-router-hash-link
 
 ## Usage
 
