@@ -32,7 +32,7 @@ export const StyledHero = styled.div`
 
         .right {
         flex: 1;
-        background-color: #f9f7ff;
+        background-color: var(--primaryWhite:);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -46,8 +46,8 @@ export const TextBlock = styled.div`
     padding: 4rem 2rem 4rem 2rem;
 
     @media (max-width: 1023px) {
-    background-color: rgba(249, 247, 255, 0.7);
-    width: 80vw;
+        background-color: rgba(249, 247, 255, 0.7);
+        width: 80vw;
     }
 `;
 
@@ -55,28 +55,28 @@ export const StyledTitle = styled.h1`
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 3rem;;
-    color: #9685f1;
+    color: var(--softPurple);
 
     @media (min-width: 668px) {
-    font-size: 2.5rem;
+        font-size: 2.5rem;
     }
 
     @media (min-width: 1024px) {
-    font-size: 3.5rem;
+        font-size: 3.5rem;
     }
 `;
 
 export const StyledParagraph = styled.p`
     font-size: 0.9rem;
     margin-bottom: 3rem;;
-    color: #141414;
+    color: var(--primaryBlack):
 
     @media (min-width: 668px) {
-    font-size: 1.3rem;
+        font-size: 1.3rem;
     }
 
     @media (min-width: 1024px) {
-    font-size: 1.5rem;
+        font-size: 1.5rem;
     }
 `;
 
@@ -86,10 +86,10 @@ export const ButtonContainer = styled.div`
     justify-content: center;
 
     @media (min-width: 668px) {
-    gap: 2rem;
+        gap: 2rem;
     }
 
     @media (min-width: 1024px) {
-    gap: 3rem;
+        gap: 3rem;
     }
 `;
