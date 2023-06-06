@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
 import image2 from 'assets/horsesrun.jpg';
@@ -10,7 +10,7 @@ import image4 from 'assets/ylva.jpg';
 import image5 from 'assets/maja.jpg';
 
 const Contact = () => {
-  library.add(faFacebookF, faInstagram);
+  library.add(faFacebookF, faInstagram, faLinkedinIn);
 
   return (
     <StyledSection id="contact">
@@ -25,6 +25,9 @@ const Contact = () => {
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
           </IconsContainer>
         </TopContainer>
