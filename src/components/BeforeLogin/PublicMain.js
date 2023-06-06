@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Hero from './Hero'
 import Contact from './Contact'
 import Faq from './Faq/Faq'
+import LoginRegister from './LoginRegister'
 
 const PublicMain = () => {
   return (
@@ -11,6 +12,7 @@ const PublicMain = () => {
       <Hero />
       <Faq />
       <Contact />
+      <LoginRegister />
     </>
   );
 };

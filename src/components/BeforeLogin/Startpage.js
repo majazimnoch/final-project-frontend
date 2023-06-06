@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { Button } from './Button';
 
-const token = localStorage.getItem('token');
-
 const Startpage = ({ API_URL }) => {
   const [responseData, setResponseData] = useState({});
   const fetchProfile = () => {
@@ -12,7 +10,7 @@ const Startpage = ({ API_URL }) => {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
-        Authorization: token
+        Authorization: localStorage.getItem('token')
       }
     })
       .then((response) => response.json())
