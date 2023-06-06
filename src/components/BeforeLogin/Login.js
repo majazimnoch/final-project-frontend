@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import LoginRegister from './LoginRegister';
 import Notification from '../lib/Notification';
+import Startpage from './Startpage';
 
 const Login = ({ API_URL }) => {
   const [loginOrRegister, setLoginOrRegister] = useState('login');
@@ -9,6 +10,7 @@ const Login = ({ API_URL }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [notification, setNotification] = useState({});
+  const token = localStorage.getItem('token');
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
@@ -81,6 +83,11 @@ const Login = ({ API_URL }) => {
       : setLoginOrRegister('login');
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
+
   return (
     <>
       {notification && (
@@ -88,31 +95,40 @@ const Login = ({ API_URL }) => {
           variant={notification.variant}
           message={notification.message} />
       )}
-      {/* <h1>Please log in first:</h1> */}
-      <LoginRegister
-        state={loginOrRegister}
-        name={name}
-        setName={setName}
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        handleFormSubmit={handleFormSubmit} />
 
-      {loginOrRegister === 'login' ? (
-        <p>
-          No account?{' '}
-          <a href="#" onClick={handleLoginOrRegister}>
-            Register!
-          </a>
-        </p>
+      {token ? (
+        <>
+          <Startpage API_URL={API_URL} />
+          <button type="button" onClick={handleLogout}>Logout</button>
+        </>
       ) : (
-        <p>
-          Already registered?{' '}
-          <a href="#" onClick={handleLoginOrRegister}>
-            Login!
-          </a>
-        </p>
+        <>
+          <LoginRegister
+            state={loginOrRegister}
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleFormSubmit={handleFormSubmit} />
+
+          {loginOrRegister === 'login' ? (
+            <p>
+              No account?{' '}
+              <a href="#" onClick={handleLoginOrRegister}>
+                Register!
+              </a>
+            </p>
+          ) : (
+            <p>
+              Already registered?{' '}
+              <a href="#" onClick={handleLoginOrRegister}>
+                Login!
+              </a>
+            </p>
+          )}
+        </>
       )}
     </>
   );
