@@ -1,0 +1,13 @@
+.faicon-styling {
+color: var(--primaryBlack);
+text-decoration: none; 
+}
+
+.faicon-styling:hover {
+    transform: scale(1.5);
+    overflow: hidden;
+    transition: transform .5s ease;
+} 
+
+
+

@@ -15,7 +15,8 @@ padding: 4rem 2rem;
 } 
 
 @media (min-width:1024px) {
-    padding: 8rem 8rem;
+    padding: 4rem 8rem 8rem 8rem;
+    min-height: 100vh;
 } 
 `
 const HFaq = styled.h1`
@@ -24,13 +25,15 @@ text-align: center;
 padding-bottom: 2rem;
 color: var(--primaryWhite);
 
-@media (min-width: 668px) and (max-width:1023px) {
-        
-} 
+@media (min-width: 668px) {
+  font-size: 5rem;
+  margin-top: 4rem;
+}
 
-@media (min-width:1024px) {
-    padding: .5rem 0;    
-} 
+@media (min-width: 1024px) {
+  font-size: 2.5rem;
+  margin-top: 5rem;
+}
 `
 const Faq = () => {
   return (

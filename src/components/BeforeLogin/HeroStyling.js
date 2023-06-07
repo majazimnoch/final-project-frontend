@@ -27,7 +27,8 @@ export const StyledHero = styled.div`
         flex: 1;
         background-image: url(${heroImage});
         background-size: 100% 100%;
-        background-position: center;
+        background-size: cover;
+        background-position: left -100px;
         }
 
         .right {
@@ -43,11 +44,12 @@ export const StyledHero = styled.div`
 
 export const TextBlock = styled.div`
     flex-direction: column;
+    order-radius: 10px 30px 30px 10px;
     padding: 4rem 2rem 4rem 2rem;
 
     @media (max-width: 1023px) {
         background-color: rgba(249, 247, 255, 0.7);
-        width: 80vw;
+        width: 75vw;
     }
 `;
 
@@ -62,7 +64,7 @@ export const StyledTitle = styled.h1`
     }
 
     @media (min-width: 1024px) {
-        font-size: 3.5rem;
+        font-size: 2.6rem;
     }
 `;
 
@@ -76,7 +78,7 @@ export const StyledParagraph = styled.p`
     }
 
     @media (min-width: 1024px) {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 `;
 
@@ -91,5 +93,6 @@ export const ButtonContainer = styled.div`
 
     @media (min-width: 1024px) {
         gap: 3rem;
+        justify-content: flex-start;
     }
 `;

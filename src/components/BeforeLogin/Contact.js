@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import './ContactCssStyling.css'
+import styled, { css } from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
-import image2 from 'assets/horsesrun.jpg';
+import image2 from 'assets/horses-three.svg';
 import image3 from 'assets/sandra.jpg';
-import image4 from 'assets/ylva.jpg';
-import image5 from 'assets/maja.jpg';
+import { StyledSection } from './ContactStyling';
 
 const Contact = () => {
   library.add(faFacebookF, faInstagram, faLinkedinIn);
@@ -16,42 +16,52 @@ const Contact = () => {
     <StyledSection id="contact">
       <StyledTop>
         <TopTitle>Contact</TopTitle>
-        <TopContainer>
-          <TopInfo>Email</TopInfo>
-          <TopEmail>horsey@loremipsum.com</TopEmail>
-          <IconsContainer>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-          </IconsContainer>
-        </TopContainer>
+        <WrapperSectionContact>
+          <TopContainer>
+            <ContactDetailsBox>
+              <TopInfo><StyledSpanContact contact>Email:</StyledSpanContact></TopInfo>
+              <TopEmail><StyledSpanContact email>horsey@app.com</StyledSpanContact></TopEmail>
+            </ContactDetailsBox>
+            <IconsContainer>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebookF} className="faicon-styling" />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faInstagram} className="faicon-styling" />
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faLinkedinIn} className="faicon-styling" />
+              </a>
+            </IconsContainer>
+          </TopContainer>
+          <StyledImageDesktop src={image2} alt="Horses" />
+        </WrapperSectionContact>
         <StyledImage src={image1} alt="Horses" />
-        <StyledImageDesktop src={image2} alt="Horses running" />
       </StyledTop>
       <FlexContacts>
         <FlexSection>
           <StyledImageProfile src={image3} alt="Profile picture Sandra" />
-          <StyledName>Sandra</StyledName>
-          <StyledLine />
-          <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          <AuthorTitleBox>
+            <StyledName>Sandra</StyledName>
+            <StyledLine />
+            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image4} alt="Profile picture Ylva" />
-          <StyledName>Ylva</StyledName>
-          <StyledLine />
-          <StyledEmail>ylva@loremipsum.com</StyledEmail>
+          <StyledImageProfile src={image3} alt="Profile picture Ylva" />
+          <AuthorTitleBox>
+            <StyledName>Ylva</StyledName>
+            <StyledLine />
+            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image5} alt="Profile picture Maja" />
-          <StyledName>Maja</StyledName>
-          <StyledLine />
-          <StyledEmail>maja@loremipsum.com</StyledEmail>
+          <StyledImageProfile src={image3} alt="Profile picture Maja" />
+          <AuthorTitleBox>
+            <StyledName>Maja</StyledName>
+            <StyledLine />
+            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          </AuthorTitleBox>
         </FlexSection>
       </FlexContacts>
     </StyledSection>
@@ -60,33 +70,46 @@ const Contact = () => {
 
 export default Contact;
 
-const StyledSection = styled.section`
-display: flex;
-flex-direction: column;
-text-align: center;
-min-height: 100vh;
-`;
-
 const StyledTop = styled.div`
 display: flex;
 flex-direction: column;
-min-height: 50vh;
-background-color: #f9f7ff;
-position: relative;
-border: solid 2px blue;
+background-color: var(--primaryWhite);
+justify-content: space-between;
 `;
 
 const TopContainer = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: center;
-flex-grow: 1;
+
+@media (min-width: 668px) {
+  font-size: 3rem;
+}
+
+@media (min-width: 1024px) {
+  flex-direction: row;
+  gap: 6rem;
+  align-items: center;
+}
+`;
+
+const ContactDetailsBox = styled.div`
+display: flex;
+flex-direction: column;
+
+@media (min-width: 668px) {
+  font-size: 3rem;
+}
+
+@media (min-width: 1024px) {
+  flex-direction: column;
+  align-items: center;
+ 
+}
 `;
 
 const TopTitle = styled.h1`
-color: #000000;
-margin-top: 3rem;
+margin: 3rem 0;
 font-size: 2rem;
 
 @media (min-width: 668px) {
@@ -95,35 +118,36 @@ font-size: 2rem;
 }
 
 @media (min-width: 1024px) {
-  font-size: 4rem;
-  margin-top: 5rem;
+  font-size: 2.5rem;
+  margin-top: 8rem;
 }
 `;
 
 const TopInfo = styled.h2`
-color: #000000;
+color: var(--primaryBlack);
 font-size: 1rem;
 margin-top: 1rem;
-margin-bottom: 0;
+margin-bottom: .5rem;
+padding:3px;
 
 @media (min-width: 668px) {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 1.5rem;
 }
 
 @media (min-width: 1024px) {
-  margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 `;
 
 const TopEmail = styled.h3`
-color: #000000;
-font-size: 0.8rem;
+color: var(--primaryBlack);
 margin-top: 0;
+font-size: 1.5rem;
+padding:5px;
 
 @media (min-width: 668px) {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -136,11 +160,15 @@ display: flex;
 gap: 1.5rem;
 justify-content: center;
 margin-top: 4rem;
-border: solid 2px red;
 margin-bottom: 0;
 
 @media (min-width: 668px) {
   font-size: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 1.5rem;
+  margin-top: 0rem;
 }
 `;
 
@@ -148,11 +176,9 @@ const StyledImage = styled.img`
 width: 100%;
 height: 8rem;
 margin-bottom: 0;
-margin-top: 0;
+margin-top: 2rem;
 align-self: flex-end;
-position: absolute;
 bottom: 0;
-border: solid 2px yellow;
 
 @media (min-width: 668px) {
   height: 12rem;
@@ -164,8 +190,9 @@ border: solid 2px yellow;
 `;
 
 const StyledImageDesktop = styled.img`
-width: 30%;
-align-self: flex-end;
+width: 50%;
+margin: 2rem 0 7rem 0;
+
 
 @media (max-width: 1023px) {
   display: none;
@@ -174,9 +201,8 @@ align-self: flex-end;
 
 const StyledImageProfile = styled.img`
 clip-path: circle();
-max-height: 200px;
-max-width: 200px;
-margin-bottom: 0;
+max-height: 180px;
+max-width: 180px;
 
 @media (max-width: 1023px) {
   display: none;
@@ -187,20 +213,16 @@ const FlexContacts = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color: #9685f1;
-padding-top: 20px;
-min-height: 50vh;
-// margin-bottom: 0;
+padding: 8rem 2rem;
+background-color: var(--softPurple);
 
 @media (min-width: 668px) {
-  flex-direction: row;
-  // align-self: center;
-  justify-content: space-between;
+flex-direction: row;
+justify-content: space-between;
 
 }
 
 @media (min-width: 1024px) {
-  // flex-direction: row;
 }
 `;
 
@@ -208,14 +230,25 @@ const FlexSection = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-text-align: center;
-position: relative;
+justify-content: center;
+
+
+@media (min-width: 1024px) {
+flex-direction: row;
+}
 `;
+
+const AuthorTitleBox = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+`
 
 const StyledName = styled.h4`
 position: relative;
 font-size: 1rem;
-color: #f9f6ff;
+color: var(--primaryWhite);
 margin-bottom: 0;
 
 @media (min-width: 668px) {
@@ -223,35 +256,56 @@ margin-bottom: 0;
 }
 
 @media (min-width: 1024px) {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 `;
 
 const StyledEmail = styled.p`
-color: #f9f6ff;
-font-size: 0.8rem;
-margin-bottom: 2rem;
-margin-top: 0;
+color: var(--primaryWhite);
+font-size: 16px;
 
 @media (min-width: 668px) {
   font-size: 1rem;
 }
 
 @media (min-width: 1024px) {
-  font-size: 2rem;
+  font-size: 14px;
 }
 `;
 
 const StyledLine = styled.span`
 display: block;
-align-self: center;
-width: 20%;
+align-self: left;
+width: 40%;
 height: 4px;
-background-color: #e9Fe81;
-position: relative;
-top: -45px;
+background-color: var(--lemon);
+margin-top: 1rem;
 
 @media (min-width: 664px) {
   top: -30px;
 }
 `;
+
+const WrapperSectionContact = styled.div`
+display: flex;
+flex-direction: column;
+
+
+@media (min-width: 1024px) {
+flex-direction: column;
+align-items: center;
+
+}
+`;
+
+const StyledSpanContact = styled.span`
+padding: 3px;
+${(styling) => styling.contact && css`
+background-color: var(--softPurple);`
+}
+
+${(styling) => styling.email && css`
+background-color: var(--lemon);`
+}
+`;
+
