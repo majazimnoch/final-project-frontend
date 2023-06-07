@@ -125,6 +125,28 @@ const StyledHome = styled.div`
     margin-left: 1rem;
     color: var(--primaryBlack);
   }
+
+    // .content {
+    //     display: flex;
+    //     width: 100%;
+    //     height: 100%;
+
+    //     .left {
+    //     flex: 1;
+    //     background-color: var(--primaryWhite:);
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     }
+
+    //     .right {
+    //     flex: 1;
+    //     background-color: var(--primaryWhite:);
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     }
+    // }
   
   @media (max-width: 1024px) {
   
