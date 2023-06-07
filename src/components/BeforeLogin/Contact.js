@@ -1,6 +1,6 @@
 import React from 'react';
 import './ContactCssStyling.css'
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,8 +20,8 @@ const Contact = () => {
         <WrapperSectionContact>
           <TopContainer>
             <ContactDetailsBox>
-              <TopInfo>Email:</TopInfo>
-              <TopEmail>horsey@app.com</TopEmail>
+              <TopInfo><StyledSpanContact contact>Email:</StyledSpanContact></TopInfo>
+              <TopEmail><StyledSpanContact email>horsey@app.com</StyledSpanContact></TopEmail>
             </ContactDetailsBox>
             <IconsContainer>
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
@@ -76,7 +76,6 @@ display: flex;
 flex-direction: column;
 background-color: var(--primaryWhite);
 justify-content: space-between;
-padding: 3rem;
 `;
 
 const TopContainer = styled.div`
@@ -97,7 +96,7 @@ justify-content: center;
 
 const ContactDetailsBox = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 
 @media (min-width: 668px) {
   font-size: 3rem;
@@ -131,10 +130,9 @@ font-size: 1rem;
 margin-top: 1rem;
 margin-bottom: .5rem;
 padding:3px;
-background-color: var(--softPurple);
 
 @media (min-width: 668px) {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 1.5rem;
 }
 
@@ -146,12 +144,11 @@ background-color: var(--softPurple);
 const TopEmail = styled.h3`
 color: var(--primaryBlack);
 margin-top: 0;
-font-size: .5rem;
-background-color: var(--lemon);
+font-size: 1.5rem;
 padding:5px;
 
 @media (min-width: 668px) {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -180,9 +177,8 @@ const StyledImage = styled.img`
 width: 100%;
 height: 8rem;
 margin-bottom: 0;
-margin-top: 0;
+margin-top: 2rem;
 align-self: flex-end;
-position: absolute;
 bottom: 0;
 
 @media (min-width: 668px) {
@@ -196,7 +192,7 @@ bottom: 0;
 
 const StyledImageDesktop = styled.img`
 width: 50%;
-margin: 2rem 0;
+margin: 2rem 0 7rem 0;
 
 
 @media (max-width: 1023px) {
@@ -302,3 +298,15 @@ align-items: center;
 
 }
 `;
+
+const StyledSpanContact = styled.span`
+padding: 3px;
+${(styling) => styling.contact && css`
+background-color: var(--softPurple);`
+}
+
+${(styling) => styling.email && css`
+background-color: var(--lemon);`
+}
+`;
+
