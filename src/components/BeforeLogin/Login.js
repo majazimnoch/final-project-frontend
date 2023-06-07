@@ -1,21 +1,21 @@
-/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import LoginRegister from './LoginRegister';
-import Notification from '../lib/Notification';
-import Startpage from './Startpage';
-// import * from 'utils/urls'
+import Profile from './Startpage';
 
-const Login = ({ API_URL }) => {
+const token = localStorage.getItem('token');
+const API_URL = process.env.API_URL || 'https://project-auth-hboqolcftq-uc.a.run.app';
+
+const Home = () => {
   const [loginOrRegister, setLoginOrRegister] = useState('login');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [notification, setNotification] = useState({});
-  const token = localStorage.getItem('token');
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
       case 'login':
+        console.log('login');
         fetch(`${API_URL}/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -24,26 +24,16 @@ const Login = ({ API_URL }) => {
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
-              localStorage.setItem('token', data.response.accessToken, {
-                path: '/'
-              });
-              window.location.href = '/';
+              localStorage.setItem('token', data.response.accessToken);
+              window.location.reload();
             } else {
-              setNotification({
-                message: 'error logging in',
-                variant: 'error'
-              });
+              alert('Login error!');
             }
           })
-          .catch((error) => {
-            setNotification({
-              message: error,
-              variant: 'error'
-            });
-          });
-
+          .catch((error) => console.log(error));
         break;
       case 'register':
+        console.log('register');
         fetch(`${API_URL}/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -52,58 +42,36 @@ const Login = ({ API_URL }) => {
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
-              localStorage.setItem('token', data.response.accessToken, {
-                path: '/'
-              });
-              window.location.href = '/';
+              localStorage.setItem('token', data.response.accessToken);
+              window.location.reload();
             } else {
-              setNotification({
-                message: 'error registering',
-                variant: 'error'
-              });
+              alert('Registration error!');
             }
           })
-          .catch((error) => {
-            setNotification({
-              message: error,
-              variant: 'error'
-            });
-          });
+          .catch((error) => console.log(error));
         break;
       default:
-        setNotification({
-          message: 'Invalid state',
-          variant: 'error'
-        });
+        console.log(`Unrecognized state: ${state}`);
+        break;
     }
   };
 
-  const handleLoginOrRegister = () => {
-    loginOrRegister === 'login'
-      ? setLoginOrRegister('register')
-      : setLoginOrRegister('login');
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
+  const handleLoginOrRegister = () => (loginOrRegister === 'login'
+    ? setLoginOrRegister('register')
+    : setLoginOrRegister('login'));
 
   return (
-    <>
-      {notification && (
-        <Notification
-          variant={notification.variant}
-          message={notification.message} />
-      )}
-
+    <StyledHome>
       {token ? (
-        <>
-          <Startpage API_URL={API_URL} />
-          <button type="button" onClick={handleLogout}>Logout</button>
-        </>
+        <Profile API_URL={API_URL} />
       ) : (
         <>
+          {loginOrRegister === 'login' ? (
+            <><h1>Welcome back, friend!</h1><p>Sign in and keep track of your horses!</p></>
+          ) : (
+            <><h1>New user? Welcome!</h1><p>Create a user account in 5 seconds!</p>
+            </>
+          )}
           <LoginRegister
             state={loginOrRegister}
             name={name}
@@ -113,26 +81,78 @@ const Login = ({ API_URL }) => {
             password={password}
             setPassword={setPassword}
             handleFormSubmit={handleFormSubmit} />
-
           {loginOrRegister === 'login' ? (
             <p>
-              No account?{' '}
               <a href="#" onClick={handleLoginOrRegister}>
-                Register!
+              I do not have an account yet!
               </a>
             </p>
           ) : (
-            <p>
-              Already registered?{' '}
-              <a href="#" onClick={handleLoginOrRegister}>
-                Login!
-              </a>
-            </p>
+            <a href="#" onClick={handleLoginOrRegister}>
+              <p>I already have an account!</p>
+            </a>
           )}
         </>
       )}
-    </>
+    </StyledHome>
   );
 };
 
-export default Login;
+export default Home;
+
+const StyledHome = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  min-height: 100vh;
+  width: 100vw;
+  color: var(--primaryBlack);
+  background-color: lightblue;
+
+  h1 {
+    font-size: 4rem;
+  }
+  
+  p {
+    color: black;
+    font-size: 1.5rem;
+  }
+  
+  a {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    color: var(--primaryBlack);
+  }
+  
+  @media (max-width: 1024px) {
+  
+    h1 {
+      font-size: 3rem;
+    }
+  
+    p {
+      font-size: 1.3rem;
+    }
+  
+    a {
+      font-size: 1.3rem;
+      margin-left: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 664px) {
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  
+    a {
+      font-size: 1rem;
+      margin-left: 0.4rem;
+    }
+  }
+`;
