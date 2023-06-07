@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import LoginRegister from './LoginRegister';
 import Notification from '../lib/Notification';
 import Startpage from './Startpage';
+// import * from 'utils/urls'
 
 const Login = ({ API_URL }) => {
   const [loginOrRegister, setLoginOrRegister] = useState('login');
@@ -18,7 +19,7 @@ const Login = ({ API_URL }) => {
         fetch(`${API_URL}/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, password })
+          body: JSON.stringify({ email, password })
         })
           .then((response) => response.json())
           .then((data) => {

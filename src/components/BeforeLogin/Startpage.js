@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { useLoaderData } from 'react-router-dom';
 import styled from 'styled-components'
-import { Button } from './Button';
+import Button from './Button';
 
 const Startpage = ({ API_URL }) => {
   const [responseData, setResponseData] = useState({});
