@@ -1,12 +1,13 @@
 // import React, { useState } from 'react';
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from './Button';
+import Button from './Button';
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-height: 100vh;
 `;
 
 const LoginRegister = ({
@@ -59,8 +60,8 @@ const LoginRegister = ({
         onChange={handlePasswordChange} />
       <Button
         type="submit"
-        text={state === 'login' ? 'Login!' : 'Register!'}
-        variant={state === 'login' ? 'confirm' : 'warning'} />
+        text={state === 'login' ? 'Login!' : 'Register!'} />
+      {/* variant={state === 'login' ? 'confirm' : 'warning'} */}
     </StyledForm>
   );
 };

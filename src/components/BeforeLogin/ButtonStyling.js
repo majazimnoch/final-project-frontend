@@ -1,15 +1,4 @@
-import React from 'react';
 import styled, { css } from 'styled-components'
-
-const Button = ({ handleClick, text }) => {
-  return (
-    <StyledButton onClick={handleClick}>
-      {text}
-    </StyledButton>
-  );
-};
-
-export default Button;
 
 export const StyledButton = styled.button`
   background-color: var(--primaryWhite);
