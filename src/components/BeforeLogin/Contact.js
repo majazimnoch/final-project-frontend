@@ -1,13 +1,15 @@
 import React from 'react';
+import './ContactCssStyling.css'
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
-import image2 from 'assets/horsesrun.jpg';
+import image2 from 'assets/horses-three.svg';
 import image3 from 'assets/sandra.jpg';
 import image4 from 'assets/ylva.jpg';
 import image5 from 'assets/maja.jpg';
+import { StyledSection } from './ContactStyling';
 
 const Contact = () => {
   library.add(faFacebookF, faInstagram, faLinkedinIn);
@@ -17,17 +19,16 @@ const Contact = () => {
       <StyledTop>
         <TopTitle>Contact</TopTitle>
         <TopContainer>
-          <TopInfo>Email</TopInfo>
           <TopEmail>horsey@loremipsum.com</TopEmail>
           <IconsContainer>
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} />
+              <FontAwesomeIcon icon={faFacebookF} className="faicon-styling" />
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} />
+              <FontAwesomeIcon icon={faInstagram} className="faicon-styling" />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedinIn} />
+              <FontAwesomeIcon icon={faLinkedinIn} className="faicon-styling" />
             </a>
           </IconsContainer>
         </TopContainer>
@@ -60,18 +61,11 @@ const Contact = () => {
 
 export default Contact;
 
-const StyledSection = styled.section`
-display: flex;
-flex-direction: column;
-text-align: center;
-min-height: 100vh;
-`;
-
 const StyledTop = styled.div`
 display: flex;
 flex-direction: column;
 min-height: 50vh;
-background-color: #f9f7ff;
+background-color: var(--primaryWhite);
 position: relative;
 border: solid 2px blue;
 `;
@@ -85,7 +79,7 @@ flex-grow: 1;
 `;
 
 const TopTitle = styled.h1`
-color: #000000;
+color: var(--primary);
 margin-top: 3rem;
 font-size: 2rem;
 
@@ -95,39 +89,22 @@ font-size: 2rem;
 }
 
 @media (min-width: 1024px) {
-  font-size: 4rem;
-  margin-top: 5rem;
-}
-`;
-
-const TopInfo = styled.h2`
-color: #000000;
-font-size: 1rem;
-margin-top: 1rem;
-margin-bottom: 0;
-
-@media (min-width: 668px) {
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-top: 8rem;
 }
 `;
 
 const TopEmail = styled.h3`
-color: #000000;
-font-size: 0.8rem;
+color: var(--primaryBlack);
 margin-top: 0;
+font-size: .5rem;
 
 @media (min-width: 668px) {
   font-size: 1rem;
 }
 
 @media (min-width: 1024px) {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 `;
 
@@ -136,7 +113,6 @@ display: flex;
 gap: 1.5rem;
 justify-content: center;
 margin-top: 4rem;
-border: solid 2px red;
 margin-bottom: 0;
 
 @media (min-width: 668px) {
@@ -164,8 +140,10 @@ border: solid 2px yellow;
 `;
 
 const StyledImageDesktop = styled.img`
+position: relative;
+
 width: 30%;
-align-self: flex-end;
+top: 110px; left: 35%;
 
 @media (max-width: 1023px) {
   display: none;
@@ -187,7 +165,7 @@ const FlexContacts = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color: #9685f1;
+background-color: var(--softPurple);
 padding-top: 20px;
 min-height: 50vh;
 // margin-bottom: 0;
@@ -255,3 +233,4 @@ top: -45px;
   top: -30px;
 }
 `;
+
