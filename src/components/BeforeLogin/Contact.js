@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
 import image2 from 'assets/horses-three.svg';
 import image3 from 'assets/sandra.jpg';
-import image5 from 'assets/maja.jpg';
 import { StyledSection } from './ContactStyling';
 
 const Contact = () => {
@@ -49,7 +48,7 @@ const Contact = () => {
           </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image5} alt="Profile picture Ylva" />
+          <StyledImageProfile src={image3} alt="Profile picture Ylva" />
           <AuthorTitleBox>
             <StyledName>Ylva</StyledName>
             <StyledLine />
@@ -57,7 +56,7 @@ const Contact = () => {
           </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image5} alt="Profile picture Maja" />
+          <StyledImageProfile src={image3} alt="Profile picture Maja" />
           <AuthorTitleBox>
             <StyledName>Maja</StyledName>
             <StyledLine />
