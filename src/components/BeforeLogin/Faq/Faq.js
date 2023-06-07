@@ -16,6 +16,7 @@ padding: 4rem 2rem;
 
 @media (min-width:1024px) {
     padding: 4rem 8rem 8rem 8rem;
+    min-height: 100vh;
 } 
 `
 const HFaq = styled.h1`

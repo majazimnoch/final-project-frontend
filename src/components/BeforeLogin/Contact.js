@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
 import image2 from 'assets/horses-three.svg';
 import image3 from 'assets/sandra.jpg';
-import image4 from 'assets/ylva.jpg';
 import image5 from 'assets/maja.jpg';
 import { StyledSection } from './ContactStyling';
 
@@ -19,7 +18,10 @@ const Contact = () => {
       <StyledTop>
         <TopTitle>Contact</TopTitle>
         <TopContainer>
-          <TopEmail>horsey@loremipsum.com</TopEmail>
+          <ContactDetailsBox>
+            <TopInfo>Email:</TopInfo>
+            <TopEmail>horsey@app.com</TopEmail>
+          </ContactDetailsBox>
           <IconsContainer>
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faFacebookF} className="faicon-styling" />
@@ -33,26 +35,32 @@ const Contact = () => {
           </IconsContainer>
         </TopContainer>
         <StyledImage src={image1} alt="Horses" />
-        <StyledImageDesktop src={image2} alt="Horses running" />
+        <StyledImageDesktop src={image2} alt="Horses" />
       </StyledTop>
       <FlexContacts>
         <FlexSection>
           <StyledImageProfile src={image3} alt="Profile picture Sandra" />
-          <StyledName>Sandra</StyledName>
-          <StyledLine />
-          <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          <AuthorTitleBox>
+            <StyledName>Sandra</StyledName>
+            <StyledLine />
+            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image4} alt="Profile picture Ylva" />
-          <StyledName>Ylva</StyledName>
-          <StyledLine />
-          <StyledEmail>ylva@loremipsum.com</StyledEmail>
+          <StyledImageProfile src={image5} alt="Profile picture Ylva" />
+          <AuthorTitleBox>
+            <StyledName>Ylva</StyledName>
+            <StyledLine />
+            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
           <StyledImageProfile src={image5} alt="Profile picture Maja" />
-          <StyledName>Maja</StyledName>
-          <StyledLine />
-          <StyledEmail>maja@loremipsum.com</StyledEmail>
+          <AuthorTitleBox>
+            <StyledName>Maja</StyledName>
+            <StyledLine />
+            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+          </AuthorTitleBox>
         </FlexSection>
       </FlexContacts>
     </StyledSection>
@@ -64,23 +72,45 @@ export default Contact;
 const StyledTop = styled.div`
 display: flex;
 flex-direction: column;
-min-height: 50vh;
 background-color: var(--primaryWhite);
-position: relative;
-border: solid 2px blue;
+justify-content: space-between;
+padding: 3rem;
+border:1px red solid;
 `;
 
 const TopContainer = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: center;
-flex-grow: 1;
+
+@media (min-width: 668px) {
+  font-size: 3rem;
+}
+
+@media (min-width: 1024px) {
+  flex-direction: row;
+  gap: 8rem;
+  align-items: center;
+}
+`;
+
+const ContactDetailsBox = styled.div`
+display: flex;
+flex-direction: row;
+
+@media (min-width: 668px) {
+  font-size: 3rem;
+}
+
+@media (min-width: 1024px) {
+  flex-direction: column;
+  align-items: flex-start;
+ 
+}
 `;
 
 const TopTitle = styled.h1`
-color: var(--primary);
-margin-top: 3rem;
+margin: 3rem 0;
 font-size: 2rem;
 
 @media (min-width: 668px) {
@@ -94,6 +124,22 @@ font-size: 2rem;
 }
 `;
 
+const TopInfo = styled.h2`
+color: var(--primaryBlack);
+font-size: 1rem;
+margin-top: 1rem;
+margin-bottom: 0;
+
+@media (min-width: 668px) {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 1.3rem;
+}
+`;
+
 const TopEmail = styled.h3`
 color: var(--primaryBlack);
 margin-top: 0;
@@ -104,7 +150,7 @@ font-size: .5rem;
 }
 
 @media (min-width: 1024px) {
-  font-size: 1.3rem;
+  font-size: 2rem;
 }
 `;
 
@@ -118,6 +164,11 @@ margin-bottom: 0;
 @media (min-width: 668px) {
   font-size: 1.5rem;
 }
+
+@media (min-width: 1024px) {
+  font-size: 1.5rem;
+  margin-top: 0rem;
+}
 `;
 
 const StyledImage = styled.img`
@@ -128,7 +179,6 @@ margin-top: 0;
 align-self: flex-end;
 position: absolute;
 bottom: 0;
-border: solid 2px yellow;
 
 @media (min-width: 668px) {
   height: 12rem;
@@ -140,10 +190,9 @@ border: solid 2px yellow;
 `;
 
 const StyledImageDesktop = styled.img`
-position: relative;
+width: 40%;
+margin: 2rem 0;
 
-width: 30%;
-top: 110px; left: 35%;
 
 @media (max-width: 1023px) {
   display: none;
@@ -152,9 +201,8 @@ top: 110px; left: 35%;
 
 const StyledImageProfile = styled.img`
 clip-path: circle();
-max-height: 200px;
-max-width: 200px;
-margin-bottom: 0;
+max-height: 180px;
+max-width: 180px;
 
 @media (max-width: 1023px) {
   display: none;
@@ -165,20 +213,17 @@ const FlexContacts = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+padding: 8rem 2rem;
+border: 1px solid red;
 background-color: var(--softPurple);
-padding-top: 20px;
-min-height: 50vh;
-// margin-bottom: 0;
 
 @media (min-width: 668px) {
-  flex-direction: row;
-  // align-self: center;
-  justify-content: space-between;
+flex-direction: row;
+justify-content: space-between;
 
 }
 
 @media (min-width: 1024px) {
-  // flex-direction: row;
 }
 `;
 
@@ -186,14 +231,23 @@ const FlexSection = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-text-align: center;
-position: relative;
+justify-content: center;
+
+
+@media (min-width: 1024px) {
+flex-direction: row;
+}
 `;
+
+const AuthorTitleBox = styled.div`
+display:flex;
+flex-direction: column;
+`
 
 const StyledName = styled.h4`
 position: relative;
 font-size: 1rem;
-color: #f9f6ff;
+color: var(--primaryWhite);
 margin-bottom: 0;
 
 @media (min-width: 668px) {
@@ -201,22 +255,20 @@ margin-bottom: 0;
 }
 
 @media (min-width: 1024px) {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 `;
 
 const StyledEmail = styled.p`
-color: #f9f6ff;
-font-size: 0.8rem;
-margin-bottom: 2rem;
-margin-top: 0;
+color: var(--primaryWhite);
+font-size: 16px;
 
 @media (min-width: 668px) {
   font-size: 1rem;
 }
 
 @media (min-width: 1024px) {
-  font-size: 2rem;
+  font-size: 16px;
 }
 `;
 
@@ -225,12 +277,10 @@ display: block;
 align-self: center;
 width: 20%;
 height: 4px;
-background-color: #e9Fe81;
-position: relative;
-top: -45px;
+background-color: var(--lemon);
+margin-top: 1rem;
 
 @media (min-width: 664px) {
   top: -30px;
 }
 `;
-
