@@ -17,25 +17,27 @@ const Contact = () => {
     <StyledSection id="contact">
       <StyledTop>
         <TopTitle>Contact</TopTitle>
-        <TopContainer>
-          <ContactDetailsBox>
-            <TopInfo>Email:</TopInfo>
-            <TopEmail>horsey@app.com</TopEmail>
-          </ContactDetailsBox>
-          <IconsContainer>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} className="faicon-styling" />
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} className="faicon-styling" />
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedinIn} className="faicon-styling" />
-            </a>
-          </IconsContainer>
-        </TopContainer>
+        <WrapperSectionContact>
+          <TopContainer>
+            <ContactDetailsBox>
+              <TopInfo>Email:</TopInfo>
+              <TopEmail>horsey@app.com</TopEmail>
+            </ContactDetailsBox>
+            <IconsContainer>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebookF} className="faicon-styling" />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faInstagram} className="faicon-styling" />
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faLinkedinIn} className="faicon-styling" />
+              </a>
+            </IconsContainer>
+          </TopContainer>
+          <StyledImageDesktop src={image2} alt="Horses" />
+        </WrapperSectionContact>
         <StyledImage src={image1} alt="Horses" />
-        <StyledImageDesktop src={image2} alt="Horses" />
       </StyledTop>
       <FlexContacts>
         <FlexSection>
@@ -75,7 +77,6 @@ flex-direction: column;
 background-color: var(--primaryWhite);
 justify-content: space-between;
 padding: 3rem;
-border:1px red solid;
 `;
 
 const TopContainer = styled.div`
@@ -89,7 +90,7 @@ justify-content: center;
 
 @media (min-width: 1024px) {
   flex-direction: row;
-  gap: 8rem;
+  gap: 6rem;
   align-items: center;
 }
 `;
@@ -104,7 +105,7 @@ flex-direction: row;
 
 @media (min-width: 1024px) {
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
  
 }
 `;
@@ -128,7 +129,9 @@ const TopInfo = styled.h2`
 color: var(--primaryBlack);
 font-size: 1rem;
 margin-top: 1rem;
-margin-bottom: 0;
+margin-bottom: .5rem;
+padding:3px;
+background-color: var(--softPurple);
 
 @media (min-width: 668px) {
   font-size: 1.5rem;
@@ -144,6 +147,8 @@ const TopEmail = styled.h3`
 color: var(--primaryBlack);
 margin-top: 0;
 font-size: .5rem;
+background-color: var(--lemon);
+padding:5px;
 
 @media (min-width: 668px) {
   font-size: 1rem;
@@ -190,7 +195,7 @@ bottom: 0;
 `;
 
 const StyledImageDesktop = styled.img`
-width: 40%;
+width: 50%;
 margin: 2rem 0;
 
 
@@ -214,7 +219,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 padding: 8rem 2rem;
-border: 1px solid red;
 background-color: var(--softPurple);
 
 @media (min-width: 668px) {
@@ -242,6 +246,8 @@ flex-direction: row;
 const AuthorTitleBox = styled.div`
 display:flex;
 flex-direction: column;
+justify-content: center;
+align-items: flex-start;
 `
 
 const StyledName = styled.h4`
@@ -268,19 +274,31 @@ font-size: 16px;
 }
 
 @media (min-width: 1024px) {
-  font-size: 16px;
+  font-size: 14px;
 }
 `;
 
 const StyledLine = styled.span`
 display: block;
-align-self: center;
-width: 20%;
+align-self: left;
+width: 40%;
 height: 4px;
 background-color: var(--lemon);
 margin-top: 1rem;
 
 @media (min-width: 664px) {
   top: -30px;
+}
+`;
+
+const WrapperSectionContact = styled.div`
+display: flex;
+flex-direction: column;
+
+
+@media (min-width: 1024px) {
+flex-direction: column;
+align-items: center;
+
 }
 `;
