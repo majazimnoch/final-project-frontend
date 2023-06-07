@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import LoginRegister from './LoginRegister';
 import Profile from './Startpage';
+// import
 
 const token = localStorage.getItem('token');
 const API_URL = process.env.API_URL || 'https://final-project-backend-q7mqhxeq3q-lz.a.run.app/';
