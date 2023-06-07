@@ -4,7 +4,7 @@ import LoginRegister from './LoginRegister';
 import Profile from './Startpage';
 
 const token = localStorage.getItem('token');
-const API_URL = process.env.API_URL || 'https://project-auth-hboqolcftq-uc.a.run.app';
+const API_URL = process.env.API_URL || 'https://final-project-backend-q7mqhxeq3q-lz.a.run.app/';
 
 const Home = () => {
   const [loginOrRegister, setLoginOrRegister] = useState('login');
@@ -88,9 +88,11 @@ const Home = () => {
               </a>
             </p>
           ) : (
-            <a href="#" onClick={handleLoginOrRegister}>
-              <p>I already have an account!</p>
-            </a>
+            <p>
+              <a href="#" onClick={handleLoginOrRegister}>
+              I already have an account!
+              </a>
+            </p>
           )}
         </>
       )}
