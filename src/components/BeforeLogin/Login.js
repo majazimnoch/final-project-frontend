@@ -99,17 +99,17 @@ const Home = () => {
               setPassword={setPassword}
               handleFormSubmit={handleFormSubmit} />
             {loginOrRegister === 'login' ? (
-              <p>
+              <PSwitchaccount>
                 <a href="#" onClick={handleLoginOrRegister}>
-                  I do not have an account yet!
+                  I do not have an account yet
                 </a>
-              </p>
+              </PSwitchaccount>
             ) : (
-              <p>
+              <PSwitchaccount>
                 <a href="#" onClick={handleLoginOrRegister}>
-                  I already have an account!
+                  I already have an account
                 </a>
-              </p>
+              </PSwitchaccount>
             )}
           </>
         )}
@@ -127,6 +127,7 @@ const StyledPlayfulHorse = styled.img`
 const WelcomeHeader = styled.h2`
   color: var(--primaryBlack);
   font-size: 40px;
+  margin:0;
 
   @media (max-width: 668px) {
 
@@ -136,22 +137,40 @@ const WelcomeHeader = styled.h2`
 
   }
 `
+const PSwitchaccount = styled.p`
+  margin-top: 2rem;
+  color: var(--primaryBlack);
+  text-align: center;
+
+  
+
+  @media (max-width: 1023px) {
+    font-size: 18px;
+  }
+`;
 
 const LoginWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 4rem;
+  gap: 3rem;
+  
 `
 
 const TextLoginBox = styled.div`
-  border: 2px purple solid;
 `
 
 const LeftLogin = styled.div`
-display: flex;
-border: 1px red solid;
-align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1; 
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+`;
 
 const RightLogin = styled.div`
   display: flex;
@@ -161,75 +180,17 @@ const RightLogin = styled.div`
   border: 1px solid var(--softPurple);
   border-radius: 50px;
   padding: 3rem;
-  width: 50%;
+  flex: 1; 
 
-
-  h1 {
-    font-size: 4rem;
-  }
-  
-  p {
-    color: black;
-    font-size: 1.5rem;
-  }
-  
   a {
-    font-size: 1.5rem;
-    margin-left: 1rem;
+    font-size: 1rem;
     color: var(--primaryBlack);
   }
-
-    // .content {
-    //     display: flex;
-    //     width: 100%;
-    //     height: 100%;
-
-    //     .left {
-    //     flex: 1;
-    //     background-color: var(--primaryWhite:);
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     }
-
-    //     .right {
-    //     flex: 1;
-    //     background-color: var(--primaryWhite:);
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     }
-    // }
   
   @media (max-width: 1024px) {
   
-    h1 {
-      font-size: 3rem;
-    }
-  
-    p {
-      font-size: 1.3rem;
-    }
-  
     a {
       font-size: 1.3rem;
-      margin-left: 0.5rem;
-    }
-  }
-  
-  @media (max-width: 664px) {
-  
-    h1 {
-      font-size: 1.5rem;
-    }
-  
-    p {
-      font-size: 1rem;
-    }
-  
-    a {
-      font-size: 1rem;
-      margin-left: 0.4rem;
     }
   }
 `;

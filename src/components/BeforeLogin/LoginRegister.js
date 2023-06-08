@@ -46,8 +46,8 @@ const LoginRegister = ({ state, name, setName, email, setEmail, password, setPas
           onChange={handlePasswordChange}
           required />
       </FormContainer>
-      <StyledButton type="submit" className={state}>
-        {state === 'login' ? 'Login!' : 'Register!'}
+      <StyledButton signup type="submit" className={state}>
+        {state === 'login' ? 'Login' : 'Register'}
       </StyledButton>
     </Form>
   );
@@ -59,6 +59,7 @@ const Form = styled.form`
 display: flex;
 flex-direction: column;
 background-color: var(--primaryWhite);
+gap: 2.5rem;
 `;
 
 const FormContainer = styled.div`
@@ -70,8 +71,16 @@ gap: 2rem;
 
 const StyledInput = styled.input`
 height: 3rem;
+padding: 0 1rem;
 border-radius: 10px;
-font-size: 1rem;
-font-weight: bold;
+
+border: 1px var(--primaryBlack) solid;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+
+
+&:focus {
+  outline: 0.5px solid var(--softPurple);
+}
 
 `;
