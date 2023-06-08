@@ -97,14 +97,9 @@ const ContactDetailsBox = styled.div`
 display: flex;
 flex-direction: column;
 
-@media (min-width: 668px) {
-  font-size: 3rem;
-}
-
 @media (min-width: 1024px) {
   flex-direction: column;
   align-items: center;
- 
 }
 `;
 

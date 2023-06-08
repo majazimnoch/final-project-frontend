@@ -81,7 +81,7 @@ const Home = () => {
             {loginOrRegister === 'login' ? (
               <>
                 <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
-                <p>Sign in and keep track of your horses!</p>
+                <p>Log in and keep track of your horses!</p>
               </>
             ) : (
               <>
@@ -127,7 +127,7 @@ const StyledPlayfulHorse = styled.img`
 const WelcomeHeader = styled.h2`
   color: var(--primaryBlack);
   font-size: 40px;
-  margin:0;
+  margin-bottom:2rem;
 
   @media (max-width: 668px) {
 
@@ -142,8 +142,6 @@ const PSwitchaccount = styled.p`
   color: var(--primaryBlack);
   text-align: center;
 
-  
-
   @media (max-width: 1023px) {
     font-size: 18px;
   }
@@ -154,7 +152,12 @@ const LoginWrapper = styled.div`
   flex-direction: row;
   padding: 4rem;
   gap: 3rem;
+  min-height: 100vh;
   
+  @media (max-width: 1023px) {
+    padding: .5rem 1.5rem;
+    min-height: 50vh;
+  }
 `
 
 const TextLoginBox = styled.div`
@@ -187,10 +190,12 @@ const RightLogin = styled.div`
     color: var(--primaryBlack);
   }
   
-  @media (max-width: 1024px) {
-  
+  @media (max-width: 1023px) {
+    padding: 1rem;
+
     a {
-      font-size: 1.3rem;
+      font-size: .8rem;
     }
   }
 `;
+

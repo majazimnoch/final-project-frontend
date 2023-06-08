@@ -59,14 +59,22 @@ const Form = styled.form`
 display: flex;
 flex-direction: column;
 background-color: var(--primaryWhite);
-gap: 2.5rem;
+gap: 4rem;
+
+@media (max-width: 1023px) {
+  gap: 2rem;
+}
 `;
 
 const FormContainer = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-gap: 2rem;
+gap: 2.5rem;
+
+@media (max-width: 1023px) {
+  gap: 2rem;
+}
 `;
 
 const StyledInput = styled.input`
