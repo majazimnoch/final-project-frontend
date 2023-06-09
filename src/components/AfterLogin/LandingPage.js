@@ -1,22 +1,22 @@
-// import React from 'react';
-// // import { useNavigate } from 'react-router-dom';
-// import styled from 'styled-components';
-// // import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
+import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+// import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 
-// const LandingPage = () => {
-//   // const [responseData, setResponseData] = useState({});
-//   // const [landingpage, setLandingpage] = useState({});
-//   // const navigate = useNavigate()
+const LandingPage = () => {
+  // const [responseData, setResponseData] = useState({});
+  // const [landingpage, setLandingpage] = useState({});
+  // const navigate = useNavigate()
 
-//   return (
-//     <PageContainer>
-//       <h1>Hello!</h1>
-//     </PageContainer>
-//   );
-// };
+  return (
+    <PageContainer>
+      <h1>Hello!</h1>
+    </PageContainer>
+  );
+};
 
-// export default LandingPage;
+export default LandingPage;
 
-// const PageContainer = styled.h1`
-// color: blue;
-// `;
+const PageContainer = styled.h1`
+color: blue;
+`

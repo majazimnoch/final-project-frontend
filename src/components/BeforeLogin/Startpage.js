@@ -38,7 +38,7 @@ const Profile = ({ API_URL }) => {
         </h1>
       )}
 
-<StyledButton type="button" onClick={handleLogout}>Logout</StyledButton>
+      <StyledButton type="button" onClick={handleLogout}>Logout</StyledButton>
       {/* <StyledButton type="button">
       onClick={}
       Continue
