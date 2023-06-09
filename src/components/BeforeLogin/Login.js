@@ -1,10 +1,11 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import LandingPage from '../AfterLogin/LandingPage'
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import LoginRegister from './LoginRegister';
-import Profile from './Startpage';
+import Startpage from './Startpage';
 import Horseplayful from '../../assets/horseplayful.svg'
 
 const token = localStorage.getItem('token');
@@ -15,7 +16,7 @@ const Home = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  // const history = useHistory();
 
   console.log(history)
 
@@ -32,7 +33,11 @@ const Home = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
-              window.location.reload();
+              // window.location.reload();
+              window.location.href = '/profile-page'
+              return (
+                <Startpage />
+              )
             } else {
               alert('Login error!');
             }
@@ -69,10 +74,7 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Router>
-        <Route path="/" component={LandingPage} />
-      </Router> */}
-      <LoginWrapper>
+      <LoginWrapper id="home">
         <LeftLogin>
           <TextLoginBox>
             <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
@@ -85,7 +87,7 @@ const Home = () => {
         </LeftLogin>
         <RightLogin>
           {token ? (
-            <Profile API_URL={API_URL} />
+            <Startpage API_URL={API_URL} />
           ) : (
             <>
               {loginOrRegister === 'login' ? (
@@ -110,13 +112,13 @@ const Home = () => {
                 handleFormSubmit={handleFormSubmit} />
               {loginOrRegister === 'login' ? (
                 <PSwitchaccount>
-                  <a href="#" onClick={handleLoginOrRegister}>
+                  <a href={LoginRegister} onClick={handleLoginOrRegister}>
                   I do not have an account yet
                   </a>
                 </PSwitchaccount>
               ) : (
                 <PSwitchaccount>
-                  <a href="#" onClick={handleLoginOrRegister}>
+                  <a href={LoginRegister} onClick={handleLoginOrRegister}>
                   I already have an account
                   </a>
                 </PSwitchaccount>

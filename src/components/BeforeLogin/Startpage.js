@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+// import { Link } from 'react-router-dom';
 import { StyledButton } from './ButtonStyling';
 
 const token = localStorage.getItem('token');
@@ -18,12 +20,10 @@ const Profile = ({ API_URL }) => {
       .then((response) => response.json())
       .then((data) => setResponseData(data));
   };
-
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.reload();
   }
-
   useEffect(() => {
     fetchProfile();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,7 +37,12 @@ const Profile = ({ API_URL }) => {
           What are we doing
         </h1>
       )}
-      <StyledButton type="button" onClick={handleLogout}>Logout</StyledButton>
+
+<StyledButton type="button" onClick={handleLogout}>Logout</StyledButton>
+      {/* <StyledButton type="button">
+      onClick={}
+      Continue
+      </StyledButton> */}
     </ProfileContainer>
   );
 };
