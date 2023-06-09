@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LoginRegister from './LoginRegister';
-import Profile from './Startpage';
+import Startpage from './Startpage';
 import Horseplayful from '../../assets/horseplayful.svg'
 
 const token = localStorage.getItem('token');
@@ -27,6 +27,10 @@ const Home = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               window.location.reload();
+              // window.location.href = '/profile-page'
+              // return (
+              //   <Startpage />
+              // ) Code from 1:1
             } else {
               alert('Login error!');
             }
@@ -62,59 +66,61 @@ const Home = () => {
     : setLoginOrRegister('login'));
 
   return (
-    <LoginWrapper>
-      <LeftLogin>
-        <TextLoginBox>
-          <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
-          <h2>Giddy up and get ready for the horse ride of your life!
-          </h2>
-          <p>Horsey app helps you track your progress, set goals, and stay motivated.
-             Sign up now and see what all the neighing is about!
-          </p>
-        </TextLoginBox>
-      </LeftLogin>
-      <RightLogin>
-        {token ? (
-          <Profile API_URL={API_URL} />
-        ) : (
-          <>
-            {loginOrRegister === 'login' ? (
-              <>
-                <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
-                <p>Log in and keep track of your horses!</p>
-              </>
-            ) : (
-              <>
-                <WelcomeHeader>New user? Welcome!</WelcomeHeader>
-                <p>Create a user account in 5 seconds!</p>
-              </>
-            )}
-            <LoginRegister
-              state={loginOrRegister}
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              handleFormSubmit={handleFormSubmit} />
-            {loginOrRegister === 'login' ? (
-              <PSwitchaccount>
-                <a href="#" onClick={handleLoginOrRegister}>
-                  I do not have an account yet
-                </a>
-              </PSwitchaccount>
-            ) : (
-              <PSwitchaccount>
-                <a href="#" onClick={handleLoginOrRegister}>
-                  I already have an account
-                </a>
-              </PSwitchaccount>
-            )}
-          </>
-        )}
-      </RightLogin>
-    </LoginWrapper>
+    <div>
+      <LoginWrapper id="home">
+        <LeftLogin>
+          <TextLoginBox>
+            <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
+            <h2>Giddy up and get ready for the horse ride of your life!
+            </h2>
+            <p>Horsey app helps you track your progress, set goals, and stay motivated.
+              Hurry up and join us.
+            </p>
+          </TextLoginBox>
+        </LeftLogin>
+        <RightLogin>
+          {token ? (
+            <Startpage API_URL={API_URL} />
+          ) : (
+            <>
+              {loginOrRegister === 'login' ? (
+                <>
+                  <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
+                  <p>Log in and keep track of your horses!</p>
+                </>
+              ) : (
+                <>
+                  <WelcomeHeader>New user? Welcome!</WelcomeHeader>
+                  <p>Create a user account in 5 seconds!</p>
+                </>
+              )}
+              <LoginRegister
+                state={loginOrRegister}
+                name={name}
+                setName={setName}
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                handleFormSubmit={handleFormSubmit} />
+              {loginOrRegister === 'login' ? (
+                <PSwitchaccount>
+                  <a href={LoginRegister} onClick={handleLoginOrRegister}>
+                    I do not have an account yet
+                  </a>
+                </PSwitchaccount>
+              ) : (
+                <PSwitchaccount>
+                  <a href={LoginRegister} onClick={handleLoginOrRegister}>
+                    I already have an account
+                  </a>
+                </PSwitchaccount>
+              )}
+            </>
+          )}
+        </RightLogin>
+      </LoginWrapper>
+    </div>
   );
 };
 
@@ -198,4 +204,3 @@ const RightLogin = styled.div`
     }
   }
 `;
-

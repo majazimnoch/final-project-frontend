@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import LogoIcon from 'assets/horsey.jpg';
 import styled from 'styled-components';
 import { HashLink as Link } from 'react-router-hash-link';
-import { BrowserRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 const Header = styled.header`
     display: flex;
@@ -41,9 +41,16 @@ align-items: center;
 `
 const Navbar = () => {
   const navRef = useRef();
+  const navigate = useNavigate();
 
   const showNavbar = () => {
     navRef.current.classList.toggle('responsive_nav');
+  };
+
+  const handleLinkClick = () => {
+    // Programmatically navigate to the desired route using the navigate function
+    navigate('/#faq');
+    navigate('/#contact');
   };
 
   return (
@@ -52,18 +59,20 @@ const Navbar = () => {
         <Img alt="Logo Horsey" src={LogoIcon} />
       </div>
       <div>
-        <BrowserRouter>
-          <Nav ref={navRef}>
-            <Link to="#faq">FAQ</Link>
-            <Link to="#contact">Contact</Link>
-            <button
-              type="button"
-              className="nav-btn nav-close-btn"
-              onClick={showNavbar}>
-              <FaTimes />
-            </button>
-          </Nav>
-        </BrowserRouter>
+        <Nav ref={navRef}>
+          <Link to="#faq" onClick={handleLinkClick}>
+            FAQ
+          </Link>
+          <Link to="#contact" onClick={handleLinkClick}>
+            Contact
+          </Link>
+          <button
+            type="button"
+            className="nav-btn nav-close-btn"
+            onClick={showNavbar}>
+            <FaTimes />
+          </button>
+        </Nav>
         <button
           type="button"
           className="nav-btn"
@@ -72,7 +81,7 @@ const Navbar = () => {
         </button>
       </div>
     </Header>
-  )
-}
+  );
+};
 
 export default Navbar;
