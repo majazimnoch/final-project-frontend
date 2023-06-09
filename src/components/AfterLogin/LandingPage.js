@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { StyledButton } from './ButtonStyling';
+import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 
 const token = localStorage.getItem('token');
 
