@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import LandingPage from '../AfterLogin/LandingPage'
-// import { useHistory } from 'react-router-dom';
 import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
 import { API_URL } from '../../utils/urls';
-
-// const token = localStorage.getItem('token');
 
 const Home = () => {
   const [token] = useState(() => localStorage.getItem('token'));
@@ -16,7 +11,6 @@ const Home = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const history = useHistory();
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
@@ -32,10 +26,6 @@ const Home = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               window.location.reload();
-              // window.location.href = '/profile-page'
-              // return (
-              //   <Startpage />
-              // ) Code from 1:1
             } else {
               alert('Login error!');
             }

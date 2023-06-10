@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { API_URL } from '../../utils/urls';
-// import LandingPage from '../Pages/LandingPage';
 
-// const token = localStorage.getItem('token');
-
-const Profile = () => {
+const WelcomePage = () => {
   const [token] = useState(() => localStorage.getItem('token'));
   console.log('Profile', token);
   const [responseData, setResponseData] = useState({});
@@ -23,11 +20,6 @@ const Profile = () => {
       .then((data) => setResponseData(data));
   };
 
-  // const handleLogout = () => {
-  //   localStorage.removeItem('token');
-  //   window.location.reload();
-  // }
-
   useEffect(() => {
     fetchProfile();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,7 +30,6 @@ const Profile = () => {
       {responseData.user && (
         <h1>
           Hi {responseData.user.name}, {responseData.secret}
-          What are we doing
         </h1>
       )}
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
@@ -47,7 +38,7 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default WelcomePage;
 
 const ProfileContainer = styled.div`
 display: flex;
