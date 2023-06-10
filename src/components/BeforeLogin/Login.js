@@ -67,7 +67,7 @@ const Home = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (token) {
-      navigate('/startpage', { replace: true });
+      navigate('/welcomepage', { replace: true });
     }
   }, [token, navigate]);
 
