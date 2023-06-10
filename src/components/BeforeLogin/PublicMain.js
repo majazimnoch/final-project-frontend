@@ -4,7 +4,6 @@ import Hero from './Hero'
 import Contact from './Contact'
 import Faq from './Faq/Faq'
 import Login from './Login'
-// import LandingPage from '../AfterLogin/LandingPage'
 
 const PublicMain = () => {
   return (
@@ -14,11 +13,6 @@ const PublicMain = () => {
       <Faq />
       <Contact />
       <Login />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/landingpage" element={<LandingPage />} />
-        </Routes>
-      </BrowserRouter> */}
     </>
   );
 };

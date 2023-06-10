@@ -5,6 +5,8 @@ import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
 import { API_URL } from '../../utils/urls';
 
+// const token = localStorage.getItem('token');
+
 const Home = () => {
   const [token] = useState(() => localStorage.getItem('token'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
@@ -26,6 +28,10 @@ const Home = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               window.location.reload();
+              // window.location.href = '/profile-page'
+              // return (
+              //   <Startpage />
+              // ) Code from 1:1
             } else {
               alert('Login error!');
             }
