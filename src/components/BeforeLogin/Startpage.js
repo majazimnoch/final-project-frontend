@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+// import LandingPage from '../Pages/LandingPage';
 
 const token = localStorage.getItem('token');
 
@@ -18,10 +20,10 @@ const Profile = ({ API_URL }) => {
       .then((data) => setResponseData(data));
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token');
+  //   window.location.reload();
+  // }
 
   useEffect(() => {
     fetchProfile();
@@ -35,7 +37,9 @@ const Profile = ({ API_URL }) => {
           Hi {responseData.user.name}, {responseData.secret}
         </h1>
       )}
-      <ProfileButton type="button" onClick={handleLogout}>Logout</ProfileButton>
+      {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
+      <Link to="/landingpage">Click to continue</Link>
+      {/* <LandingPage handleLogout={handleLogout} /> */}
     </ProfileContainer>
   );
 };
@@ -70,22 +74,22 @@ h1 {
   }
 }
 `
-const ProfileButton = styled.button`
-border-radius: 5px;
-border: 3px solid #ffffff;
-cursor: pointer;
-width: 7rem;
-background-color: #ffb140;
-color: #56282d;
-font-size: 1rem;
-font-weight: bold;
-margin-top: 1.5rem;
-margin-bottom: 1.5rem;
-padding: 0.8rem;
+// const ContinueButton = styled.button`
+// border-radius: 5px;
+// border: 3px solid #ffffff;
+// cursor: pointer;
+// width: 7rem;
+// background-color: #ffb140;
+// color: #56282d;
+// font-size: 1rem;
+// font-weight: bold;
+// margin-top: 1.5rem;
+// margin-bottom: 1.5rem;
+// padding: 0.8rem;
 
-@media (max-width: 664px) {
-  border-radius: 10px;
-  border: 1px solid #ffffff;
-  padding: 0.3rem;
-  }
-`;
+// @media (max-width: 664px) {
+//   border-radius: 10px;
+//   border: 1px solid #ffffff;
+//   padding: 0.3rem;
+//   }
+// `;
