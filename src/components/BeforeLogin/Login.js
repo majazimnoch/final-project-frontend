@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import LandingPage from '../AfterLogin/LandingPage'
@@ -16,8 +17,6 @@ const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // const history = useHistory();
-
-  console.log(history)
 
   const handleFormSubmit = (event, state) => {
     switch (state) {

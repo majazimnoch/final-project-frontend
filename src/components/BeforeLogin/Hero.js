@@ -1,8 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { HashLink as Link } from 'react-router-hash-link';
 import styled, { css } from 'styled-components';
 import { HashLink as Link } from 'react-router-hash-link';
 import { StyledHero, TextBlock, StyledTitle, StyledParagraph, ButtonContainer } from './HeroStyling';
