@@ -47,9 +47,11 @@ const Navbar = () => {
     navRef.current.classList.toggle('responsive_nav');
   };
 
-  const handleLinkClick = () => {
-    // Programmatically navigate to the desired route using the navigate function
+  const handleLinkClick1 = () => {
     navigate('/#faq');
+  };
+
+  const handleLinkClick2 = () => {
     navigate('/#contact');
   };
 
@@ -60,10 +62,10 @@ const Navbar = () => {
       </div>
       <div>
         <Nav ref={navRef}>
-          <Link to="#faq" onClick={handleLinkClick}>
+          <Link to="#faq" onClick={handleLinkClick1}>
             FAQ
           </Link>
-          <Link to="#contact" onClick={handleLinkClick}>
+          <Link to="#contact" onClick={handleLinkClick2}>
             Contact
           </Link>
           <button

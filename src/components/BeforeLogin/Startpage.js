@@ -39,7 +39,6 @@ const Profile = ({ API_URL }) => {
       )}
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <Link to="/landingpage">Click to continue</Link>
-      {/* <LandingPage handleLogout={handleLogout} /> */}
     </ProfileContainer>
   );
 };
