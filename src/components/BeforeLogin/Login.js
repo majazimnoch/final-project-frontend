@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginRegister from './LoginRegister';
 import Startpage from './Startpage';
@@ -12,6 +13,7 @@ const Home = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
@@ -65,62 +67,66 @@ const Home = () => {
     ? setLoginOrRegister('register')
     : setLoginOrRegister('login'));
 
+  const approvedToken = () => {
+    navigate('/startpage', { replace: true });
+  }
+
   return (
-    <div>
-      <LoginWrapper id="home">
-        <LeftLogin>
-          <TextLoginBox>
-            <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
-            <h2>Giddy up and get ready for the horse ride of your life!
-            </h2>
-            <p>Horsey app helps you track your progress, set goals, and stay motivated.
-              Hurry up and join us.
-            </p>
-          </TextLoginBox>
-        </LeftLogin>
+    <LoginWrapper id="home">
+      <LeftLogin>
+        <TextLoginBox>
+          <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
+          <h2>Giddy up and get ready for the horse ride of your life!</h2>
+          <p>Horsey app helps you track your progress,
+            set goals, and stay motivated. Hurry up and join us.
+          </p>
+        </TextLoginBox>
+      </LeftLogin>
+      {token && (
+        <>
+          <Startpage API_URL={API_URL} />
+          {approvedToken()}
+        </>
+      )}
+      {/* {token && <Startpage API_URL={API_URL} />} */}
+      {!token && (
         <RightLogin>
-          {token ? (
-            <Startpage API_URL={API_URL} />
+          {loginOrRegister === 'login' ? (
+            <>
+              <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
+              <p>Log in and keep track of your horses!</p>
+            </>
           ) : (
             <>
-              {loginOrRegister === 'login' ? (
-                <>
-                  <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
-                  <p>Log in and keep track of your horses!</p>
-                </>
-              ) : (
-                <>
-                  <WelcomeHeader>New user? Welcome!</WelcomeHeader>
-                  <p>Create a user account in 5 seconds!</p>
-                </>
-              )}
-              <LoginRegister
-                state={loginOrRegister}
-                name={name}
-                setName={setName}
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                handleFormSubmit={handleFormSubmit} />
-              {loginOrRegister === 'login' ? (
-                <PSwitchaccount>
-                  <a href={LoginRegister} onClick={handleLoginOrRegister}>
-                    I do not have an account yet
-                  </a>
-                </PSwitchaccount>
-              ) : (
-                <PSwitchaccount>
-                  <a href={LoginRegister} onClick={handleLoginOrRegister}>
-                    I already have an account
-                  </a>
-                </PSwitchaccount>
-              )}
+              <WelcomeHeader>New user? Welcome!</WelcomeHeader>
+              <p>Create a user account in 5 seconds!</p>
             </>
           )}
+          <LoginRegister
+            state={loginOrRegister}
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleFormSubmit={handleFormSubmit} />
+          {loginOrRegister === 'login' ? (
+            <PSwitchaccount>
+              <a href={LoginRegister} onClick={handleLoginOrRegister}>
+                I do not have an account yet
+              </a>
+            </PSwitchaccount>
+          ) : (
+            <PSwitchaccount>
+              <a href={LoginRegister} onClick={handleLoginOrRegister}>
+                I already have an account
+              </a>
+            </PSwitchaccount>
+          )}
         </RightLogin>
-      </LoginWrapper>
-    </div>
+      )}
+    </LoginWrapper>
   );
 };
 
@@ -128,21 +134,20 @@ export default Home;
 
 const StyledPlayfulHorse = styled.img`
   height: 100px;
-`
+`;
 
 const WelcomeHeader = styled.h2`
   color: var(--primaryBlack);
   font-size: 40px;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
 
   @media (max-width: 668px) {
-
   }
 
   @media (max-width: 1023px) {
-
   }
-`
+`;
+
 const PSwitchaccount = styled.p`
   margin-top: 2rem;
   color: var(--primaryBlack);
@@ -159,22 +164,24 @@ const LoginWrapper = styled.div`
   padding: 4rem;
   gap: 3rem;
   min-height: 100vh;
-  
-  @media (max-width: 1023px) {
-    padding: .5rem 1.5rem;
-    min-height: 50vh;
-  }
-`
 
-const TextLoginBox = styled.div`
-`
+  @media (max-width: 1023px) {
+    padding: 1rem;
+    min-height: 50vh;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const TextLoginBox = styled.div``;
 
 const LeftLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  flex: 1; 
+  flex: 1;
 
   @media (max-width: 1023px) {
     display: none;
@@ -189,18 +196,18 @@ const RightLogin = styled.div`
   border: 1px solid var(--softPurple);
   border-radius: 50px;
   padding: 3rem;
-  flex: 1; 
+  flex: 1;
 
   a {
     font-size: 1rem;
     color: var(--primaryBlack);
   }
-  
+
   @media (max-width: 1023px) {
     padding: 1rem;
 
     a {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
   }
 `;
