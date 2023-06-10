@@ -38,6 +38,7 @@ const Profile = () => {
       {responseData.user && (
         <h1>
           Hi {responseData.user.name}, {responseData.secret}
+          What are we doing
         </h1>
       )}
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
@@ -54,7 +55,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 flex-wrap: wrap;
-background-color: rgba(167, 205, 189, 0.9);
+background-color: lightblue;
 
 h1 {
   font-size: 3rem;

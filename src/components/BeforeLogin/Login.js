@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import LandingPage from '../AfterLogin/LandingPage'
+// import { useHistory } from 'react-router-dom';
 import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
 import { API_URL } from '../../utils/urls';
@@ -13,6 +15,9 @@ const Home = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const history = useHistory();
+
+  console.log(history)
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
