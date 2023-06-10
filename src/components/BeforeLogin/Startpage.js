@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { API_URL } from '../../utils/urls';
 // import LandingPage from '../Pages/LandingPage';
 
-const token = localStorage.getItem('token');
+// const token = localStorage.getItem('token');
 
-const Profile = ({ API_URL }) => {
+const Profile = () => {
+  const [token] = useState(() => localStorage.getItem('token'));
+  console.log('Profile', token);
   const [responseData, setResponseData] = useState({});
 
   const fetchProfile = () => {
-    fetch(`${API_URL}/secrets`, {
+    fetch(API_URL('secrets'), {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',

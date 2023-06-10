@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginRegister from './LoginRegister';
-import Startpage from './Startpage';
 import Horseplayful from '../../assets/horseplayful.svg'
+import { API_URL } from '../../utils/urls';
 
-const token = localStorage.getItem('token');
-const API_URL = process.env.API_URL || 'https://final-project-backend-q7mqhxeq3q-lz.a.run.app/';
+// const token = localStorage.getItem('token');
 
 const Home = () => {
+  const [token] = useState(() => localStorage.getItem('token'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
       case 'login':
         console.log('login');
-        fetch(`${API_URL}/login`, {
+        fetch(API_URL('login'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
@@ -41,7 +40,7 @@ const Home = () => {
         break;
       case 'register':
         console.log('register');
-        fetch(`${API_URL}/register`, {
+        fetch(API_URL('register'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, password })
@@ -63,13 +62,20 @@ const Home = () => {
     }
   };
 
-  const handleLoginOrRegister = () => (loginOrRegister === 'login'
-    ? setLoginOrRegister('register')
-    : setLoginOrRegister('login'));
+  // const handleLoginOrRegister = () => (loginOrRegister === 'login'
+  //   ? setLoginOrRegister('register')
+  //   : setLoginOrRegister('login'));
 
-  const approvedToken = () => {
-    navigate('/startpage', { replace: true });
-  }
+  // const approvedToken = () => {
+  //   navigate('/startpage', { replace: true });
+  // }
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate('/startpage', { replace: true });
+    }
+  }, [token, navigate]);
 
   return (
     <LoginWrapper id="home">
@@ -82,50 +88,42 @@ const Home = () => {
           </p>
         </TextLoginBox>
       </LeftLogin>
-      {token && (
-        <>
-          <Startpage API_URL={API_URL} />
-          {approvedToken()}
-        </>
-      )}
       {/* {token && <Startpage API_URL={API_URL} />} */}
-      {!token && (
-        <RightLogin>
-          {loginOrRegister === 'login' ? (
-            <>
-              <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
-              <p>Log in and keep track of your horses!</p>
-            </>
-          ) : (
-            <>
-              <WelcomeHeader>New user? Welcome!</WelcomeHeader>
-              <p>Create a user account in 5 seconds!</p>
-            </>
-          )}
-          <LoginRegister
-            state={loginOrRegister}
-            name={name}
-            setName={setName}
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-            handleFormSubmit={handleFormSubmit} />
-          {loginOrRegister === 'login' ? (
-            <PSwitchaccount>
-              <a href={LoginRegister} onClick={handleLoginOrRegister}>
-                I do not have an account yet
-              </a>
-            </PSwitchaccount>
-          ) : (
-            <PSwitchaccount>
-              <a href={LoginRegister} onClick={handleLoginOrRegister}>
-                I already have an account
-              </a>
-            </PSwitchaccount>
-          )}
-        </RightLogin>
-      )}
+      <RightLogin>
+        {loginOrRegister === 'login' ? (
+          <>
+            <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
+            <p>Log in and keep track of your horses!</p>
+          </>
+        ) : (
+          <>
+            <WelcomeHeader>New user? Welcome!</WelcomeHeader>
+            <p>Create a user account in 5 seconds!</p>
+          </>
+        )}
+        <LoginRegister
+          state={loginOrRegister}
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          handleFormSubmit={handleFormSubmit} />
+        {loginOrRegister === 'login' ? (
+          <PSwitchaccount>
+            <a href="#" onClick={() => setLoginOrRegister('register')}>
+              I do not have an account yet
+            </a>
+          </PSwitchaccount>
+        ) : (
+          <PSwitchaccount>
+            <a href="#" onClick={() => setLoginOrRegister('login')}>
+              I already have an account
+            </a>
+          </PSwitchaccount>
+        )}
+      </RightLogin>
     </LoginWrapper>
   );
 };

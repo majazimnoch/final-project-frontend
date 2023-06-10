@@ -7,8 +7,8 @@ const NotFound = () => {
   useEffect(() => {
     setTimeout(() => {
       navigate('/')
-    }, 1500)
-  }, [])
+    }, 3000)
+  }, [navigate])
   return (
     <h1>404 - Page not found, hold your reins and you will be redirected to the homepage!</h1>
   )
