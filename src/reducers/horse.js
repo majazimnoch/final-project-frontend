@@ -190,7 +190,7 @@ export const patchHorseWithNewSquare = (horseId) => {
           // const responseData = response.response.data; // Access the correct data
           console.log('response from patch request:', response);
         } else {
-          // dispatch(horse.actions.setTripList([]));
+          // dispatch(horse.actions.setHorseList([]));
           dispatch(horse.actions.setError(response));
         }
       })
@@ -226,7 +226,7 @@ export const deleteHorse = (horseId) => {
           dispatch(horse.actions.setError(null));
           const responseData = response.response.data;
           console.log('responseData:', responseData);
-          dispatch(horse.actions.setDeleteTrip(horseId));
+          dispatch(horse.actions.setDeleteHorse(horseId));
         } else {
           dispatch(horse.actions.setError(response));
         }
@@ -244,7 +244,7 @@ export const deleteHorse = (horseId) => {
 };
 
 // Thunk making a DELETE-request to delete a single square from a horse from the database
-export const deleteSingleCard = (horseId, squareId) => {
+export const deleteSingleSquare = (horseId, squareId) => {
   return (dispatch, getState) => {
     dispatch(horse.actions.setLoadingPost(true))
 
@@ -265,7 +265,7 @@ export const deleteSingleCard = (horseId, squareId) => {
           dispatch(horse.actions.setError(null));
           const responseData = response.response.data;
           console.log('responseData:', responseData);
-          dispatch(horse.actions.setDeleteCardFromTrip(squareId));
+          dispatch(horse.actions.setDeleteSquareFromHorse(squareId));
         } else {
           dispatch(horse.actions.setError(response));
         }
@@ -283,7 +283,7 @@ export const deleteSingleCard = (horseId, squareId) => {
 };
 
 // Thunk making a PATCH-request to update a single square in a horse from the database
-export const updateSingleCard = (horseId, squareId, squareComment, squareStars) => {
+export const updateSingleSquare = (horseId, squareId, squareComment, squareStars) => {
   return (dispatch, getState) => {
     dispatch(horse.actions.setLoadingPost(true))
 
@@ -304,7 +304,7 @@ export const updateSingleCard = (horseId, squareId, squareComment, squareStars) 
           dispatch(horse.actions.setError(null));
           const responseData = response.response.data;
           console.log('responseData:', responseData);
-          dispatch(horse.actions.setUpdateCardInTrip(responseData));
+          dispatch(horse.actions.setUpdateSquareInHorse(responseData));
           dispatch(fetchHorses());
         } else {
           dispatch(horse.actions.setError(response));
