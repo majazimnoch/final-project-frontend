@@ -56,7 +56,7 @@ export const TextBlock = styled.div`
 export const StyledTitle = styled.h1`
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 3rem;;
+    margin-bottom: 3rem;
     color: var(--softPurple);
 
     @media (min-width: 668px) {
@@ -70,8 +70,8 @@ export const StyledTitle = styled.h1`
 
 export const StyledParagraph = styled.p`
     font-size: 0.9rem;
-    margin-bottom: 3rem;;
-    color: var(--primaryBlack):
+    margin-bottom: 3rem;
+    color: var(--primaryBlack);
 
     @media (min-width: 668px) {
         font-size: 1.3rem;

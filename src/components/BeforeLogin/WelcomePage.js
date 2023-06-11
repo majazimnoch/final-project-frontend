@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { API_URL } from '../../utils/urls';
 
-const token = localStorage.getItem('token');
-
-const Profile = ({ API_URL }) => {
+const WelcomePage = () => {
+  const [token] = useState(() => localStorage.getItem('token'));
+  console.log('Profile', token);
   const [responseData, setResponseData] = useState({});
 
   const fetchProfile = () => {
-    fetch(`${API_URL}/secrets`, {
+    fetch(API_URL('secrets'), {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
@@ -17,11 +19,6 @@ const Profile = ({ API_URL }) => {
       .then((response) => response.json())
       .then((data) => setResponseData(data));
   };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
 
   useEffect(() => {
     fetchProfile();
@@ -35,12 +32,13 @@ const Profile = ({ API_URL }) => {
           Hi {responseData.user.name}, {responseData.secret}
         </h1>
       )}
-      <ProfileButton type="button" onClick={handleLogout}>Logout</ProfileButton>
+      {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
+      <Link to="/landingpage">Click to continue</Link>
     </ProfileContainer>
   );
 };
 
-export default Profile;
+export default WelcomePage;
 
 const ProfileContainer = styled.div`
 display: flex;
@@ -48,7 +46,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 flex-wrap: wrap;
-background-color: rgba(167, 205, 189, 0.9);
+background-color: lightblue;
 
 h1 {
   font-size: 3rem;
@@ -70,22 +68,22 @@ h1 {
   }
 }
 `
-const ProfileButton = styled.button`
-border-radius: 5px;
-border: 3px solid #ffffff;
-cursor: pointer;
-width: 7rem;
-background-color: #ffb140;
-color: #56282d;
-font-size: 1rem;
-font-weight: bold;
-margin-top: 1.5rem;
-margin-bottom: 1.5rem;
-padding: 0.8rem;
+// const ContinueButton = styled.button`
+// border-radius: 5px;
+// border: 3px solid #ffffff;
+// cursor: pointer;
+// width: 7rem;
+// background-color: #ffb140;
+// color: #56282d;
+// font-size: 1rem;
+// font-weight: bold;
+// margin-top: 1.5rem;
+// margin-bottom: 1.5rem;
+// padding: 0.8rem;
 
-@media (max-width: 664px) {
-  border-radius: 10px;
-  border: 1px solid #ffffff;
-  padding: 0.3rem;
-  }
-`;
+// @media (max-width: 664px) {
+//   border-radius: 10px;
+//   border: 1px solid #ffffff;
+//   padding: 0.3rem;
+//   }
+// `;
