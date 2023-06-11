@@ -205,7 +205,7 @@ export const patchHorseWithNewSquare = (horseId) => {
 };
 
 // Thunk making a DELETE-request to delete a horse from the database
-export const deleteTrip = (horseId) => {
+export const deleteHorse = (horseId) => {
   return (dispatch, getState) => {
     dispatch(horse.actions.setLoadingPost(true))
 
