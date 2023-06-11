@@ -3,7 +3,6 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { HashLink as Link } from 'react-router-hash-link';
 import { StyledHero, TextBlock, StyledTitle, StyledParagraph, ButtonContainer } from './HeroStyling';
-// import Button from './Button';
 
 const Hero = () => {
   const handleButtonClick = () => {
