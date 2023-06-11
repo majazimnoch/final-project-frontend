@@ -1,5 +1,38 @@
 import styled from 'styled-components';
 
+export const FaqPage = styled.div`
+background-color: var(--claret);
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+padding: 4rem 2rem;
+
+@media (min-width: 668px) and (max-width:1023px) {
+    padding: 7rem 4rem;
+} 
+
+@media (min-width:1024px) {
+    padding: 4rem 8rem 8rem 8rem;
+    min-height: 100vh;
+} 
+`
+export const HFaq = styled.h1`
+font: Poppins;
+text-align: center;
+padding-bottom: 2rem;
+color: var(--primaryWhite);
+
+@media (min-width: 668px) {
+  font-size: 5rem;
+  margin-top: 4rem;
+}
+
+@media (min-width: 1024px) {
+  font-size: 2.5rem;
+  margin-top: 5rem;
+}
+`
+
 export const Accordion = styled.div`
 // header of a single q&a
     display: flex;
