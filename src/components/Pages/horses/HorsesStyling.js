@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import heroImage from 'assets/heroImg.png';
-
-export const StyledHero = styled.div`
+// renaming and changes to be made together in the team
+export const StyledHorse = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(${heroImage});
+    // might add this if we find out how to add photos to each horse
+    // background-image: url;
     background-size: cover;
     background-position: center;
 
@@ -25,7 +25,7 @@ export const StyledHero = styled.div`
 
         .left {
         flex: 1;
-        background-image: url(${heroImage});
+        // background-image: url;
         background-size: 100% 100%;
         background-size: cover;
         background-position: left -100px;
