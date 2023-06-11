@@ -1,39 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { API_URL } from '../../utils/urls';
+import UserBox from 'components/Pages/UserBox';
+import WeatherBox from 'components/Pages/WeatherBox';
 
 const WelcomePage = () => {
-  const [token] = useState(() => localStorage.getItem('token'));
-  console.log('Profile', token);
-  const [responseData, setResponseData] = useState({});
-
-  const fetchProfile = () => {
-    fetch(API_URL('secrets'), {
-      method: 'GET',
-      headers: {
-        'Content-type': 'application/json',
-        Authorization: token
-      }
-    })
-      .then((response) => response.json())
-      .then((data) => setResponseData(data));
-  };
-
-  useEffect(() => {
-    fetchProfile();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <ProfileContainer>
-      {responseData.user && (
-        <h1>
-          Hi {responseData.user.name}, {responseData.secret}
-        </h1>
-      )}
+      <LeftColumn>
+        <UserBox />
+        <WeatherBox />
+      </LeftColumn>
+      <MiddleColumn>
+        <p>sdsf</p>
+      </MiddleColumn>
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
-      <Link to="/landingpage">Click to continue</Link>
+      <RightColumn>
+        <Link to="/landingpage">Click to continue</Link>
+      </RightColumn>
     </ProfileContainer>
   );
 };
@@ -41,16 +25,17 @@ const WelcomePage = () => {
 export default WelcomePage;
 
 const ProfileContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
-background-color: lightblue;
+background-color: var(--primaryWhite);
+color: var(--primaryBlack);
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+min-height: 100vh;
 
 h1 {
   font-size: 3rem;
-  color: #56282d;
   text-align: center;
 }
 
@@ -68,22 +53,14 @@ h1 {
   }
 }
 `
-// const ContinueButton = styled.button`
-// border-radius: 5px;
-// border: 3px solid #ffffff;
-// cursor: pointer;
-// width: 7rem;
-// background-color: #ffb140;
-// color: #56282d;
-// font-size: 1rem;
-// font-weight: bold;
-// margin-top: 1.5rem;
-// margin-bottom: 1.5rem;
-// padding: 0.8rem;
-
-// @media (max-width: 664px) {
-//   border-radius: 10px;
-//   border: 1px solid #ffffff;
-//   padding: 0.3rem;
-//   }
-// `;
+const LeftColumn = styled.div`
+grid-area: 1 / 1 / 2 / 2;
+`
+const MiddleColumn = styled.div`
+grid-area: 1 / 4 / 2 / 5; 
+background-color: lavender;
+`
+const RightColumn = styled.div`
+grid-area: 1 / 2 / 2 / 4; 
+background-color: beige;
+`

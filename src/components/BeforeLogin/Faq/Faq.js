@@ -9,6 +9,7 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start;
 padding: 4rem 2rem;
+min-height: 100vh;
 
 @media (min-width: 668px) and (max-width:1023px) {
     padding: 7rem 4rem;
@@ -16,7 +17,6 @@ padding: 4rem 2rem;
 
 @media (min-width:1024px) {
     padding: 4rem 8rem 8rem 8rem;
-    min-height: 100vh;
 } 
 `
 const HFaq = styled.h1`

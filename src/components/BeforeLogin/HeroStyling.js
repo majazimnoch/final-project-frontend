@@ -85,7 +85,7 @@ export const StyledParagraph = styled.p`
 export const ButtonContainer = styled.div`
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
 
     @media (min-width: 668px) {
         gap: 2rem;
@@ -93,6 +93,5 @@ export const ButtonContainer = styled.div`
 
     @media (min-width: 1024px) {
         gap: 3rem;
-        justify-content: flex-start;
     }
 `;

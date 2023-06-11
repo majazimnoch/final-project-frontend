@@ -26,7 +26,7 @@ const Hero = () => {
             </StyledParagraph>
             <ButtonContainer>
               <ButtonLink onClick={handleButtonClick}>
-                Hold your horses
+                Check Horsey App
               </ButtonLink>
             </ButtonContainer>
           </TextBlock>
@@ -39,18 +39,22 @@ const Hero = () => {
 export default Hero;
 
 const ButtonLink = styled(Link)`
-background-color: var(--primaryWhite);
+background-color: transparent;
 color: var(--primaryBlack);
 font-size: var(--fontSize);
 border: 1.5px solid var(--softPurple);
 border-radius: 30px;
 height: 50px;
-padding: 0 40px;
+text-align: center;
+display:flex;
+flex-direction: column;
+justify-content: center;
+padding: 0 2rem!important;
+margin: 0!important;
 
 &:hover {
   background-color: var(--softPurple);
-  color: var(--primaryWhite);
-  transition: 0.2s;
+  color: var(--primaryWhite); 
 }
 
 @media (min-width: 668px) {
