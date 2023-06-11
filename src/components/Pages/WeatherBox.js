@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
+/* eslint-disable max-len */
+/* eslint-disable no-nested-ternary */
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const api = {
-  key: 'd73aa5f2cfee2a35632856b10b30a458',
+  key: 'b17222dd46452704ba0397a0e2981f5f',
   base: 'https://api.openweathermap.org/data/2.5/'
 };
 
 const WeatherBox = () => {
   const [search, setSearch] = useState('');
   const [weather, setWeather] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        fetch(`${api.base}weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${api.key}`)
+          .then((res) => res.json())
+          .then((result) => {
+            setWeather(result);
+            setIsLoading(false);
+          });
+      });
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
 
   const WeatherFunction = (temperature) => {
     if (temperature > 10) {
-      return "It's a good day for horse riding!";
+      return `It is a good day for horse riding in ${weather.name}!`;
     } else {
-      return 'The weather is not suitable for horse riding.';
+      return 'There is no such thing as bad weather, only unsuitable clothing! Go for it.';
     }
   };
 
@@ -28,41 +48,30 @@ const WeatherBox = () => {
 
   return (
     <WeatherBoxContainer>
-      <header className="App-header">
-        {/* HEADER */}
-        <h1>Weather App</h1>
-
-        {/* Search Box - Input + Button */}
-        <div>
-          <input
+      <Weatherheader>
+        <Pinside bold>Check the weather before you go horse riding</Pinside>
+        {isLoading ? (
+          <p>Fetching weather data...</p>
+        ) : typeof weather.main !== 'undefined' ? (
+          <WeatherInfoBox>
+            <Pinside>{weather.name}</Pinside>
+            <Pinside obs>{Math.floor(weather.main.temp)}°C</Pinside>
+            <Pinside>{WeatherFunction(Math.floor(weather.main.temp), weather.weather[0].main)}</Pinside>
+          </WeatherInfoBox>
+        ) : (
+          <p>Weather data not available</p>
+        )}
+        <WeatherInputBox>
+          <p>If you plan to change the location, enter the desired city/town.</p>
+          <InputWeather
             type="text"
             placeholder="Enter city/town..."
             onChange={(e) => setSearch(e.target.value)} />
-          <button type="button" onClick={searchPressed}>
+          <ButtonWeather type="button" onClick={searchPressed}>
             Search
-          </button>
-        </div>
-
-        {/* If weather is not undefined display results from API */}
-        {typeof weather.main !== 'undefined' ? (
-          <div>
-            {/* Location */}
-            <p>{weather.name}</p>
-
-            {/* Temperature Celsius */}
-            <p>{weather.main.temp}°C</p>
-
-            {/* Condition (Sunny) */}
-            <p>{weather.weather[0].main}</p>
-            <p>({weather.weather[0].description})</p>
-
-            {/* Check if good for horse riding */}
-            <p>{WeatherFunction(weather.main.temp)}</p>
-          </div>
-        ) : (
-          ''
-        )}
-      </header>
+          </ButtonWeather>
+        </WeatherInputBox>
+      </Weatherheader>
     </WeatherBoxContainer>
   );
 };
@@ -70,5 +79,58 @@ const WeatherBox = () => {
 export default WeatherBox;
 
 const WeatherBoxContainer = styled.div`
-  border: 1px red solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1.5rem;
+  text-align:center;
+`;
+
+const Weatherheader = styled.header`
+`;
+
+const WeatherInputBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const WeatherInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ButtonWeather = styled.button`
+background-color: var(--primaryWhite);
+color: var(--primaryBlack);
+font-size: var(--fontSize);
+border: 1.5px solid var(--softPurple);
+border-radius: 30px;
+height: 40px;
+
+&:hover {
+  background-color: var(--softPurple);
+  color: var(--primaryWhite);
+  transition: 0.2s;
+}
+
+@media (min-width: 668px) {
+  padding: 0 1.5rem;
+}
+`
+const InputWeather = styled.input`
+height: 3rem;
+padding: 0 1rem;
+border-radius: 10px;
+
+border: 1px var(--primaryBlack) solid;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+&:focus {
+  outline: 0.5px solid var(--softPurple);
+}
+
 `;

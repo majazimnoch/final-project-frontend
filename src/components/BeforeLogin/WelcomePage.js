@@ -57,10 +57,10 @@ const LeftColumn = styled.div`
 grid-area: 1 / 1 / 2 / 2;
 `
 const MiddleColumn = styled.div`
-grid-area: 1 / 4 / 2 / 5; 
-background-color: lavender;
+grid-area: 1 / 2 / 2 / 4;; 
+background-color: var(--snowWhite);
 `
 const RightColumn = styled.div`
-grid-area: 1 / 2 / 2 / 4; 
+grid-area: 1 / 4 / 2 / 5; 
 background-color: beige;
 `

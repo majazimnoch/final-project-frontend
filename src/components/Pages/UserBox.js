@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL } from 'utils/urls';
 import styled from 'styled-components';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import rideruser from '../../assets/horse-rider-icon.svg';
 
 const UserBox = () => {
@@ -31,9 +32,9 @@ const UserBox = () => {
       </Circle>
       <HiUserBox>
         {responseData.user && (
-          <h6>
+          <Pinside>
         Hi {responseData.user.name}, {responseData.secret}
-          </h6>
+          </Pinside>
         )}
       </HiUserBox>
     </UserBoxContainer>
@@ -43,20 +44,18 @@ const UserBox = () => {
 export default UserBox;
 
 const UserBoxContainer = styled.div`
-border: 1px red solid;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 2rem 0;
-
+margin: 2rem 1.5rem;
+text-align: center;
 `
 const HiUserBox = styled.div`
-border: 1px green solid;
 `
 
 const Circle = styled.div`
-  background: var(--snowWhite);
+ background: var(--snowWhite);
   border-radius: 50%;
   border: 1px black solid;
   width: 120px;
@@ -64,7 +63,7 @@ const Circle = styled.div`
 `
 const UserImage = styled.img`
 position: relative;
-top: 5px; left: 12px;
+top: 5px; left: 0px;
 height: 80%;
   
 `
