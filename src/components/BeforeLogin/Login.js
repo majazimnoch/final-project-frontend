@@ -112,13 +112,13 @@ const Home = () => {
           handleFormSubmit={handleFormSubmit} />
         {loginOrRegister === 'login' ? (
           <PSwitchaccount>
-            <a href="#" onClick={() => setLoginOrRegister('register')}>
+            <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
               I do not have an account yet
             </a>
           </PSwitchaccount>
         ) : (
           <PSwitchaccount>
-            <a href="#" onClick={() => setLoginOrRegister('login')}>
+            <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
               I already have an account
             </a>
           </PSwitchaccount>
