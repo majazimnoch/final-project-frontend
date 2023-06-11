@@ -16,4 +16,14 @@ font-size: 30px;
 `
 } 
 
+${(styling) => styling.uppercase && css`
+text-transform: uppercase;
+letter-spacing: 1px;
+`
+}
+
+${(styling) => styling.details && css`
+font-size: 14px;
+`
+}
 `

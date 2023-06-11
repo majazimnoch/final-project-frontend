@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
+import Logout from 'components/Pages/Logout';
 
 const WelcomePage = () => {
   return (
@@ -16,6 +17,7 @@ const WelcomePage = () => {
       </MiddleColumn>
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <RightColumn>
+        <Logout />
         <Link to="/landingpage">Click to continue</Link>
       </RightColumn>
     </ProfileContainer>
@@ -59,8 +61,15 @@ grid-area: 1 / 1 / 2 / 2;
 const MiddleColumn = styled.div`
 grid-area: 1 / 2 / 2 / 4;; 
 background-color: var(--snowWhite);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `
 const RightColumn = styled.div`
 grid-area: 1 / 4 / 2 / 5; 
-background-color: beige;
+background-color: var(--primaryWhite);
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+margin: 1rem 1.5rem;
+text-align: center;
 `

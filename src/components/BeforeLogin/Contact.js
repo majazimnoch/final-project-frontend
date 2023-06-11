@@ -293,7 +293,7 @@ align-items: center;
 }
 `;
 
-const StyledSpanContact = styled.span`
+export const StyledSpanContact = styled.span`
 padding: 3px;
 ${(styling) => styling.contact && css`
 background-color: var(--softPurple);`

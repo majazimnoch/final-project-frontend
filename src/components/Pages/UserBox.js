@@ -48,7 +48,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 2rem 1.5rem;
+margin: 1rem 1.5rem;
 text-align: center;
 `
 const HiUserBox = styled.div`
@@ -58,8 +58,8 @@ const Circle = styled.div`
  background: var(--snowWhite);
   border-radius: 50%;
   border: 1px black solid;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
 `
 const UserImage = styled.img`
 position: relative;

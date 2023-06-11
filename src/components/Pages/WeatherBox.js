@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
+import { StyledSpanContact } from 'components/BeforeLogin/Contact';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -32,7 +33,7 @@ const WeatherBox = () => {
 
   const WeatherFunction = (temperature) => {
     if (temperature > 10) {
-      return `It is a good day for horse riding in ${weather.name}!`;
+      return `It's a good day for horse riding in ${weather.name}!`;
     } else {
       return 'There is no such thing as bad weather, only unsuitable clothing! Go for it.';
     }
@@ -49,24 +50,28 @@ const WeatherBox = () => {
   return (
     <WeatherBoxContainer>
       <Weatherheader>
-        <Pinside bold>Check the weather before you go horse riding</Pinside>
+        <Pinside bold><StyledSpanContact email>Check the weather before you go horse riding</StyledSpanContact></Pinside>
         {isLoading ? (
           <p>Fetching weather data...</p>
         ) : typeof weather.main !== 'undefined' ? (
           <WeatherInfoBox>
-            <Pinside>{weather.name}</Pinside>
+            <Pinside uppercase>{weather.name}</Pinside>
+            <ImgWeather
+              src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+              alt={weather.weather[0].description} />
             <Pinside obs>{Math.floor(weather.main.temp)}°C</Pinside>
             <Pinside>{WeatherFunction(Math.floor(weather.main.temp), weather.weather[0].main)}</Pinside>
           </WeatherInfoBox>
         ) : (
-          <p>Weather data not available</p>
+          <Pinside>It looks like we don&apos;t know such place. Are you planning to horse ride on the Moon? Horsey gives recommendations only for Earth.</Pinside>
         )}
         <WeatherInputBox>
-          <p>If you plan to change the location, enter the desired city/town.</p>
+          <Pinside details>If you plan to change the location, enter the desired city/town.</Pinside>
           <InputWeather
             type="text"
             placeholder="Enter city/town..."
-            onChange={(e) => setSearch(e.target.value)} />
+            onChange={(e) => setSearch(e.target.value)}
+            required />
           <ButtonWeather type="button" onClick={searchPressed}>
             Search
           </ButtonWeather>
@@ -101,6 +106,10 @@ const WeatherInputBox = styled.div`
 const WeatherInfoBox = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const ImgWeather = styled.img`
+height: 64px;
 `;
 
 const ButtonWeather = styled.button`
