@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { accordionData } from './accordionData';
-import { Accordion, AccordionContent, AccordionTitle, Hr, ImgSparkle, SingleSectionAccordion } from './Faq.style';
+import { Accordion, AccordionContent, AccordionTitle, Hr, ImgSparkle, SingleSectionAccordion } from './FaqStyling';
 import Sparkle from '../../../assets/sparkle.png'
 
 const SectionSeparator = () => {
