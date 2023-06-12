@@ -32,7 +32,7 @@ const horseReducer = createSlice({
   }
 });
 
-export default horseReducer
+export default horseReducer;
 // export const horse = createSlice({
 //   name: 'horse',
 //   initialState: {
