@@ -3,6 +3,7 @@ import { API_URL } from 'utils/urls';
 // import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
+import Form from './Form';
 
 const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);
@@ -46,6 +47,7 @@ const MyPage = () => {
         <div>
           <h1>My Horses</h1>
         </div>
+        <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
     </HorseyUser>
