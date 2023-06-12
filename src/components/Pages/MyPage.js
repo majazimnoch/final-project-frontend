@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
 
-const OneUserPage = () => {
+const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);
   const accessToken = localStorage.getItem('accessToken');
   const userId = localStorage.getItem('userId');
@@ -52,7 +52,7 @@ const OneUserPage = () => {
   );
 };
 
-export default OneUserPage;
+export default MyPage;
 
 const HorseyUser = styled.div`
   width: 95%;
