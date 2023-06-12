@@ -14,17 +14,23 @@ const Logout = () => {
 export default Logout;
 
 const ProfileButton = styled.button`
-border-radius: 5px;
-border: 3px solid #ffffff;
-cursor: pointer;
-width: 7rem;
-background-color: #ffb140;
-color: #56282d;
-font-size: 1rem;
-font-weight: bold;
-margin-top: 1.5rem;
-margin-bottom: 1.5rem;
-padding: 0.8rem;
+  background-color: var(--primaryWhite);
+  color: var(--primaryBlack);
+  font-size: var(--fontSize);
+  border: 1.5px solid var(--softPurple);
+  border-radius: 30px;
+  height: 50px;
+  padding: 0 40px;
+  
+  &:hover {
+    background-color: var(--softPurple);
+    color: var(--primaryWhite);
+    transition: 0.2s;
+  }
+
+  @media (min-width: 668px) {
+    padding: 0 5rem;
+  }
 
 @media (max-width: 664px) {
    border-radius: 10px;
