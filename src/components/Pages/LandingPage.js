@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 
 const LandingPage = () => {
+  const [token] = useState(() => localStorage.getItem('token'));
+  console.log('Profile', token);
   return (
     <PageContainer>
       <h1>Hello! Welcome to the inside of Horsey App!</h1>

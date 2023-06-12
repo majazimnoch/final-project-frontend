@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import { useNavigate, Link, useParams } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
 
@@ -9,37 +9,37 @@ const UserPage = () => {
   const [username, setUsername] = useState('');
   const accessToken = localStorage.getItem('accessToken');
   const params = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!accessToken) {
-      navigate('/publicmain');
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     navigate('/publicmain');
+  //   }
+  // }, [accessToken, navigate]);
+
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     navigate('/publicmain');
+  //   } else {
+  const fetchOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: accessToken
     }
-  }, [accessToken, navigate]);
+  };
 
-  useEffect(() => {
-    if (!accessToken) {
-      navigate('/publicmain');
-    } else {
-      const fetchOptions = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: accessToken
-        }
-      };
+  fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      setUsername(data.user.username);
+      setPosts(data.response.reverse());
+    })
+    .catch((e) => {
+      console.error('Error:', e);
+    });
 
-      fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          setUsername(data.user.username);
-          setPosts(data.response.reverse());
-        })
-        .catch((e) => {
-          console.error('Error:', e);
-        });
-    }
-  }, [accessToken, navigate, params.userId]);
+  // }, [accessToken, navigate, params.userId]);
 
   return (
     <HorseFeed>
