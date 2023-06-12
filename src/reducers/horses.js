@@ -1,7 +1,38 @@
 /* eslint-disable max-len */
-// import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 // // import { MONGO_DB_URL } from '../utils/urls';
 
+const horseReducer = createSlice({
+  name: 'horseReducer',
+  initialState: {
+    items: [],
+    error: null,
+    username: null,
+    id: null
+  },
+  reducers: {
+    setItems: (store, action) => {
+      store.items = action.payload
+    },
+    setNewHorse: (store, action) => {
+      store.items.unshift(action.payload)
+    },
+    setDetailedHorse: (store, action) => {
+      store.items = action.payload
+    },
+    setError: (store, action) => {
+      store.error = action.payload
+    },
+    setUsername: (store, action) => {
+      store.username = action.payload
+    },
+    setId: (store, action) => {
+      store.id = action.payload
+    }
+  }
+});
+
+export default horseReducer
 // export const horse = createSlice({
 //   name: 'horse',
 //   initialState: {

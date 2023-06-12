@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaqAccordion, FaqPage, HFaq,  } from './FaqAccordion';
+import { FaqAccordion } from './FaqAccordion';
+import { FaqPage, HFaq } from './FaqStyling';
 // import Horseshoe from '../../../assets/horseshoe.svg'
 
 const Faq = () => {
