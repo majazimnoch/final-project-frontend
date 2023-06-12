@@ -1,4 +1,5 @@
 import React from 'react'
+import { RandomFacts } from 'components/ReusableComponents/RandomFacts'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Contact from './Contact'
@@ -13,6 +14,7 @@ const PublicMain = () => {
       <Faq />
       <Contact />
       <Login />
+      <RandomFacts />
     </>
   );
 };

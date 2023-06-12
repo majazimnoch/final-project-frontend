@@ -18,8 +18,8 @@ export const horse = createSlice({
     horseList: [],
     newHorse: null,
     deleteHorse: null,
-    deleteSquareFromHorse: null,
-    updateSquareInHorse: null
+    deleteCardFromHorse: null,
+    updateCardInHorse: null
   },
   reducers: {
     setHorseName: (store, action) => {
@@ -37,7 +37,7 @@ export const horse = createSlice({
     setCreatedAt: (store, action) => {
       store.createdAt = action.payload
     },
-    setSquares: (store, action) => {
+    setCards: (store, action) => {
       store.squares = action.payload
     },
     setError: (store, action) => {
@@ -65,11 +65,11 @@ export const horse = createSlice({
     setDeleteHorse: (store, action) => {
       store.deleteHorse = action.payload;
     },
-    setDeleteSquareFromHorse: (store, action) => {
-      store.deleteSquareFromHorse = action.payload;
+    setDeleteCardFromHorse: (store, action) => {
+      store.deleteCardFromHorse = action.payload;
     },
-    setUpdateSquareInHorse: (store, action) => {
-      store.updateSquareInHorse = action.payload;
+    setUpdateCardInHorse: (store, action) => {
+      store.updateCardInHorse = action.payload;
     }
   }
 });
@@ -161,7 +161,7 @@ export const postNewHorse = (value) => {
 };
 
 // Thunk making a PATCH-request to add a new square to the square array in a horse in the database
-export const patchHorseWithNewSquare = (horseId) => {
+export const patchHorseWithNewCard = (horseId) => {
   return (dispatch, getState) => {
     dispatch(horse.actions.setLoadingPost(true))
 
@@ -244,7 +244,7 @@ export const deleteHorse = (horseId) => {
 };
 
 // Thunk making a DELETE-request to delete a single square from a horse from the database
-export const deleteSingleSquare = (horseId, squareId) => {
+export const deleteSingleCard = (horseId, squareId) => {
   return (dispatch, getState) => {
     dispatch(horse.actions.setLoadingPost(true))
 
@@ -265,7 +265,7 @@ export const deleteSingleSquare = (horseId, squareId) => {
           dispatch(horse.actions.setError(null));
           const responseData = response.response.data;
           console.log('responseData:', responseData);
-          dispatch(horse.actions.setDeleteSquareFromHorse(squareId));
+          dispatch(horse.actions.setDeleteCardFromHorse(squareId));
         } else {
           dispatch(horse.actions.setError(response));
         }
@@ -283,7 +283,7 @@ export const deleteSingleSquare = (horseId, squareId) => {
 };
 
 // Thunk making a PATCH-request to update a single square in a horse from the database
-export const updateSingleSquare = (horseId, squareId, squareComment, squareStars) => {
+export const updateSingleCard = (horseId, squareId, squareComment, squareStars) => {
   return (dispatch, getState) => {
     dispatch(horse.actions.setLoadingPost(true))
 
@@ -304,7 +304,7 @@ export const updateSingleSquare = (horseId, squareId, squareComment, squareStars
           dispatch(horse.actions.setError(null));
           const responseData = response.response.data;
           console.log('responseData:', responseData);
-          dispatch(horse.actions.setUpdateSquareInHorse(responseData));
+          dispatch(horse.actions.setUpdateCardInHorse(responseData));
           dispatch(fetchHorses());
         } else {
           dispatch(horse.actions.setError(response));
