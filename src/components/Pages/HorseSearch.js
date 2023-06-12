@@ -5,13 +5,13 @@ import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
 import { Link } from 'react-router-dom';
 
-const SearchForUser = () => {
-  const [users, setUsers] = useState([])
-  const [searchedUsers, setSearchedUsers] = useState([])
+const SearchForHorses = () => {
+  const [horses, setHorses] = useState([])
+  const [searchedHorses, setSearchedHorses] = useState([])
 
   const accessToken = localStorage.getItem('accessToken')
 
-  // get-request to get all usernames
+  // get-request to get all horse names
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -20,15 +20,15 @@ const SearchForUser = () => {
         Authorization: accessToken
       }
     }
-    fetch(API_URL('users'), options)
+    fetch(API_URL('horses'), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setUsers(data.response)
+          setHorses(data.response)
         }
       })
-      .catch(((error) => {
-        console.error('Error:', error)
+      .catch(((e) => {
+        console.error('Error:', e)
       }))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -39,11 +39,11 @@ const SearchForUser = () => {
   // function to filter all users which names includes the searched word
   const handleSearchChange = (event) => {
     // eslint-disable-next-line max-len
-    const filteredUsers = users.filter((user) => user.username.toLowerCase().includes(event.target.value.toLowerCase()))
+    const filteredHorses = horses.filter((horse) => horse.username.toLowerCase().includes(event.target.value.toLowerCase()))
     if (event.target.value === '') {
-      setSearchedUsers('')
+      setSearchedHorses('')
     } else {
-      setSearchedUsers(filteredUsers)
+      setSearchedHorses(filteredHorses)
     }
   }
   const handleClick = () => {
@@ -52,28 +52,28 @@ const SearchForUser = () => {
 
   return (
     <>
-      <SearchForUserForm onSubmit={handleSubmit}>
-        <label>Search for user
+      <SearchForHorseForm onSubmit={handleSubmit}>
+        <label>Search for horse
           <input
             type="text"
-            placeholder="Search for user..."
+            placeholder="Search for horse by name.."
             onChange={handleSearchChange} />
           <button
             type="button">Click
           </button>
         </label>
-      </SearchForUserForm>
-      {searchedUsers.length !== 0 && (
-        <SearchResultsDiv>
-          {searchedUsers.map((singleUser) => <Link to={`/users/${singleUser._id}`} onClick={handleClick}>{singleUser.username}</Link>)}
-        </SearchResultsDiv>)}
+      </SearchForHorseForm>
+      {searchedHorses.length !== 0 && (
+        <SearchResDiv>
+          {searchedHorses.map((singleHorse) => <Link to={`/horses/${singleHorse._id}`} onClick={handleClick}>{singleHorse.username}</Link>)}
+        </SearchResDiv>)}
     </>
   )
 }
 
-export default SearchForUser;
+export default SearchForHorses;
 
-const SearchForUserForm = styled.form`
+const SearchForHorseForm = styled.form`
 
     label {
         display: flex;
@@ -101,7 +101,7 @@ const SearchForUserForm = styled.form`
 
 `
 
-const SearchResultsDiv = styled.div`
+const SearchResDiv = styled.div`
     margin-top: 5px;
     height: 200px;
     background-color: white;
