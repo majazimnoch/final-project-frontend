@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
-import { API_URL } from '../../utils/urls';
+import { API_URL, API_KEY } from '../../utils/urls';
 
 // const token = localStorage.getItem('token');
 
@@ -20,7 +20,10 @@ const Home = () => {
         console.log('login');
         fetch(API_URL('login'), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          // header for API-key needed here to authenticate that the frontend can talk to
+          // the backend. I commented out previous code and added the API_KEY
+          headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
+          // headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
         })
           .then((response) => response.json())

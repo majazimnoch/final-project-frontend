@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
-
+import { API_URL, API_KEY } from '../../utils/urls'
+// refactored a bit and added the API_KEY to connect the FE to the BE and then they are authorized
+// thanks to a middleware in the BE-repo - Folder: Middlewares, File: apikey-authentication
 export const RandomFacts = () => {
   const [data, setData] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/random-fact/');
+        // change the localhostlink to https://final-project-backend-q7mqhxeq3q-lz.a.run.app/random-fact/
+        // const response = await fetch('http://localhost:8080/random-fact/');
+        const response = await fetch(API_URL('random-facts'), {
+          method: 'GET',
+          headers: {
+            'x-api-key': API_KEY
+          }
+        });
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
