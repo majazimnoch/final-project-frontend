@@ -8,7 +8,9 @@ const LandingPage = () => {
     <PageContainer>
       <h1>Hello! Welcome to the inside of Horsey App!</h1>
       <h2>Do you want to go to the next page?</h2>
-      <Link to="/logout">Click to continue</Link>
+      <Link to="/logout">Click to continue to Logout</Link>
+      <Link to="/mypage">Click to continue to MyPage</Link>
+      <Link to="/userpage">Click to continue to UserPage</Link>
       {/* <ProfileButton type="button" onClick={handleLogout}>Logout</ProfileButton> */}
     </PageContainer>
   );
