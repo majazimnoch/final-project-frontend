@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import { StyledSpanContact } from 'components/BeforeLogin/Contact';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const api = {
   key: 'b17222dd46452704ba0397a0e2981f5f',
@@ -50,7 +49,7 @@ const WeatherBox = () => {
   return (
     <WeatherBoxContainer>
       <Weatherheader>
-        <Pinside bold><StyledSpanContact email>Check the weather before you go horse riding</StyledSpanContact></Pinside>
+        <Pinside bold><StyledSpanWeather test>Check the weather before you go horse riding</StyledSpanWeather></Pinside>
         {isLoading ? (
           <p>Fetching weather data...</p>
         ) : typeof weather.main !== 'undefined' ? (
@@ -142,4 +141,11 @@ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   outline: 0.5px solid var(--softPurple);
 }
 
+`;
+
+export const StyledSpanWeather = styled.span`
+padding: 3px;
+${(styling) => styling.test && css`
+background-color: var(--softPurple);`
+}
 `;
