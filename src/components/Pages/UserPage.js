@@ -2,7 +2,7 @@
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { API_URL } from 'utils/utils';
+import { API_URL } from 'utils/urls';
 
 const UserPage = () => {
   const [posts, setPosts] = useState([]);

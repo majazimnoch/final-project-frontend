@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
-import { API_URL } from 'utils/utils';
+import { API_URL } from 'utils/urls';
 import Input from './Input';
 // import InputTextArea from './InputTextArea';
 

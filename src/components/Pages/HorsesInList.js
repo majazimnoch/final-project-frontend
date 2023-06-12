@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, batch } from 'react-redux'
 import horseReducer from 'reducers/horses';
-import { API_URL } from 'utils/utils';
+import { API_URL } from 'utils/urls';
 import styled from 'styled-components';
 
 import HorseCard from './HorseCard';
