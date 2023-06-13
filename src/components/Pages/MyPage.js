@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from 'utils/urls';
+import { StyledLinkAdd } from 'components/BeforeLogin/WelcomePage';
 // import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
@@ -44,9 +45,8 @@ const MyPage = () => {
   return (
     <HorseyUser>
       <HeadlineDiv>
-        <div>
-          <h1>My Horses</h1>
-        </div>
+        <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+        <h1>My Horses</h1>
         <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
@@ -57,7 +57,11 @@ const MyPage = () => {
 export default MyPage;
 
 const HorseyUser = styled.div`
-  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 2rem 1rem;
 
   @media (min-width: 668px) {
     width: 95%;
@@ -69,4 +73,26 @@ const HorseyUser = styled.div`
 `;
 
 const HeadlineDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px red solid;
+
+  @media (min-width: 668px) {
+    width: 95%;
+  }
+
+  @media (min-width: 1024px) {
+  align-items: center;
+  border: 5px solid;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 2p;
+  }
+
 `;

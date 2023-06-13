@@ -32,10 +32,29 @@ const WelcomePage = () => {
 
 export default WelcomePage;
 
-const StyledLinkAdd = styled(Link)`
-  color: #007bff;
+export const StyledLinkAdd = styled(Link)`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   text-decoration: none;
-  font-weight: bold;
+  background-color: var(--softPurple);
+  color: var(--primaryWhite);
+  font-size: var(--fontSize);
+  border: 1.5px solid var(--softPurple);
+  border-radius: 30px;
+  height: 50px;
+  padding: 0 40px;
+
+  &:hover {
+    background-color: var(--lemon);
+    color: var(--primaryBlack);
+    padding: 0 40px;
+    height: 50px;
+    box-shadow: none!important;
+   
+  }
 `;
 
 const LinksBox = styled.div`
