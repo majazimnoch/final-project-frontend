@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector, batch } from 'react-redux'
 import horseReducer from 'reducers/horses';
 import styled from 'styled-components';
-import { API_URL } from 'utils/utils';
+import { API_URL } from 'utils/urls';
 import HorseCard from './HorseCard';
 
 const HorsesInFeed = () => {

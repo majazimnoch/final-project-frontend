@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect, useState } from 'react'
-import { API_URL } from 'utils/utils'
-import { useParams, Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react';
+import { API_URL } from 'utils/urls';
+import { useParams, Link } from 'react-router-dom';
+import styled from 'styled-components';
 import HorseDetails from './HorseDetails';
 
 const Horse = () => {
