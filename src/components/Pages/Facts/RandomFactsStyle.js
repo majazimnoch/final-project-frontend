@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const RandomFactsBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: solid 1rem red;
-    max-width: 50%;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px 30px 10px 30px;
+
  `;

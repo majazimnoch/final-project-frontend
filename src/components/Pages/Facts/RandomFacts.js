@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import { API_URL, API_KEY } from '../../../utils/urls';
 import { RandomFactsBox } from './RandomFactsStyle';
 // refactored a bit and added the API_KEY to connect the FE to the BE and then they are authorized
@@ -31,7 +32,8 @@ const RandomFacts = () => {
   return (
     <RandomFactsBox>
       {/* {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>} */}
-      {data ? <h1>{data.fact}</h1> : <p>Loading...</p>}
+      <Pinside bold> Did you know that..?</Pinside>
+      {data ? <Pinside>{data.fact}</Pinside> : <p>Loading...</p>}
     </RandomFactsBox>
   );
 }
