@@ -19,7 +19,7 @@ const Horse = () => {
         Authorization: accessToken
       }
     }
-    fetch(API_URL(`horses/${params.recipeId}`), options)
+    fetch(API_URL(`horses/${params.horseId}`), options)
       .then((res) => res.json())
       .then((data) => {
         setHorse(data.response)
@@ -27,7 +27,7 @@ const Horse = () => {
       .catch((error) => {
         console.error('Error:', error)
       })
-  }, [])
+  }, [accessToken, params.horseId])
 
   return (
     <HorseDiv>
@@ -48,7 +48,7 @@ const Horse = () => {
       ))}
     </HorseDiv>
   )
-}
+};
 
 export default Horse;
 

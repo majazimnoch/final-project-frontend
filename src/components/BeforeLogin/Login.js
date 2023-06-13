@@ -28,10 +28,6 @@ const Home = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               window.location.reload();
-              // window.location.href = '/profile-page'
-              // return (
-              //   <Startpage />
-              // ) Code from 1:1
             } else {
               alert('Login error!');
             }
