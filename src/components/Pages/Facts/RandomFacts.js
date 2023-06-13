@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY } from '../../../utils/urls';
 import { RandomFactsBox } from './RandomFactsStyle';
