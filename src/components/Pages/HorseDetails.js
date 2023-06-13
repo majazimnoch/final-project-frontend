@@ -59,6 +59,8 @@ const HorseDetails = ({ horseInfo }) => {
 export default HorseDetails;
 
 const MainHorseDiv = styled.div`
+display: flex;
+flex-direction: column;
 `
 const HorseInstructionsDiv = styled.div`
 `

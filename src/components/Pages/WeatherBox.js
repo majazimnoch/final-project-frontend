@@ -51,7 +51,7 @@ const WeatherBox = () => {
       <Weatherheader>
         <Pinside bold><StyledSpanWeather test>Check the weather before you go horse riding</StyledSpanWeather></Pinside>
         {isLoading ? (
-          <p>Fetching weather data...</p>
+          <Pinside>Fetching weather data...</Pinside>
         ) : typeof weather.main !== 'undefined' ? (
           <WeatherInfoBox>
             <Pinside uppercase>{weather.name}</Pinside>
@@ -129,7 +129,7 @@ height: 40px;
   padding: 0 1.5rem;
 }
 `
-const InputWeather = styled.input`
+export const InputWeather = styled.input`
 height: 3rem;
 padding: 0 1rem;
 border-radius: 10px;

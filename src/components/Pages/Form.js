@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
 import InputTextArea from './InputTextArea';
 
@@ -71,6 +73,7 @@ const Form = ({ setCollapsed }) => {
     setDescription(event.target.value)
   }
 
+  // eslint-disable-next-line no-unused-vars
   const closeForm = () => {
     setCollapsed(true)
   }
@@ -87,10 +90,10 @@ const Form = ({ setCollapsed }) => {
   return (
     <FormStyledDiv>
       <CreateHorseDiv>
-        <h1>Create horse</h1>
-        <button type="button" onClick={closeForm} />
+        <Pinside bold>Create a horse:</Pinside>
+        {/* <StyledButton type="button" onClick={closeForm}>Close </StyledButton> */}
       </CreateHorseDiv>
-      <form onSubmit={onSubmit}>
+      <FormAdd onSubmit={onSubmit}>
         <Input
           type="text"
           srOnly="Name of horse"
@@ -100,11 +103,11 @@ const Form = ({ setCollapsed }) => {
         <Input
           type="text"
           srOnly="Description"
-          placeholder="Say something about your horse"
+          placeholder="My horse lives in... "
           value={description}
           onChange={handleDescription} />
         <label>
-          Characteristics:
+          <Pinside>Characteristics:</Pinside>
           <InputTextArea
             srOnly="Characteristics"
             placeholder="Separate your horses characteristics with a comma"
@@ -112,7 +115,7 @@ const Form = ({ setCollapsed }) => {
             onChange={handleCharacteristics} />
         </label>
         <label>
-        Instructions:
+          <Pinside>Instructions:</Pinside>
           <InputTextArea
             srOnly="Instructions"
             placeholder="Separate the steps by using a line-break after each step"
@@ -120,9 +123,9 @@ const Form = ({ setCollapsed }) => {
             onChange={handleInstructions} />
         </label>
         <ButtonDiv>
-          <AddNewHorseButton type="submit">Add horse</AddNewHorseButton>
+          <StyledButton type="submit">Add horse</StyledButton>
         </ButtonDiv>
-      </form>
+      </FormAdd>
     </FormStyledDiv>
   )
 };
@@ -130,11 +133,20 @@ const Form = ({ setCollapsed }) => {
 export default Form;
 
 const FormStyledDiv = styled.div`
+display: flex;
+flex-direction: column;
+min-width: 200px;
 `;
 
 const CreateHorseDiv = styled.div`
 `;
 
+const FormAdd = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:2rem;
+`;
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;
@@ -142,7 +154,3 @@ const ButtonDiv = styled.div`
   width: 100%;
   `;
 
-const AddNewHorseButton = styled.button`
-   text-align: center;
-   padding: 10px;
-  `;

@@ -5,6 +5,8 @@ import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
+import SearchForUser from 'components/Pages/UserSearch';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from '../Pages/Facts/RandomFacts';
 
 const WelcomePage = () => {
@@ -20,13 +22,15 @@ const WelcomePage = () => {
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <RightColumn>
         <LinksBox>
-          <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd>
+          {/* <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd> */}
           <StyledLinkAdd to="/mypage">Add horses</StyledLinkAdd>
           <RandomFacts />
         </LinksBox>
-        <div>
+        <DivSearchLogout>
+          <Pinside>Looking for your friends horses? Type their name.</Pinside>
+          <SearchForUser />
           <Logout />
-        </div>
+        </DivSearchLogout>
       </RightColumn>
     </ProfileContainer>
   );
@@ -112,3 +116,8 @@ align-items: center;
 margin: 1rem 1.5rem 3rem 1.5rem;
 text-align: center;
 `;
+
+const DivSearchLogout = styled.div`
+display:flex;
+flex-direction: column;
+gap: 1rem;`

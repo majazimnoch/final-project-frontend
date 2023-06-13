@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import HorseCard from './HorseCard';
 import HorsesInList from './HorsesInList';
 import Form from './Form';
-import SearchForUser from './UserSearch';
 
 const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);
@@ -54,7 +53,6 @@ const MyPage = () => {
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
       <HorsesInList />
-      <SearchForUser />
     </HorseyUser>
   );
 };
@@ -67,13 +65,12 @@ const HorseyUser = styled.div`
   align-content: center;
   justify-content: center;
   margin: 2rem 1rem;
+ 
 
   @media (min-width: 668px) {
-    width: 95%;
   }
 
   @media (min-width: 1024px) {
-    width: 600px;
   }
 `;
 
@@ -84,20 +81,12 @@ const HeadlineDiv = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px red solid;
 
   @media (min-width: 668px) {
-    width: 95%;
+   
   }
 
   @media (min-width: 1024px) {
-  align-items: center;
-  border: 5px solid;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 2p;
   }
 
 `;

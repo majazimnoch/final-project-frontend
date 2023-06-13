@@ -53,14 +53,14 @@ const SearchForUser = () => {
   return (
     <>
       <SearchForUserForm onSubmit={handleSubmit}>
-        <label>Search for user
+        <label>
           <input
             type="text"
-            placeholder="Search for user..."
+            placeholder="Name..."
             onChange={handleSearchChange} />
           <button
             type="button"
-            onClick={handleClick}>Click
+            onClick={handleClick}>Search
           </button>
         </label>
       </SearchForUserForm>
@@ -95,9 +95,7 @@ const SearchForUserForm = styled.form`
     }
 
     @media (min-width: 1024px) {
-        position: absolute;
-        right: 2.5%;
-        top: 30px;
+        
     }
 
 `
