@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { API_URL } from 'utils/utils'
 import { useParams, Link } from 'react-router-dom'
 import styled from 'styled-components'
-// import HorseDetails from ''
+import HorseDetails from './HorseDetails';
 
 const Horse = () => {
   const [horse, setHorse] = useState([])
@@ -43,7 +43,7 @@ const Horse = () => {
               hour12: false })}`}
             </p>
           </UserInfoDiv>
-          {/* <HorseDetails horseInfo={[horseInfo.horse]} /> */}
+          <HorseDetails horseInfo={[horseInfo.horse]} />
         </HorseInfoContainer>
       ))}
     </HorseDiv>

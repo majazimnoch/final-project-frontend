@@ -37,7 +37,7 @@ const HorseFeed = () => {
         setPixelWidthReached(true);
       }
       return () => media.removeEventListener('change', updateWidth);
-    }, []);
+    }, [updateWidth, width]);
 
     return pixelWidthReached;
   };
@@ -51,7 +51,7 @@ const HorseFeed = () => {
         <FeedSection>
           <ButtonContainer>
             <button type="button" onClick={toggle}>
-              <img src={AddIcon} alt="Add" />
+              {/* <img src={AddIcon} alt="Add" /> */}
               <p>add new horse</p>
             </button>
             {!collapsed && <Form collapsed={collapsed} setCollapsed={setCollapsed} />}
@@ -64,7 +64,7 @@ const HorseFeed = () => {
           <div>
             <ButtonContainer>
               <button type="button" onClick={toggle}>
-                <img src={AddIcon} alt="Add" />
+                {/* <img src={AddIcon} alt="Add" /> */}
                 <p>add new horse</p>
               </button>
               {!collapsed && <Form collapsed={collapsed} setCollapsed={setCollapsed} />}
@@ -78,7 +78,7 @@ const HorseFeed = () => {
           <div>
             <ButtonContainer>
               <button type="button" onClick={toggle}>
-                <img src={AddIcon} alt="Add" />
+                {/* <img src={AddIcon} alt="Add" /> */}
                 <p>add new horse</p>
               </button>
               {!collapsed && <Form collapsed={collapsed} setCollapsed={setCollapsed} />}

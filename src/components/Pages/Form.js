@@ -6,14 +6,14 @@ import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
 import Input from './Input';
-// import InputTextArea from './InputTextArea';
+import InputTextArea from './InputTextArea';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
-  // const [ingredients, setIngredients] = useState([])
+  const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
   const dispatch = useDispatch();
-  // const [instructions, setInstructions] = useState([])
+  const [instructions, setInstructions] = useState([])
   // const [rating, setRating] = useState(0)
   // const [tags, setTags] = useState({})
 
@@ -30,9 +30,9 @@ const Form = ({ setCollapsed }) => {
       body: JSON.stringify({
         recipe: {
           name: horseName,
-          description
-          // ingredients,
-          // instructions,
+          description,
+          characteristics,
+          instructions
           // userRating: rating,
           // tags: convertTagsToArray(tags)
         }
@@ -57,6 +57,14 @@ const Form = ({ setCollapsed }) => {
 
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
+  }
+
+  const handleCharacteristics = (event) => {
+    setCharacteristics(event.target.value)
+  }
+
+  const handleInstructions = (event) => {
+    setInstructions(event.target.value)
   }
 
   const handleDescription = (event) => {
@@ -95,6 +103,22 @@ const Form = ({ setCollapsed }) => {
           placeholder="Say something about your horse"
           value={description}
           onChange={handleDescription} />
+        <label>
+          Characteristics:
+          <InputTextArea
+            srOnly="Ingredients"
+            placeholder="Separate your horses characteristics with a comma"
+            value={characteristics}
+            onChange={handleCharacteristics} />
+        </label>
+        <label>
+        Instructions:
+          <InputTextArea
+            srOnly="Instructions"
+            placeholder="Separate the steps by using a line-break after each step"
+            value={instructions}
+            onChange={handleInstructions} />
+        </label>
         <ButtonDiv>
           <AddNewHorseButton type="submit">Add horse</AddNewHorseButton>
         </ButtonDiv>

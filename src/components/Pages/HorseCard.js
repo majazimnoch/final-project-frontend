@@ -70,12 +70,17 @@ const HorseCard = ({ horseList }) => {
 
 export default HorseCard;
 
-const HorseList = styled.div``;
+const HorseList = styled.div`
+`;
 
-const HorseContainer = styled.div``;
+const HorseContainer = styled.div`
+`;
 
-const SmallInfo = styled.section``;
+const SmallInfo = styled.section`
+`;
 
-const DescriptionDiv = styled.div``;
+const DescriptionDiv = styled.div`
+`;
 
-const DeleteContainer = styled.div``;
+const DeleteContainer = styled.div`
+`;
