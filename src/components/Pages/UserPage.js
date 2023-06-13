@@ -8,7 +8,7 @@ import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 const UserPage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('token');
   const params = useParams();
   // const navigate = useNavigate();
 

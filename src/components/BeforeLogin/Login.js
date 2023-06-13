@@ -7,12 +7,13 @@ import { API_URL } from '../../utils/urls';
 
 // const token = localStorage.getItem('token');
 
-const Home = () => {
-  const [token] = useState(() => localStorage.getItem('token'));
+const Login = () => {
+  const [token, setToken] = useState(() => localStorage.getItem('token'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
@@ -27,11 +28,7 @@ const Home = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
-              window.location.reload();
-              // window.location.href = '/profile-page'
-              // return (
-              //   <Startpage />
-              // ) Code from 1:1
+              setToken(data.response.accessToken);
             } else {
               alert('Login error!');
             }
@@ -49,7 +46,7 @@ const Home = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
-              window.location.reload();
+              setToken(data.response.accessToken);
             } else {
               alert('Registration error!');
             }
@@ -70,7 +67,6 @@ const Home = () => {
   //   navigate('/startpage', { replace: true });
   // }
 
-  const navigate = useNavigate();
   useEffect(() => {
     if (token) {
       navigate('/welcomepage', { replace: true });
@@ -128,7 +124,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;
 
 const StyledPlayfulHorse = styled.img`
   height: 100px;

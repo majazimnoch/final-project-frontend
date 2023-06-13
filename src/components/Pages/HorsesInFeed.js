@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, batch } from 'react-redux'
 import horseReducer from 'reducers/horses';
-import { API_URL } from 'utils/urls';
 import styled from 'styled-components';
-
+import { API_URL } from 'utils/urls';
 import HorseCard from './HorseCard';
 
 const HorsesInFeed = () => {
@@ -12,7 +11,7 @@ const HorsesInFeed = () => {
   const dispatch = useDispatch()
   const horseList = useSelector((store) => store.horses.items)
 
-  // Fetch all horses for list
+  // Fetch all horses for feed
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -39,7 +38,7 @@ const HorsesInFeed = () => {
       .catch(((e) => {
         console.error('Error:', e)
       }))
-  })
+  }, [accessToken, dispatch])
 
   return (
     <HorseFeed>
@@ -47,7 +46,7 @@ const HorsesInFeed = () => {
     </HorseFeed>
   )
 }
-export default HorsesInFeed
+export default HorsesInFeed;
 
 const HorseFeed = styled.div`
  `;

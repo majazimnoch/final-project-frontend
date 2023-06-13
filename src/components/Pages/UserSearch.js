@@ -9,7 +9,7 @@ const SearchForUser = () => {
   const [users, setUsers] = useState([])
   const [searchedUsers, setSearchedUsers] = useState([])
 
-  const accessToken = localStorage.getItem('accessToken')
+  const accessToken = localStorage.getItem('token')
 
   // get-request to get all usernames
   useEffect(() => {
@@ -59,7 +59,8 @@ const SearchForUser = () => {
             placeholder="Search for user..."
             onChange={handleSearchChange} />
           <button
-            type="button">Click
+            type="button"
+            onClick={handleClick}>Click
           </button>
         </label>
       </SearchForUserForm>

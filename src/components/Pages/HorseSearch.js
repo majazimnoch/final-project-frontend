@@ -9,7 +9,7 @@ const SearchForHorses = () => {
   const [horses, setHorses] = useState([])
   const [searchedHorses, setSearchedHorses] = useState([])
 
-  const accessToken = localStorage.getItem('accessToken')
+  const accessToken = localStorage.getItem('token')
 
   // get-request to get all horse names
   useEffect(() => {
