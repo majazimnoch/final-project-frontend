@@ -5,7 +5,7 @@ import { RandomFactsBox } from './RandomFactsStyle';
 // refactored a bit and added the API_KEY to connect the FE to the BE and then they are authorized
 // thanks to a middleware in the BE-repo - Folder: Middlewares, File: apikey-authentication
 
-export const RandomFacts = () => {
+const RandomFacts = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -35,3 +35,5 @@ export const RandomFacts = () => {
     </RandomFactsBox>
   );
 }
+
+export default RandomFacts;
