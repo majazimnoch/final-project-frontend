@@ -17,7 +17,7 @@ const Form = ({ setCollapsed }) => {
   // const [rating, setRating] = useState(0)
   // const [tags, setTags] = useState({})
 
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('token');
 
   // Submitting new horse
   const onSubmit = () => {

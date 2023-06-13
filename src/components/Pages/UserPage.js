@@ -7,7 +7,7 @@ import { API_URL } from 'utils/urls';
 const UserPage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('token');
   const params = useParams();
   // const navigate = useNavigate();
 

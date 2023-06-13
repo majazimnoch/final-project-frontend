@@ -8,11 +8,12 @@ import { API_URL } from '../../utils/urls';
 // const token = localStorage.getItem('token');
 
 const Login = () => {
-  const [token] = useState(() => localStorage.getItem('token'));
+  const [token, setToken] = useState(() => localStorage.getItem('token'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleFormSubmit = (event, state) => {
     switch (state) {
@@ -27,7 +28,7 @@ const Login = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
-              window.location.reload();
+              setToken(data.response.accessToken);
             } else {
               alert('Login error!');
             }
@@ -45,7 +46,7 @@ const Login = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
-              window.location.reload();
+              setToken(data.response.accessToken);
             } else {
               alert('Registration error!');
             }
@@ -66,7 +67,6 @@ const Login = () => {
   //   navigate('/startpage', { replace: true });
   // }
 
-  const navigate = useNavigate();
   useEffect(() => {
     if (token) {
       navigate('/welcomepage', { replace: true });

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from 'utils/urls';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
 import HorsesInList from './HorsesInList';
@@ -9,16 +9,16 @@ import SearchForUser from './UserSearch';
 
 const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate('/');
-  //   }
-  // }, [accessToken, navigate]);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/');
+    }
+  }, [accessToken, navigate]);
 
   // fetch the user's posts
   useEffect(() => {

@@ -7,7 +7,7 @@ import { API_URL } from 'utils/urls';
 
 const HorseCard = ({ horseList }) => {
   const userId = localStorage.getItem('userId');
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('token');
 
   const onDeleteClick = async (horseid) => {
     const options = {

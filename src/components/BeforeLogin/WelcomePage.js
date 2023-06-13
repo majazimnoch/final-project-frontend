@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
+import UserPage from 'components/Pages/UserPage';
 
 const WelcomePage = () => {
   return (
@@ -13,12 +14,17 @@ const WelcomePage = () => {
         <WeatherBox />
       </LeftColumn>
       <MiddleColumn>
-        <p>sdsf</p>
+        <UserPage />
       </MiddleColumn>
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <RightColumn>
-        <Logout />
-        <Link to="/landingpage">Click to continue</Link>
+        <LinksBox>
+          <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd>
+          <StyledLinkAdd to="/mypage">Add horses</StyledLinkAdd>
+        </LinksBox>
+        <div>
+          <Logout />
+        </div>
       </RightColumn>
     </ProfileContainer>
   );
@@ -26,6 +32,18 @@ const WelcomePage = () => {
 
 export default WelcomePage;
 
+const StyledLinkAdd = styled(Link)`
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+`;
+
+const LinksBox = styled.div`
+display: flex;
+flex-direction: column;
+gap: 3rem;
+margin-top: 1rem;
+`
 const ProfileContainer = styled.div`
 background-color: var(--primaryWhite);
 color: var(--primaryBlack);
@@ -68,8 +86,8 @@ grid-area: 1 / 4 / 2 / 5;
 background-color: var(--primaryWhite);
 display: flex;
 flex-direction: column;
-justify-content: flex-start;
+justify-content: space-between;
 align-items: center;
-margin: 1rem 1.5rem;
+margin: 1rem 1.5rem 3rem 1.5rem;
 text-align: center;
-`
+`;
