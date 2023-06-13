@@ -5,6 +5,7 @@ import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
+import RandomFacts from '../Pages/Facts/RandomFacts';
 
 const WelcomePage = () => {
   return (
@@ -14,6 +15,7 @@ const WelcomePage = () => {
         <WeatherBox />
       </LeftColumn>
       <MiddleColumn>
+        <RandomFacts />
         <UserPage />
       </MiddleColumn>
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
