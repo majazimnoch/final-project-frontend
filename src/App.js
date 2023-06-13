@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import horseReducer from 'reducers/horses';
+import loadingReducer from 'reducers/loading';
 import { Route, Routes } from 'react-router-dom';
 import PublicMain from 'components/BeforeLogin/PublicMain';
 import MyPage from 'components/Pages/MyPage';
@@ -12,7 +13,7 @@ import Logout from './components/Pages/Logout';
 import NotFound from './components/Pages/NotFound';
 
 export const App = () => {
-  const reducer = combineReducers({ horses: horseReducer.reducer })
+  const reducer = combineReducers({ horses: horseReducer.reducer, loading: loadingReducer.reducer })
   const store = configureStore({ reducer })
 
   return (
