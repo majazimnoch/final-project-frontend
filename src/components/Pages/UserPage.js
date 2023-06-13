@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 
 const UserPage = () => {
   const [posts, setPosts] = useState([]);
@@ -44,9 +45,10 @@ const UserPage = () => {
   return (
     <HorseFeed>
       <HeadlineDiv>
-        <div>
-          <h1>{username}&apos;s horses</h1>
-        </div>
+        <ContainerHorsesText>
+          <Pinside uppercase><span>Your horse collection</span></Pinside>
+          <h4>{username}&apos;s horses</h4>
+        </ContainerHorsesText>
       </HeadlineDiv>
       {posts.length > 0 && (
         <HorseList>
@@ -80,6 +82,10 @@ const UserPage = () => {
 };
 
 export default UserPage;
+
+const ContainerHorsesText = styled.div`
+margin: 2rem;
+`
 
 const HorseFeed = styled.div`
 `;
