@@ -106,7 +106,7 @@ const Form = ({ setCollapsed }) => {
         <label>
           Characteristics:
           <InputTextArea
-            srOnly="Ingredients"
+            srOnly="Characteristics"
             placeholder="Separate your horses characteristics with a comma"
             value={characteristics}
             onChange={handleCharacteristics} />
