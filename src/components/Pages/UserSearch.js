@@ -59,7 +59,8 @@ const SearchForUser = () => {
             placeholder="Search for user..."
             onChange={handleSearchChange} />
           <button
-            type="button">Click
+            type="button"
+            onClick={handleClick}>Click
           </button>
         </label>
       </SearchForUserForm>

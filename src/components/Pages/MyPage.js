@@ -3,7 +3,9 @@ import { API_URL } from 'utils/urls';
 // import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
+import HorsesInList from './HorsesInList';
 import Form from './Form';
+import SearchForUser from './UserSearch';
 
 const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);
@@ -50,6 +52,8 @@ const MyPage = () => {
         <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
+      <HorsesInList />
+      <SearchForUser />
     </HorseyUser>
   );
 };
