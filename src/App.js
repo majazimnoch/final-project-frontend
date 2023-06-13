@@ -9,6 +9,8 @@ import MyPage from 'components/Pages/MyPage';
 import UserPage from 'components/Pages/UserPage';
 import WelcomePage from './components/BeforeLogin/WelcomePage';
 import LandingPage from './components/Pages/LandingPage';
+import HorseFeed from './components/Pages/HorseFeed';
+import Horse from './components/Pages/Horse';
 import Logout from './components/Pages/Logout';
 import NotFound from './components/Pages/NotFound';
 
@@ -24,6 +26,8 @@ export const App = () => {
         <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/userpage" element={<UserPage />} />
+        <Route path="/horsefeed" element={<HorseFeed />} />
+        <Route path="/horse" element={<Horse />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
