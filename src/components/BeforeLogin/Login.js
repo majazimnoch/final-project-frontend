@@ -7,7 +7,7 @@ import { API_URL } from '../../utils/urls';
 
 // const token = localStorage.getItem('token');
 
-const Home = () => {
+const Login = () => {
   const [token] = useState(() => localStorage.getItem('token'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
   const [name, setName] = useState('');
@@ -124,7 +124,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;
 
 const StyledPlayfulHorse = styled.img`
   height: 100px;
