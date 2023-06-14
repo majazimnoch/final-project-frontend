@@ -1,11 +1,11 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Player } from '@lottiefiles/react-lottie-player';
 import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
 import { API_URL } from '../../utils/urls';
-
-// const token = localStorage.getItem('token');
 
 const Login = () => {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
@@ -14,8 +14,12 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleFormSubmit = (event, state) => {
+    setShowAnimation(true);
+
     switch (state) {
       case 'login':
         console.log('login');
@@ -29,6 +33,7 @@ const Login = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
+              setIsLoggedIn(true); // Set isLoggedIn to true
             } else {
               alert('Login error!');
             }
@@ -47,6 +52,7 @@ const Login = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
+              setIsLoggedIn(true); // Set isLoggedIn to true
             } else {
               alert('Registration error!');
             }
@@ -59,64 +65,75 @@ const Login = () => {
     }
   };
 
-  // const handleLoginOrRegister = () => (loginOrRegister === 'login'
-  //   ? setLoginOrRegister('register')
-  //   : setLoginOrRegister('login'));
-
-  // const approvedToken = () => {
-  //   navigate('/startpage', { replace: true });
-  // }
-
   useEffect(() => {
     if (token) {
       navigate('/welcomepage', { replace: true });
     }
   }, [token, navigate]);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      const timeout = setTimeout(() => {
+        setIsLoggedIn(false);
+        localStorage.removeItem('token');
+      }, 2000); // 2 seconds in milliseconds
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoggedIn]);
+
   return (
     <LoginWrapper id="home">
       <LeftLogin>
         <TextLoginBox>
           <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
-          <h2>Giddy up and get ready for the horse ride of your life!</h2>
-          <p>Horsey app helps you track your progress,
-            set goals, and stay motivated. Hurry up and join us.
-          </p>
+          <h2>Saddle up for digital horsekeeping perfection with our Horsey app! </h2>
+          <p>Track, manage, and stay in sync with your equine companions effortlessly. Join us now!</p>
         </TextLoginBox>
       </LeftLogin>
-      {/* {token && <Startpage API_URL={API_URL} />} */}
       <RightLogin>
-        {loginOrRegister === 'login' ? (
+        {showAnimation && (
+          <Player
+            autoplay
+            loop
+            src="https://assets3.lottiefiles.com/packages/lf20_9cv14lsd.json"
+            style={{ height: '300px', width: '300px' }} />
+        )}
+        {showAnimation ? null : (
           <>
-            <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
-            <p>Log in and keep track of your horses!</p>
-          </>
-        ) : (
-          <>
-            <WelcomeHeader>New user? Welcome!</WelcomeHeader>
-            <p>Create a user account in 5 seconds!</p>
+            {loginOrRegister === 'login' ? (
+              <>
+                <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
+                <p>Log in and keep track of your horses!</p>
+              </>
+            ) : (
+              <>
+                <WelcomeHeader>New user? Welcome!</WelcomeHeader>
+                <p>Create a user account in 5 seconds!</p>
+              </>
+            )}
+            <LoginRegister
+              state={loginOrRegister}
+              name={name}
+              setName={setName}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              handleFormSubmit={handleFormSubmit} />
           </>
         )}
-        <LoginRegister
-          state={loginOrRegister}
-          name={name}
-          setName={setName}
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          handleFormSubmit={handleFormSubmit} />
-        {loginOrRegister === 'login' ? (
+        {showAnimation ? null : (
           <PSwitchaccount>
-            <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
-              I do not have an account yet
-            </a>
-          </PSwitchaccount>
-        ) : (
-          <PSwitchaccount>
-            <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
-              I already have an account
-            </a>
+            {loginOrRegister === 'login' ? (
+              <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
+        I do not have an account yet
+              </a>
+            ) : (
+              <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
+        I already have an account
+              </a>
+            )}
           </PSwitchaccount>
         )}
       </RightLogin>

@@ -25,7 +25,7 @@ const Contact = () => {
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebookF} className="faicon-styling" />
               </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/horseyapp/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faInstagram} className="faicon-styling" />
               </a>
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
@@ -51,7 +51,7 @@ const Contact = () => {
           <AuthorTitleBox>
             <StyledName>Ylva</StyledName>
             <StyledLine />
-            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+            <StyledEmail>ylva_87@hotmail.com</StyledEmail>
           </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
@@ -59,7 +59,7 @@ const Contact = () => {
           <AuthorTitleBox>
             <StyledName>Maja</StyledName>
             <StyledLine />
-            <StyledEmail>sandra@loremipsum.com</StyledEmail>
+            <StyledEmail>majamzimnoch@gmail.com</StyledEmail>
           </AuthorTitleBox>
         </FlexSection>
       </FlexContacts>
