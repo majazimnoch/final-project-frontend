@@ -12,10 +12,8 @@ const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
   const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
-  const dispatch = useDispatch();
   const [instructions, setInstructions] = useState([])
-  // const [rating, setRating] = useState(0)
-  // const [tags, setTags] = useState({})
+  const dispatch = useDispatch();
 
   const accessToken = localStorage.getItem('token');
 
@@ -28,13 +26,11 @@ const Form = ({ setCollapsed }) => {
         Authorization: accessToken
       },
       body: JSON.stringify({
-        recipe: {
+        horse: {
           name: horseName,
           description,
           characteristics,
           instructions
-          // userRating: rating,
-          // tags: convertTagsToArray(tags)
         }
       })
     }
