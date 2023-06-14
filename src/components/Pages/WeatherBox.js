@@ -55,8 +55,8 @@ const WeatherBox = () => {
           <Player
             autoplay
             loop
-            src="https://assets3.lottiefiles.com/packages/lf20_u3lnfw4q.json"
-            style={{ height: '150px', width: '150px' }}
+            src="https://assets3.lottiefiles.com/packages/lf20_rwq6ciql.json"
+            style={{ height: '90px', width: '90px' }}
             animationSettings={{
               loop: 2, // Adjust the number of loops as needed
               autoplay: true,
