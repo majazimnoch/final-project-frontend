@@ -5,8 +5,9 @@ import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import rideruser from '../../assets/horse-rider-icon.svg';
 
 const UserBox = () => {
-  const [token] = useState(() => localStorage.getItem('token'));
-  console.log('Profile', token);
+  // const [token] = useState(() => localStorage.getItem('token'));
+  const accessToken = localStorage.getItem('token');
+  console.log('Profile', accessToken);
   const [responseData, setResponseData] = useState({});
 
   const fetchProfile = () => {
@@ -14,7 +15,7 @@ const UserBox = () => {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
-        Authorization: token
+        Authorization: accessToken
       }
     })
       .then((response) => response.json())
