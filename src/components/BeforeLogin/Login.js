@@ -5,10 +5,9 @@ import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
 import { API_URL } from '../../utils/urls';
 
-// const token = localStorage.getItem('token');
-
 const Login = () => {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
+  const [userId, setuserId] = useState(() => localStorage.getItem('userId'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -30,6 +29,7 @@ const Login = () => {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
               localStorage.setItem('userId', data.response.id);
+              setuserId(data.response.id)
             } else {
               alert('Login error!');
             }
@@ -49,7 +49,7 @@ const Login = () => {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
               localStorage.setItem('userId', data.response.id);
-              localStorage.setItem('username', data.response.username);
+              // localStorage.setItem('username', data.response.username);
             } else {
               alert('Registration error!');
             }
@@ -71,10 +71,10 @@ const Login = () => {
   // }
 
   useEffect(() => {
-    if (token) {
+    if (token && userId) {
       navigate('/welcomepage', { replace: true });
     }
-  }, [token, navigate]);
+  }, [token, userId, navigate]);
 
   return (
     <LoginWrapper id="home">
