@@ -78,14 +78,16 @@ grid-template-rows: 1fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 min-height: 100vh;
+border: 2px red solid;
 
 h1 {
   font-size: 3rem;
   text-align: center;
 }
 
-@media (max-width: 1024px) {
-
+@media (max-width: 1023px) {
+  display: flex;
+  flex-direction: column;
   h1 {
     font-size: 2.5rem;
   }
