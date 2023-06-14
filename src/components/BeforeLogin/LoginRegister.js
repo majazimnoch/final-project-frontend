@@ -5,9 +5,9 @@ import { StyledButton } from './ButtonStyling';
 // import Button from './Button';
 
 // eslint-disable-next-line max-len
-const LoginRegister = ({ state, name, setName, email, setEmail, password, setPassword, handleFormSubmit }) => {
+const LoginRegister = ({ state, username, setUsername, email, setEmail, password, setPassword, handleFormSubmit }) => {
   const handleNameChange = (event) => {
-    setName(event.target.value)
+    setUsername(event.target.value)
   }
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -27,8 +27,8 @@ const LoginRegister = ({ state, name, setName, email, setEmail, password, setPas
         {state === 'register' && (
           <StyledInput
             type="text"
-            name="name"
-            value={name}
+            username="username"
+            value={username}
             placeholder="Enter your name"
             onChange={handleNameChange} />
         )}
