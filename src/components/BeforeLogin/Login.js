@@ -30,7 +30,6 @@ const Login = () => {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
               localStorage.setItem('userId', data.response.id);
-              localStorage.setItem('username', data.response.username);
             } else {
               alert('Login error!');
             }
