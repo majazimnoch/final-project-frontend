@@ -7,9 +7,9 @@ import { API_URL } from '../../utils/urls';
 
 const Login = () => {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
-  const [userId, setuserId] = useState(() => localStorage.getItem('userId'));
+  // const [userId, setuserId] = useState(() => localStorage.getItem('userId'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -28,8 +28,8 @@ const Login = () => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
-              localStorage.setItem('userId', data.response.id);
-              setuserId(data.response.id)
+              // localStorage.setItem('userId', data.response.id);
+              // setuserId(data.response.id)
             } else {
               alert('Login error!');
             }
@@ -41,15 +41,14 @@ const Login = () => {
         fetch(API_URL('register'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, email, password })
+          body: JSON.stringify({ name, email, password })
         })
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
               setToken(data.response.accessToken);
-              localStorage.setItem('userId', data.response.id);
-              // localStorage.setItem('username', data.response.username);
+              // localStorage.setItem('userId', data.response.id);
             } else {
               alert('Registration error!');
             }
@@ -70,11 +69,17 @@ const Login = () => {
   //   navigate('/startpage', { replace: true });
   // }
 
+  // useEffect(() => {
+  //   if (token && userId) {
+  //     navigate('/welcomepage', { replace: true });
+  //   }
+  // }, [token, userId, navigate]);
+
   useEffect(() => {
-    if (token && userId) {
+    if (token) {
       navigate('/welcomepage', { replace: true });
     }
-  }, [token, userId, navigate]);
+  }, [token, navigate]);
 
   return (
     <LoginWrapper id="home">
@@ -102,8 +107,8 @@ const Login = () => {
         )}
         <LoginRegister
           state={loginOrRegister}
-          username={username}
-          setUsername={setUsername}
+          name={name}
+          setName={setName}
           email={email}
           setEmail={setEmail}
           password={password}
