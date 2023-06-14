@@ -70,7 +70,7 @@ const SearchForUser = () => {
         </SearchResultsDiv>)}
     </>
   )
-}
+};
 
 export default SearchForUser;
 

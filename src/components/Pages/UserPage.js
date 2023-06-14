@@ -33,7 +33,7 @@ const UserPage = () => {
   fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
     .then((response) => response.json())
     .then((data) => {
-      setUsername(data.user.username);
+      setUsername(data.user.username || data.response.username);
       setPosts(data.response.reverse());
     })
     .catch((e) => {
