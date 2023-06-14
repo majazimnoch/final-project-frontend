@@ -33,7 +33,7 @@ const UserBox = () => {
       <HiUserBox>
         {responseData.user && (
           <Pinside>
-        Hi {responseData.user.name}, {responseData.secret}
+        Hi {responseData.user.username}, {responseData.secret}
           </Pinside>
         )}
       </HiUserBox>
