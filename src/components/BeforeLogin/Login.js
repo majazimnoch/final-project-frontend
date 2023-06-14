@@ -10,7 +10,7 @@ import { API_URL } from '../../utils/urls';
 const Login = () => {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
   const [loginOrRegister, setLoginOrRegister] = useState('login');
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const Login = () => {
         fetch(API_URL('register'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password })
+          body: JSON.stringify({ username, email, password })
         })
           .then((response) => response.json())
           .then((data) => {
@@ -99,8 +99,8 @@ const Login = () => {
         )}
         <LoginRegister
           state={loginOrRegister}
-          name={name}
-          setName={setName}
+          username={username}
+          setUsername={setUsername}
           email={email}
           setEmail={setEmail}
           password={password}
