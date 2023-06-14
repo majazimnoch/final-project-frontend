@@ -27,7 +27,7 @@ const LoginRegister = ({ state, username, setUsername, email, setEmail, password
         {state === 'register' && (
           <StyledInput
             type="text"
-            username="username"
+            name="name"
             value={username}
             placeholder="Enter your name"
             onChange={handleNameChange} />
