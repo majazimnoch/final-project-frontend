@@ -6,15 +6,11 @@ import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
-import InputTextArea from './InputTextArea';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
-  const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
-  const [instructions, setInstructions] = useState([])
   const dispatch = useDispatch();
 
   // added useEffect below since our horses rerenders all the time and never stops in
@@ -38,9 +34,8 @@ const Form = ({ setCollapsed }) => {
       body: JSON.stringify({
         horse: {
           name: horseName,
-          description,
-          characteristics,
-          instructions
+          description
+
         }
       })
     }
@@ -55,14 +50,6 @@ const Form = ({ setCollapsed }) => {
     setHorseName(event.target.value)
   }
 
-  const handleCharacteristics = (event) => {
-    setCharacteristics(event.target.value)
-  }
-
-  const handleInstructions = (event) => {
-    setInstructions(event.target.value)
-  }
-
   const handleDescription = (event) => {
     setDescription(event.target.value)
   }
@@ -75,8 +62,7 @@ const Form = ({ setCollapsed }) => {
   return (
     <FormStyledDiv>
       <CreateHorseDiv>
-        <h1>Create horse</h1>
-        <button type="button" onClick={closeForm} />
+        <h1>Create a horse</h1>
       </CreateHorseDiv>
       <FormAdd onSubmit={(e) => onSubmit(e)}>
         <Input
@@ -88,27 +74,11 @@ const Form = ({ setCollapsed }) => {
         <Input
           type="text"
           srOnly="Description"
-          placeholder="My horse lives in... "
+          placeholder="Fact about my horse... "
           value={description}
           onChange={handleDescription} />
-        <label>
-          <Pinside>Characteristics:</Pinside>
-          <InputTextArea
-            srOnly="Characteristics"
-            placeholder="Separate your horses characteristics with a comma"
-            value={characteristics}
-            onChange={handleCharacteristics} />
-        </label>
-        <label>
-          <Pinside>Instructions:</Pinside>
-          <InputTextArea
-            srOnly="Instructions"
-            placeholder="Separate the steps by using a line-break after each step"
-            value={instructions}
-            onChange={handleInstructions} />
-        </label>
         <ButtonDiv>
-          <StyledButton type="submit">Add horse</StyledButton>
+          <StyledButton type="submit">Add a horse</StyledButton>
         </ButtonDiv>
       </FormAdd>
     </FormStyledDiv>
