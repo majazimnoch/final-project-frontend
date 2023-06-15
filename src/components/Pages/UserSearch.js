@@ -53,14 +53,14 @@ const SearchForUser = () => {
   return (
     <>
       <SearchForUserForm onSubmit={handleSubmit}>
-        <label>Search for user
+        <label>
           <input
             type="text"
-            placeholder="Search for user..."
+            placeholder="Name..."
             onChange={handleSearchChange} />
           <button
             type="button"
-            onClick={handleClick}>Click
+            onClick={handleClick}>Search
           </button>
         </label>
       </SearchForUserForm>

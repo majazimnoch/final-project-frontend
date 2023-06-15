@@ -3,6 +3,7 @@
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const api = {
   key: 'b17222dd46452704ba0397a0e2981f5f',
@@ -51,7 +52,18 @@ const WeatherBox = () => {
       <Weatherheader>
         <Pinside bold><StyledSpanWeather test>Check the weather before you go horse riding</StyledSpanWeather></Pinside>
         {isLoading ? (
-          <p>Fetching weather data...</p>
+          <Player
+            autoplay
+            loop
+            src="https://assets3.lottiefiles.com/packages/lf20_rwq6ciql.json"
+            style={{ height: '90px', width: '90px' }}
+            animationSettings={{
+              loop: 2, // Adjust the number of loops as needed
+              autoplay: true,
+              rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice'
+              }
+            }} />
         ) : typeof weather.main !== 'undefined' ? (
           <WeatherInfoBox>
             <Pinside uppercase>{weather.name}</Pinside>
@@ -129,7 +141,7 @@ height: 40px;
   padding: 0 1.5rem;
 }
 `
-const InputWeather = styled.input`
+export const InputWeather = styled.input`
 height: 3rem;
 padding: 0 1rem;
 border-radius: 10px;
