@@ -14,7 +14,7 @@ const RandomFacts = () => {
         // when deploying REMEMBER to add this regarding the API to env.
         // variables to make it work other than locally!!!!
         // const response = await fetch(API_URL('random-facts'), {
-        const response = await fetch('http://localhost:8080/random-fact/', {
+        const response = await fetch(API_URL('random-fact'), {
           method: 'GET',
           headers: {
             'x-api-key': API_KEY
