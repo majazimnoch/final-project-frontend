@@ -26,4 +26,9 @@ ${(styling) => styling.details && css`
 font-size: 14px;
 `
 }
+
+${(styling) => styling.white && css`
+color:var(--primaryWhite);
+`
+}
 `
