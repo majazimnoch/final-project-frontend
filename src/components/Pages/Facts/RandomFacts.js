@@ -26,7 +26,6 @@ const RandomFacts = () => {
 
   return (
     <RandomFactsBox>
-      {/* {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>} */}
       <Pinside bold> Did you know that..?</Pinside>
       {data ? <Pinside>{data.fact}</Pinside> : <p>Loading...</p>}
     </RandomFactsBox>

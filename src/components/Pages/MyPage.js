@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from 'utils/urls';
 import { StyledLinkAdd } from 'components/Pages/WelcomePage';
-// import { useNavigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
-// import HorseFeed from './HorseFeed';
 import Form from './Form';
-// import SearchForUser from './UserSearch';
 
 const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);

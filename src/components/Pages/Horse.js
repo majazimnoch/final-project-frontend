@@ -8,7 +8,6 @@ import HorseDetails from './HorseDetails';
 const Horse = () => {
   const [horse, setHorse] = useState([])
   const accessToken = localStorage.getItem('token')
-  // const userId = localStorage.getItem('userId');
   const params = useParams();
 
   // Fetching single horses by Id

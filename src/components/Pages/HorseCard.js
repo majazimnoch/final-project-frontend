@@ -16,7 +16,6 @@ const HorseCard = ({ horseList }) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: accessToken
-        // userId here too?
       }
     };
     await fetch(API_URL(`horses/${horseid}`), options)

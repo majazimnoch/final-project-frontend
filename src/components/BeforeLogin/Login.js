@@ -34,7 +34,7 @@ const Login = () => {
               localStorage.setItem('token', data.response.accessToken);
               localStorage.setItem('userId', data.response.id);
               setToken(data.response.accessToken);
-              setIsLoggedIn(true); // Set isLoggedIn to true
+              setIsLoggedIn(true);
             } else {
               alert('Login error!');
             }
@@ -54,7 +54,7 @@ const Login = () => {
               localStorage.setItem('token', data.response.accessToken);
               localStorage.setItem('userId', data.response.id);
               setToken(data.response.accessToken);
-              setIsLoggedIn(true); // Set isLoggedIn to true
+              setIsLoggedIn(true);
             } else {
               alert('Registration error!');
             }
@@ -78,7 +78,7 @@ const Login = () => {
       const timeout = setTimeout(() => {
         setIsLoggedIn(false);
         localStorage.removeItem('token');
-      }, 2000); // 2 seconds in milliseconds
+      }, 2000);
 
       return () => clearTimeout(timeout);
     }

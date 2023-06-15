@@ -5,7 +5,6 @@ import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import rideruser from '../../assets/horse-rider-icon.svg';
 
 const UserBox = () => {
-  // const [token] = useState(() => localStorage.getItem('token'));
   const accessToken = localStorage.getItem('token');
   console.log('Profile', accessToken);
   const [responseData, setResponseData] = useState({});

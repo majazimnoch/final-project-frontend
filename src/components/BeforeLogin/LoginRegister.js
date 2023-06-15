@@ -2,7 +2,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyledButton } from './ButtonStyling';
-// import Button from './Button';
 
 // eslint-disable-next-line max-len
 const LoginRegister = ({ state, name, setName, email, setEmail, password, setPassword, handleFormSubmit }) => {

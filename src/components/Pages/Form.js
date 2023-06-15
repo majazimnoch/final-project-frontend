@@ -13,8 +13,6 @@ const Form = ({ setCollapsed }) => {
   const [description, setDescription] = useState('')
   const dispatch = useDispatch();
 
-  // added useEffect below since our horses rerenders all the time and never stops in
-  // our MyPage-component - from Daniels tips one Live Session /YK
   useEffect(() => {
     console.log('Inside useEffect');
   }, []);
