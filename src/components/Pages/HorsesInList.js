@@ -12,6 +12,9 @@ const HorsesInFeed = () => {
   const dispatch = useDispatch()
   const horseList = useSelector((store) => store.horses.items)
 
+  // we can remove the useEffect and make sure that we get the horses from the
+  // redux store - that way they'll only render one time
+  // this useEffect below causes a lot of problems.
   // Fetch all horses for list
   useEffect(() => {
     const options = {
@@ -39,7 +42,7 @@ const HorsesInFeed = () => {
       .catch(((e) => {
         console.error('Error:', e)
       }))
-  })
+  }, [accessToken, dispatch])
 
   return (
     <HorseFeed>

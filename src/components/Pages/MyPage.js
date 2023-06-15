@@ -5,7 +5,7 @@ import { StyledLinkAdd } from 'components/BeforeLogin/WelcomePage';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
-import HorsesInList from './HorsesInList';
+// import HorsesInList from './HorsesInList';
 import Form from './Form';
 
 const MyPage = () => {
@@ -14,6 +14,9 @@ const MyPage = () => {
   const userId = localStorage.getItem('userId');
 
   const navigate = useNavigate();
+  useEffect(() => {
+    console.log('Inside useEffect');
+  }, []);
 
   useEffect(() => {
     if (!accessToken) {
@@ -33,8 +36,13 @@ const MyPage = () => {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch(API_URL(`users/${userId}/posts`), options);
+        const url = API_URL(`users/${userId}/posts`);
+        console.log('API URL:', url);
+
+        const response = await fetch(url, options);
         const data = await response.json();
+        console.log('Response:', data);
+
         setMyPosts(data.response.reverse());
       } catch (error) {
         console.error('Error:', error);
@@ -52,7 +60,6 @@ const MyPage = () => {
         <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
-      <HorsesInList />
     </HorseyUser>
   );
 };

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Player } from '@lottiefiles/react-lottie-player';
 import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
-import { API_URL } from '../../utils/urls';
+import { API_KEY, API_URL } from '../../utils/urls';
 
 const Login = () => {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
@@ -25,7 +25,9 @@ const Login = () => {
         console.log('login');
         fetch(API_URL('login'), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json',
+            // CTRL + space = auto-import
+            'x-api-key': API_KEY },
           body: JSON.stringify({ email, password })
         })
           .then((response) => response.json())

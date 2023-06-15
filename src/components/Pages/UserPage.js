@@ -1,53 +1,48 @@
 /* eslint-disable no-underscore-dangle */
-import { Link, useParams } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import HorsesInFeed from './HorsesInFeed';
 
 const UserPage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
   const accessToken = localStorage.getItem('token');
   const params = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate('/publicmain');
-  //   }
-  // }, [accessToken, navigate]);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/publicmain');
+    } else {
+      const fetchOptions = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: accessToken
+        }
+      };
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate('/publicmain');
-  //   } else {
-  const fetchOptions = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: accessToken
+      fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          setUsername(data.user.username);
+          setPosts(data.response.reverse());
+        })
+        .catch((e) => {
+          console.error('Error:', e);
+        });
     }
-  };
-
-  fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      setUsername(data.user.username);
-      setPosts(data.response.reverse());
-    })
-    .catch((e) => {
-      console.error('Error:', e);
-    });
-
-  // }, [accessToken, navigate, params.userId]);
+  }, [accessToken, navigate, params.userId]);
 
   return (
     <HorseFeed>
       <HeadlineDiv>
         <ContainerHorsesText>
-          <Pinside uppercase><span>Your horse collection</span></Pinside>
+          <h1>Your horse collection</h1>
           <h4>{username}&apos;s horses</h4>
+          <HorsesInFeed />
         </ContainerHorsesText>
       </HeadlineDiv>
       {posts.length > 0 && (
@@ -84,20 +79,15 @@ const UserPage = () => {
 export default UserPage;
 
 const ContainerHorsesText = styled.div`
-margin: 2rem;
-`
-
-const HorseFeed = styled.div`
+  margin: 2rem;
 `;
 
-const HeadlineDiv = styled.div`
-`;
+const HorseFeed = styled.div``;
 
-const HorseList = styled.div`
-`;
+const HeadlineDiv = styled.div``;
 
-const HorseContainer = styled.div`
-`;
+const HorseList = styled.div``;
 
-const SmallDiv = styled.div`
-`;
+const HorseContainer = styled.div``;
+
+const SmallDiv = styled.div``;

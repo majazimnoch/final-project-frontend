@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
@@ -12,25 +12,33 @@ import InputTextArea from './InputTextArea';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
-  const [characteristics, setCharacteristics] = useState([])
+  const [characteristics, setCharacteristics] = useState('')
   const [description, setDescription] = useState('')
   const dispatch = useDispatch();
-  const [instructions, setInstructions] = useState([])
+  const [instructions, setInstructions] = useState('')
+  // added useEffect below since our horses rerenders all the time and never stops in
+  // our MyPage-component - from Daniels tips one Live Session /YK
+  useEffect(() => {
+    console.log('Inside useEffect');
+  }, []);
   // const [rating, setRating] = useState(0)
   // const [tags, setTags] = useState({})
 
   const accessToken = localStorage.getItem('token');
+  const userId = localStorage.getItem('userId');
 
   // Submitting new horse
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: accessToken
+        Authorization: accessToken,
+        userId
       },
       body: JSON.stringify({
-        recipe: {
+        horse: {
           name: horseName,
           description,
           characteristics,
@@ -93,7 +101,7 @@ const Form = ({ setCollapsed }) => {
         <Pinside bold>Create a horse:</Pinside>
         {/* <StyledButton type="button" onClick={closeForm}>Close </StyledButton> */}
       </CreateHorseDiv>
-      <FormAdd onSubmit={onSubmit}>
+      <FormAdd onSubmit={(e) => onSubmit(e)}>
         <Input
           type="text"
           srOnly="Name of horse"
