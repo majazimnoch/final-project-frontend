@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useCallback } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Form from './Form';
-import HorsesInList from './HorsesInList';
+import HorsesInFeed from './HorsesInFeed';
 
 const HorseFeed = () => {
-  // const navigate = useNavigate();
-  // const accessToken = localStorage.getItem('token');
+  const navigate = useNavigate();
+  const accessToken = localStorage.getItem('token');
   const [collapsed, setCollapsed] = useState(true);
 
-  //   useEffect(() => {
-  //     if (!accessToken) {
-  //       navigate('/login');
-  //     }
-  //   }, [accessToken, navigate]);
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login')
+    }
+  }, [accessToken, navigate])
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -56,7 +56,7 @@ const HorseFeed = () => {
             </button>
             {!collapsed && <Form collapsed={collapsed} setCollapsed={setCollapsed} />}
           </ButtonContainer>
-          <HorsesInList />
+          <HorsesInFeed />
         </FeedSection>
       )}
       {tabletView && (
@@ -69,7 +69,7 @@ const HorseFeed = () => {
               </button>
               {!collapsed && <Form collapsed={collapsed} setCollapsed={setCollapsed} />}
             </ButtonContainer>
-            <HorsesInList />
+            <HorsesInFeed />
           </div>
         </FeedSection>
       )}
@@ -83,7 +83,7 @@ const HorseFeed = () => {
               </button>
               {!collapsed && <Form collapsed={collapsed} setCollapsed={setCollapsed} />}
             </ButtonContainer>
-            <HorsesInList />
+            <HorsesInFeed />
           </div>
         </FeedSection>
       )}

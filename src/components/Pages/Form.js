@@ -16,7 +16,6 @@ const Form = ({ setCollapsed }) => {
   const dispatch = useDispatch();
 
   const accessToken = localStorage.getItem('token');
-  const userId = localStorage.getItem('userId');
 
   // Submitting new horse
   const onSubmit = () => {
@@ -24,8 +23,7 @@ const Form = ({ setCollapsed }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: accessToken,
-        userId
+        Authorization: accessToken
       },
       body: JSON.stringify({
         horse: {

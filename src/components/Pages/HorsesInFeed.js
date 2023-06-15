@@ -6,7 +6,6 @@ import { API_URL } from 'utils/urls';
 import HorseCard from './HorseCard';
 
 const HorsesInFeed = () => {
-  // const [liked, setLiked] = useState([])
   const accessToken = localStorage.getItem('token')
   const dispatch = useDispatch()
   const horseList = useSelector((store) => store.horses.items)

@@ -5,7 +5,7 @@ import { StyledLinkAdd } from 'components/BeforeLogin/WelcomePage';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
-import HorsesInList from './HorsesInList';
+import HorseFeed from './HorseFeed';
 import Form from './Form';
 import SearchForUser from './UserSearch';
 
@@ -53,7 +53,7 @@ const MyPage = () => {
         <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
-      <HorsesInList />
+      <HorseFeed />
       <SearchForUser />
     </HorseyUser>
   );

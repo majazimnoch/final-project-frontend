@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
@@ -11,6 +11,8 @@ const UserPage = () => {
   const accessToken = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
 
+  const params = useParams()
+
   useEffect(() => {
     const fetchOptions = {
       method: 'GET',
@@ -20,7 +22,7 @@ const UserPage = () => {
       }
     };
 
-    fetch(API_URL(`users/${userId}/posts`), fetchOptions)
+    fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         setUsername(data.user.username || data.response.username);
@@ -29,7 +31,7 @@ const UserPage = () => {
       .catch((e) => {
         console.error('Error:', e);
       });
-  }, [accessToken, userId]);
+  }, [accessToken, userId, params]);
 
   return (
     <HorseFeed>

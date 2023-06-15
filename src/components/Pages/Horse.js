@@ -1,14 +1,15 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import { API_URL } from 'utils/urls';
-import { useParams, Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseDetails from './HorseDetails';
 
 const Horse = () => {
-  const [horse, setHorse] = useState([])
+  const { horse, setHorse } = useState([])
   const accessToken = localStorage.getItem('token')
-  const params = useParams()
+  const userId = localStorage.getItem('userId');
+  const params = useParams();
 
   // Fetching single horses by Id
   useEffect(() => {
@@ -27,7 +28,7 @@ const Horse = () => {
       .catch((error) => {
         console.error('Error:', error)
       })
-  }, [accessToken, params.horseId])
+  }, [accessToken, params.horseId, setHorse, userId])
 
   return (
     <HorseDiv>
