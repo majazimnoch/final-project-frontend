@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Player } from '@lottiefiles/react-lottie-player';
 import LoginRegister from './LoginRegister';
 import Horseplayful from '../../assets/horseplayful.svg'
 import { API_URL } from '../../utils/urls';
@@ -11,9 +13,13 @@ const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const handleFormSubmit = (event, state) => {
+    setShowAnimation(true);
+
     switch (state) {
       case 'login':
         console.log('login');
@@ -67,6 +73,17 @@ const Login = () => {
     }
   }, [token, navigate]);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      const timeout = setTimeout(() => {
+        setIsLoggedIn(false);
+        localStorage.removeItem('token');
+      }, 2000); // 2 seconds in milliseconds
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoggedIn]);
+
   return (
     <LoginWrapper id="home">
       <LeftLogin>
@@ -77,37 +94,48 @@ const Login = () => {
         </TextLoginBox>
       </LeftLogin>
       <RightLogin>
-        {loginOrRegister === 'login' ? (
+        {showAnimation && (
+          <Player
+            autoplay
+            loop
+            src="https://assets3.lottiefiles.com/packages/lf20_9cv14lsd.json"
+            style={{ height: '300px', width: '300px' }} />
+        )}
+        {showAnimation ? null : (
           <>
-            <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
-            <p>Log in and keep track of your horses!</p>
-          </>
-        ) : (
-          <>
-            <WelcomeHeader>New user? Welcome!</WelcomeHeader>
-            <p>Create a user account in 5 seconds!</p>
+            {loginOrRegister === 'login' ? (
+              <>
+                <WelcomeHeader>Welcome back, friend!</WelcomeHeader>
+                <p>Log in and keep track of your horses!</p>
+              </>
+            ) : (
+              <>
+                <WelcomeHeader>New user? Welcome!</WelcomeHeader>
+                <p>Create a user account in 5 seconds!</p>
+              </>
+            )}
+            <LoginRegister
+              state={loginOrRegister}
+              name={name}
+              setName={setName}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              handleFormSubmit={handleFormSubmit} />
           </>
         )}
-        <LoginRegister
-          state={loginOrRegister}
-          name={name}
-          setName={setName}
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          handleFormSubmit={handleFormSubmit} />
-        {loginOrRegister === 'login' ? (
+        {showAnimation ? null : (
           <PSwitchaccount>
-            <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
-              I do not have an account yet
-            </a>
-          </PSwitchaccount>
-        ) : (
-          <PSwitchaccount>
-            <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
-              I already have an account
-            </a>
+            {loginOrRegister === 'login' ? (
+              <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
+        I do not have an account yet
+              </a>
+            ) : (
+              <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
+        I already have an account
+              </a>
+            )}
           </PSwitchaccount>
         )}
       </RightLogin>
