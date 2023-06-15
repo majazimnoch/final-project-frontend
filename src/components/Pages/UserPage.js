@@ -10,8 +10,6 @@ const UserPage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
   const accessToken = localStorage.getItem('token');
-  // const [responseData, setResponseData] = useState({});
-  // const userId = localStorage.getItem('userId');
 
   const params = useParams()
 
@@ -26,9 +24,7 @@ const UserPage = () => {
 
     fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
       .then((response) => response.json())
-      // .then((data) => setResponseData(data))
       .then((data) => {
-        // setUsername(data.user.username || data.response.username); FRON SO:S KOD
         setUsername(data.user.username);
         setPosts(data.response.reverse());
       })

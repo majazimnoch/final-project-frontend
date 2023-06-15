@@ -5,8 +5,6 @@ import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
-// import SearchForUser from 'components/Pages/UserSearch';
-// import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import { ButtonPrimary } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from './Facts/RandomFacts';
 import Horseheader from './Horseheader';
@@ -22,15 +20,12 @@ const WelcomePage = () => {
         <Horseheader />
         <UserPage />
       </MiddleColumn>
-      {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <RightColumn>
         <LinksBox>
           <ButtonPrimary><Link to="/mypage">Add horses</Link></ButtonPrimary>
           <RandomFacts />
         </LinksBox>
         <DivSearchLogout>
-          {/* <Pinside>Looking for your friends? Type their name.</Pinside>
-          <SearchForUser /> */}
           <Logout />
         </DivSearchLogout>
       </RightColumn>
