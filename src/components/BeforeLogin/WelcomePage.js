@@ -22,7 +22,6 @@ const WelcomePage = () => {
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <RightColumn>
         <LinksBox>
-          {/* <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd> */}
           <StyledLinkAdd to="/mypage">Add horses</StyledLinkAdd>
           <RandomFacts />
         </LinksBox>

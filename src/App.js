@@ -7,7 +7,6 @@ import { Route, Routes } from 'react-router-dom';
 import PublicMain from 'components/BeforeLogin/PublicMain';
 import MyPage from 'components/Pages/MyPage';
 import UserPage from 'components/Pages/UserPage';
-// import Lottie from 'react-lottie';
 import WelcomePage from './components/BeforeLogin/WelcomePage';
 import LandingPage from './components/Pages/LandingPage';
 import HorseFeed from './components/Pages/HorseFeed';
