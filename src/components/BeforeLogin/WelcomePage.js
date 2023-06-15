@@ -5,8 +5,8 @@ import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
-import SearchForUser from 'components/Pages/UserSearch';
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+// import SearchForUser from 'components/Pages/UserSearch';
+// import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from '../Pages/Facts/RandomFacts';
 
 const WelcomePage = () => {
@@ -26,8 +26,8 @@ const WelcomePage = () => {
           <RandomFacts />
         </LinksBox>
         <DivSearchLogout>
-          <Pinside>Looking for your friends? Type their name.</Pinside>
-          <SearchForUser />
+          {/* <Pinside>Looking for your friends? Type their name.</Pinside>
+          <SearchForUser /> */}
           <Logout />
         </DivSearchLogout>
       </RightColumn>
@@ -108,7 +108,7 @@ grid-area: 1 / 1 / 2 / 2;
 `
 const MiddleColumn = styled.div`
 grid-area: 1 / 2 / 2 / 4;; 
-background-color: var(--snowWhite);
+background-color: var(--softPurple);
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `
 const RightColumn = styled.div`
@@ -116,7 +116,8 @@ grid-area: 1 / 4 / 2 / 5;
 background-color: var(--primaryWhite);
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: flex-start;
+gap: 4rem;
 align-items: center;
 margin: 1rem 1.5rem 3rem 1.5rem;
 text-align: center;

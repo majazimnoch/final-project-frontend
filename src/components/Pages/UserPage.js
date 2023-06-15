@@ -96,6 +96,7 @@ const HorseContainer = styled.div`
 `;
 
 const SmallDiv = styled.div`
+background-color: red;
 `;
 const Hhorsename = styled.h3`
 color:red;

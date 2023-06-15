@@ -19,6 +19,7 @@ font-size: 30px;
 ${(styling) => styling.uppercase && css`
 text-transform: uppercase;
 letter-spacing: 1px;
+color: var(primaryWhite);
 `
 }
 

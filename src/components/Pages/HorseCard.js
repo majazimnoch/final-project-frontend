@@ -73,7 +73,6 @@ const HorseCard = ({ horseList }) => {
 export default HorseCard;
 
 const HorseList = styled.div`
-
 `;
 
 const HorseContainer = styled.div`
