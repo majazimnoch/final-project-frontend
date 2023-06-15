@@ -73,11 +73,9 @@ const HorseyUser = styled.div`
   margin: 2rem 1rem;
 
   @media (min-width: 668px) {
-    width: 95%;
   }
 
   @media (min-width: 1024px) {
-    width: 600px;
   }
 `;
 
@@ -88,20 +86,12 @@ const HeadlineDiv = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px red solid;
 
   @media (min-width: 668px) {
-    width: 95%;
+   
   }
 
   @media (min-width: 1024px) {
-  align-items: center;
-  border: 5px solid;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 2p;
   }
 
 `;

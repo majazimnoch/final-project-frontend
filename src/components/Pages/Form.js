@@ -131,6 +131,7 @@ flex-direction: column;
 align-items: center;
 gap:2rem;
 `;
+
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;

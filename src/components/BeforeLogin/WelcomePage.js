@@ -27,7 +27,7 @@ const WelcomePage = () => {
           <RandomFacts />
         </LinksBox>
         <DivSearchLogout>
-          <Pinside>Looking for your friends horses? Type their name.</Pinside>
+          <Pinside>Looking for your friends? Type their name.</Pinside>
           <SearchForUser />
           <Logout />
         </DivSearchLogout>
