@@ -32,6 +32,12 @@ ${(styling) => styling.white && css`
 color:var(--primaryWhite);
 `
 }
+
+${(styling) => styling.lemon && css`
+color:var(--lemon);
+font-size: 2rem;
+`
+}
 `
 
 export const ButtonPrimary = styled.button`

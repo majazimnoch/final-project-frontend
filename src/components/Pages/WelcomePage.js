@@ -9,6 +9,7 @@ import UserPage from 'components/Pages/UserPage';
 // import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import { ButtonPrimary } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from './Facts/RandomFacts';
+import Horseheader from './Horseheader';
 
 const WelcomePage = () => {
   return (
@@ -18,6 +19,7 @@ const WelcomePage = () => {
         <WeatherBox />
       </LeftColumn>
       <MiddleColumn>
+        <Horseheader />
         <UserPage />
       </MiddleColumn>
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
