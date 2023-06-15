@@ -22,7 +22,7 @@ const Contact = () => {
           <TopContainer>
             <ContactDetailsBox>
               <TopInfo><StyledSpanContact contact>Email:</StyledSpanContact></TopInfo>
-              <TopEmail><StyledSpanContact email>infoy@horsey.se</StyledSpanContact></TopEmail>
+              <TopEmail><StyledSpanContact email>info@horsey.se</StyledSpanContact></TopEmail>
             </ContactDetailsBox>
             <IconsContainer>
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
