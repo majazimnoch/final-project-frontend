@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
 import InputTextArea from './InputTextArea';
 
@@ -15,7 +17,14 @@ const Form = ({ setCollapsed }) => {
   const [instructions, setInstructions] = useState([])
   const dispatch = useDispatch();
 
+  // added useEffect below since our horses rerenders all the time and never stops in
+  // our MyPage-component - from Daniels tips one Live Session /YK
+  useEffect(() => {
+    console.log('Inside useEffect');
+  }, []);
+
   const accessToken = localStorage.getItem('token');
+  const userId = localStorage.getItem('userId');
 
   // Submitting new horse
   const onSubmit = () => {
@@ -23,7 +32,8 @@ const Form = ({ setCollapsed }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: accessToken
+        Authorization: accessToken,
+        userId
       },
       body: JSON.stringify({
         horse: {
@@ -61,22 +71,13 @@ const Form = ({ setCollapsed }) => {
     setCollapsed(true)
   }
 
-  // const handleOnChange = (event) => {
-  //   const key = event.target.name;
-  //   const currentValue = tags[key];
-  //   setTags((tags) => ({
-  //     ...tags,
-  //     [key]: !currentValue
-  //   }));
-  // }
-
   return (
     <FormStyledDiv>
       <CreateHorseDiv>
-        <h1>Create horse</h1>
+        <Pinside bold>Create a horse:</Pinside>
         <button type="button" onClick={closeForm} />
       </CreateHorseDiv>
-      <form onSubmit={onSubmit}>
+      <FormAdd onSubmit={(e) => onSubmit(e)}>
         <Input
           type="text"
           srOnly="Name of horse"
@@ -90,7 +91,7 @@ const Form = ({ setCollapsed }) => {
           value={description}
           onChange={handleDescription} />
         <label>
-          Characteristics:
+          <Pinside>Characteristics:</Pinside>
           <InputTextArea
             srOnly="Characteristics"
             placeholder="Separate your horses characteristics with a comma"
@@ -98,7 +99,7 @@ const Form = ({ setCollapsed }) => {
             onChange={handleCharacteristics} />
         </label>
         <label>
-        Instructions:
+          <Pinside>Instructions:</Pinside>
           <InputTextArea
             srOnly="Instructions"
             placeholder="Separate the steps by using a line-break after each step"
@@ -106,9 +107,9 @@ const Form = ({ setCollapsed }) => {
             onChange={handleInstructions} />
         </label>
         <ButtonDiv>
-          <AddNewHorseButton type="submit">Add horse</AddNewHorseButton>
+          <StyledButton type="submit">Add horse</StyledButton>
         </ButtonDiv>
-      </form>
+      </FormAdd>
     </FormStyledDiv>
   )
 };
@@ -116,19 +117,23 @@ const Form = ({ setCollapsed }) => {
 export default Form;
 
 const FormStyledDiv = styled.div`
+display: flex;
+flex-direction: column;
+min-width: 200px;
 `;
 
 const CreateHorseDiv = styled.div`
 `;
 
+const FormAdd = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:2rem;
+`;
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  `;
-
-const AddNewHorseButton = styled.button`
-   text-align: center;
-   padding: 10px;
   `;

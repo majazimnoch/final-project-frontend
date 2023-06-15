@@ -5,6 +5,8 @@ import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
+import SearchForUser from 'components/Pages/UserSearch';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from '../Pages/Facts/RandomFacts';
 
 const WelcomePage = () => {
@@ -15,18 +17,20 @@ const WelcomePage = () => {
         <WeatherBox />
       </LeftColumn>
       <MiddleColumn>
-        <RandomFacts />
         <UserPage />
       </MiddleColumn>
       {/* <ContinueButton type="button" onClick={<LandingPage />}>Continue</ContinueButton> */}
       <RightColumn>
         <LinksBox>
-          <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd>
+          {/* <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd> */}
           <StyledLinkAdd to="/mypage">Add horses</StyledLinkAdd>
+          <RandomFacts />
         </LinksBox>
-        <div>
+        <DivSearchLogout>
+          <Pinside>Looking for your friends horses? Type their name.</Pinside>
+          <SearchForUser />
           <Logout />
-        </div>
+        </DivSearchLogout>
       </RightColumn>
     </ProfileContainer>
   );
@@ -74,14 +78,16 @@ grid-template-rows: 1fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 min-height: 100vh;
+border: 2px red solid;
 
 h1 {
   font-size: 3rem;
   text-align: center;
 }
 
-@media (max-width: 1024px) {
-
+@media (max-width: 1023px) {
+  display: flex;
+  flex-direction: column;
   h1 {
     font-size: 2.5rem;
   }
@@ -112,3 +118,8 @@ align-items: center;
 margin: 1rem 1.5rem 3rem 1.5rem;
 text-align: center;
 `;
+
+const DivSearchLogout = styled.div`
+display:flex;
+flex-direction: column;
+gap: 1rem;`
