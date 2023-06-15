@@ -67,6 +67,7 @@ const Form = ({ setCollapsed }) => {
     setDescription(event.target.value)
   }
 
+  // eslint-disable-next-line no-unused-vars
   const closeForm = () => {
     setCollapsed(true)
   }
@@ -74,7 +75,7 @@ const Form = ({ setCollapsed }) => {
   return (
     <FormStyledDiv>
       <CreateHorseDiv>
-        <Pinside bold>Create a horse:</Pinside>
+        <h1>Create horse</h1>
         <button type="button" onClick={closeForm} />
       </CreateHorseDiv>
       <FormAdd onSubmit={(e) => onSubmit(e)}>
@@ -87,10 +88,11 @@ const Form = ({ setCollapsed }) => {
         <Input
           type="text"
           srOnly="Description"
-          placeholder="Say something about your horse"
+          placeholder="My horse lives in... "
           value={description}
           onChange={handleDescription} />
         <label>
+          <Pinside>Characteristics:</Pinside>
           <Pinside>Characteristics:</Pinside>
           <InputTextArea
             srOnly="Characteristics"
@@ -100,6 +102,7 @@ const Form = ({ setCollapsed }) => {
         </label>
         <label>
           <Pinside>Instructions:</Pinside>
+          <Pinside>Instructions:</Pinside>
           <InputTextArea
             srOnly="Instructions"
             placeholder="Separate the steps by using a line-break after each step"
@@ -108,7 +111,9 @@ const Form = ({ setCollapsed }) => {
         </label>
         <ButtonDiv>
           <StyledButton type="submit">Add horse</StyledButton>
+          <StyledButton type="submit">Add horse</StyledButton>
         </ButtonDiv>
+      </FormAdd>
       </FormAdd>
     </FormStyledDiv>
   )
@@ -120,10 +125,15 @@ const FormStyledDiv = styled.div`
 display: flex;
 flex-direction: column;
 min-width: 200px;
+display: flex;
+flex-direction: column;
+min-width: 200px;
 `;
 
 const CreateHorseDiv = styled.div`
 `;
+
+
 
 const FormAdd = styled.form`
 display: flex;
@@ -131,7 +141,6 @@ flex-direction: column;
 align-items: center;
 gap:2rem;
 `;
-
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;

@@ -27,14 +27,4 @@ const ProfileButton = styled.button`
     color: var(--primaryWhite);
     transition: 0.2s;
   }
-
-  @media (min-width: 668px) {
-    padding: 0 5rem;
-  }
-
-@media (max-width: 664px) {
-   border-radius: 10px;
-   border: 1px solid #ffffff;
-   padding: 0.3rem;
-   }
     `;

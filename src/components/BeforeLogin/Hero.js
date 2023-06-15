@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import styled, { css } from 'styled-components';
@@ -18,10 +19,8 @@ const Hero = () => {
         <div className="left" />
         <div className="right">
           <TextBlock>
-            <StyledTitle>Get prepared for your next horse ride with Horsey</StyledTitle>
-            <StyledParagraph>Horsey app helps you to track your horses' goals
-              and monitor their routines.
-              Sign up now and see what all the neighing is about!
+            <StyledTitle>Saddle up for digital horsekeeping with Horsey app!</StyledTitle>
+            <StyledParagraph>Track, manage, and stay in sync with your equine companions effortlessly.
             </StyledParagraph>
             <ButtonContainer>
               <ButtonLink onClick={handleButtonClick}>

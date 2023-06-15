@@ -154,15 +154,13 @@ justify-content: space-between;
 
 }
 
-@media (min-width: 1024px) {
-}
 `;
 
 export const FlexSection = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 
 
 @media (min-width: 1024px) {
@@ -173,8 +171,9 @@ flex-direction: row;
 export const AuthorTitleBox = styled.div`
 display:flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 align-items: flex-start;
+justify-items: flex-start;
 `
 
 export const StyledName = styled.h4`
@@ -197,18 +196,18 @@ color: var(--primaryWhite);
 font-size: 16px;
 
 @media (min-width: 668px) {
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 @media (min-width: 1024px) {
-  font-size: 14px;
+  font-size: 10px;
 }
 `;
 
 export const StyledLine = styled.span`
 display: block;
 align-self: left;
-width: 40%;
+width: 30px;
 height: 4px;
 background-color: var(--lemon);
 margin-top: 1rem;

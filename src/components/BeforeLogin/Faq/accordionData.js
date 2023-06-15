@@ -15,8 +15,8 @@ export const accordionData = [
   },
   {
     id: uuidv4(),
-    title: 'Is it safe?',
-    content: `Login details are securely stored in a database. We don't share your data with any third-parties. 
+    title: 'Technigo Final Project?',
+    content: `This app is a final project of Techigo Web Developemnt Bootcamp, made by three frontend developers, Sandra, Ylva and Maja. 
     `
   }
 ];

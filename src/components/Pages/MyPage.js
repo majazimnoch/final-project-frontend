@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
 // import HorseFeed from './HorseFeed';
-import Form from './Form';
+// import Form from './Form';
 // import SearchForUser from './UserSearch';
 
 const MyPage = () => {
@@ -56,7 +56,7 @@ const MyPage = () => {
       <HeadlineDiv>
         <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
         <h1>My Horses</h1>
-        <Form />
+        {/* <Form /> */}
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
     </HorseyUser>
@@ -71,6 +71,7 @@ const HorseyUser = styled.div`
   align-content: center;
   justify-content: center;
   margin: 2rem 1rem;
+ 
 
   @media (min-width: 668px) {
   }

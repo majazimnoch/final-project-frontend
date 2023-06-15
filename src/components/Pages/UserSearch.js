@@ -95,9 +95,7 @@ const SearchForUserForm = styled.form`
     }
 
     @media (min-width: 1024px) {
-        position: absolute;
-        right: 2.5%;
-        top: 30px;
+        
     }
 
 `
