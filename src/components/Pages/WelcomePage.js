@@ -8,7 +8,7 @@ import UserPage from 'components/Pages/UserPage';
 // import SearchForUser from 'components/Pages/UserSearch';
 // import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import { ButtonPrimary } from 'components/ReusableComponents/GlobalStyles';
-import RandomFacts from '../Pages/Facts/RandomFacts';
+import RandomFacts from './Facts/RandomFacts';
 
 const WelcomePage = () => {
   return (

@@ -153,12 +153,6 @@ const WelcomeHeader = styled.h2`
   color: var(--primaryBlack);
   font-size: 40px;
   margin-bottom: 2rem;
-
-  @media (max-width: 668px) {
-  }
-
-  @media (max-width: 1023px) {
-  }
 `;
 
 const PSwitchaccount = styled.p`

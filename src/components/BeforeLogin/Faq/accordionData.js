@@ -16,7 +16,7 @@ export const accordionData = [
   {
     id: uuidv4(),
     title: 'Technigo Final Project?',
-    content: `This app is a final project of Techigo Web Developemnt Bootcamp, made by three frontend developers, Sandra, Ylva and Maja. 
+    content: `This app is a final project of Techigo Web Development Bootcamp, made by three frontend developers, Sandra, Ylva and Maja. 
     `
   }
 ];

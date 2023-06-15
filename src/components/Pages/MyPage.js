@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from 'utils/urls';
-import { StyledLinkAdd } from 'components/BeforeLogin/WelcomePage';
+import { StyledLinkAdd } from 'components/Pages/WelcomePage';
 // import { useNavigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';

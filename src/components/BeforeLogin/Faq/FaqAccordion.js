@@ -8,7 +8,6 @@ const SectionSeparator = () => {
   return <Hr style={{ margin: ' 0' }} />;
 };
 
-// chatGPT suggested to rename this to Accordion instead for consistency but I didn't do that yet
 const FaqAccordionItem = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);
 
