@@ -39,7 +39,6 @@ font-size: 2rem;
 `
 }
 `
-
 export const ButtonPrimary = styled.button`
   background-color: var(--softPurple);
   color: var(--primaryWhite);
@@ -69,5 +68,4 @@ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 @media (max-width: 1023px) {
 
 }
-
 `;
