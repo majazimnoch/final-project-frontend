@@ -12,7 +12,7 @@ const HorseDetails = ({ horseInfo }) => {
     )
   })
 
-  // Turning the instructions string into an array (to be able to display the ingredients in a list). The string is split at each line-break.
+  // Turning the instructions string into an array (to be able to display the instructions in a list). The string is split at each line-break.
   const InstructionsIntoList = horseInfo.map((horse) => {
     return (
       horse.instructions[0].split('\n')
@@ -59,6 +59,8 @@ const HorseDetails = ({ horseInfo }) => {
 export default HorseDetails;
 
 const MainHorseDiv = styled.div`
+display: flex;
+flex-direction: column;
 `
 const HorseInstructionsDiv = styled.div`
 `

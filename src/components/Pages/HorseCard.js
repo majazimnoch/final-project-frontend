@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Button from 'components/BeforeLogin/Button';
 import { API_URL } from 'utils/urls';
 
 const HorseCard = ({ horseList }) => {
@@ -15,6 +16,7 @@ const HorseCard = ({ horseList }) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: accessToken
+        // userId here too?
       }
     };
     await fetch(API_URL(`horses/${horseid}`), options)
@@ -56,7 +58,7 @@ const HorseCard = ({ horseList }) => {
           )}
           <DeleteContainer>
             {singleHorse.userId === userId && (
-              <button
+              <Button
                 type="button"
                 onClick={() => onDeleteClick(singleHorse._id)}
                 data-horseid={singleHorse._id} />
