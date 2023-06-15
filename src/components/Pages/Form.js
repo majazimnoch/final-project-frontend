@@ -93,7 +93,6 @@ const Form = ({ setCollapsed }) => {
           onChange={handleDescription} />
         <label>
           <Pinside>Characteristics:</Pinside>
-          <Pinside>Characteristics:</Pinside>
           <InputTextArea
             srOnly="Characteristics"
             placeholder="Separate your horses characteristics with a comma"
@@ -101,7 +100,6 @@ const Form = ({ setCollapsed }) => {
             onChange={handleCharacteristics} />
         </label>
         <label>
-          <Pinside>Instructions:</Pinside>
           <Pinside>Instructions:</Pinside>
           <InputTextArea
             srOnly="Instructions"
@@ -111,9 +109,7 @@ const Form = ({ setCollapsed }) => {
         </label>
         <ButtonDiv>
           <StyledButton type="submit">Add horse</StyledButton>
-          <StyledButton type="submit">Add horse</StyledButton>
         </ButtonDiv>
-      </FormAdd>
       </FormAdd>
     </FormStyledDiv>
   )
@@ -132,8 +128,6 @@ min-width: 200px;
 
 const CreateHorseDiv = styled.div`
 `;
-
-
 
 const FormAdd = styled.form`
 display: flex;

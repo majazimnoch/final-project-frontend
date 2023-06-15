@@ -7,8 +7,6 @@ import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
 import SearchForUser from 'components/Pages/UserSearch';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
-import SearchForUser from 'components/Pages/UserSearch';
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from '../Pages/Facts/RandomFacts';
 
 const WelcomePage = () => {
@@ -25,19 +23,13 @@ const WelcomePage = () => {
       <RightColumn>
         <LinksBox>
           {/* <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd> */}
-          {/* <StyledLinkAdd to="/landingpage">Click to continue</StyledLinkAdd> */}
           <StyledLinkAdd to="/mypage">Add horses</StyledLinkAdd>
-          <RandomFacts />
           <RandomFacts />
         </LinksBox>
         <DivSearchLogout>
           <Pinside>Looking for your friends? Type their name.</Pinside>
           <SearchForUser />
-        <DivSearchLogout>
-          <Pinside>Looking for your friends horses? Type their name.</Pinside>
-          <SearchForUser />
           <Logout />
-        </DivSearchLogout>
         </DivSearchLogout>
       </RightColumn>
     </ProfileContainer>
