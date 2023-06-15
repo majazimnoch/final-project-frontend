@@ -6,7 +6,7 @@ export const API_URL = (slug) => `${BASE_URL}${slug}`
 
 // added by Ylva
 // these three lines are refactored - looks cleaner
-export const API_KEY = process.env.REACT_APP_API_KEY
+// export const API_KEY = process.env.REACT_APP_API_KEY
 // export const MONGO_URL = process.env.REACT_APP_MONGO_URL
 
 // export const MONGO_DB_URL = (slug) => `${MONGO_URL}/${slug}`

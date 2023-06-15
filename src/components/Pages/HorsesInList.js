@@ -39,7 +39,7 @@ const HorsesInFeed = () => {
       .catch(((e) => {
         console.error('Error:', e)
       }))
-  })
+  }, [accessToken, dispatch])
 
   return (
     <HorseFeed>

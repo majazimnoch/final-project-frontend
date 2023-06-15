@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import { Link, useParams } from 'react-router-dom';
-import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
@@ -9,38 +9,27 @@ const UserPage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
   const accessToken = localStorage.getItem('token');
-  const params = useParams();
-  // const navigate = useNavigate();
+  const userId = localStorage.getItem('userId');
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate('/publicmain');
-  //   }
-  // }, [accessToken, navigate]);
+  useEffect(() => {
+    const fetchOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    };
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate('/publicmain');
-  //   } else {
-  const fetchOptions = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: accessToken
-    }
-  };
-
-  fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      setUsername(data.user.username || data.response.username);
-      setPosts(data.response.reverse());
-    })
-    .catch((e) => {
-      console.error('Error:', e);
-    });
-
-  // }, [accessToken, navigate, params.userId]);
+    fetch(API_URL(`users/${userId}/posts`), fetchOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        setUsername(data.user.username || data.response.username);
+        setPosts(data.response.reverse());
+      })
+      .catch((e) => {
+        console.error('Error:', e);
+      });
+  }, [accessToken, userId]);
 
   return (
     <HorseFeed>

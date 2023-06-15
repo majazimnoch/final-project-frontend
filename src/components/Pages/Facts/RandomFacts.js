@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { API_URL, API_KEY } from '../../../utils/urls';
+import { API_URL } from '../../../utils/urls';
 import { RandomFactsBox } from './RandomFactsStyle';
 // refactored a bit and added the API_KEY to connect the FE to the BE and then they are authorized
 // thanks to a middleware in the BE-repo - Folder: Middlewares, File: apikey-authentication
@@ -17,7 +17,7 @@ const RandomFacts = () => {
         const response = await fetch(API_URL('random-fact'), {
           method: 'GET',
           headers: {
-            'x-api-key': API_KEY
+            'Content-Type': 'application/json'
           }
         });
         const jsonData = await response.json();

@@ -16,6 +16,7 @@ const Form = ({ setCollapsed }) => {
   const dispatch = useDispatch();
 
   const accessToken = localStorage.getItem('token');
+  const userId = localStorage.getItem('userId');
 
   // Submitting new horse
   const onSubmit = () => {
@@ -23,7 +24,8 @@ const Form = ({ setCollapsed }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: accessToken
+        Authorization: accessToken,
+        userId
       },
       body: JSON.stringify({
         horse: {
@@ -40,16 +42,6 @@ const Form = ({ setCollapsed }) => {
         dispatch(horses.actions.setNewHorse(data.response))
       })
   }
-
-  // const convertTagsToArray = (tagsObject) => {
-  //   const tagsArray = [];
-  //   Object.keys(tagsObject).forEach(key => {
-  //     if (tagsObject[key] === true) {
-  //       tagsArray.push(key);
-  //     }
-  //   })
-  //   return tagsArray;
-  // }
 
   const handleHorseName = (event) => {
     setHorseName(event.target.value)

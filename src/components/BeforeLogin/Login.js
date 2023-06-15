@@ -27,8 +27,8 @@ const Login = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
+              localStorage.setItem('userId', data.response.id);
               setToken(data.response.accessToken);
-              // localStorage.setItem('userId', data.response.id);
               // setuserId(data.response.id)
             } else {
               alert('Login error!');
@@ -47,8 +47,8 @@ const Login = () => {
           .then((data) => {
             if (data.success) {
               localStorage.setItem('token', data.response.accessToken);
+              localStorage.setItem('userId', data.response.id);
               setToken(data.response.accessToken);
-              // localStorage.setItem('userId', data.response.id);
             } else {
               alert('Registration error!');
             }
