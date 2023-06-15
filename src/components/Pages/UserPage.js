@@ -41,8 +41,8 @@ const UserPage = () => {
     <HorseFeed>
       <HeadlineDiv>
         <ContainerHorsesText>
-          <Pinside uppercase><span>Your horse collection</span></Pinside>
-          <h4>{username}&apos;s horses</h4>
+          <Pinside uppercase><span>All horses</span></Pinside>
+          <h4>{username}</h4>
           <HorsesInFeed />
         </ContainerHorsesText>
       </HeadlineDiv>
@@ -64,8 +64,8 @@ const UserPage = () => {
                     })}`}
                   </SmallDiv>
                   <Link to={`/horses/${singleHorse._id}`} horseid={singleHorse._id}>
-                    <h3>{singleHorse.horse.name}</h3>
-                    <p>{singleHorse.horse.description}</p>
+                    <Hhorsename>{singleHorse.horse.name}</Hhorsename>
+                    <Pinside>{singleHorse.horse.description}</Pinside>
                   </Link>
                 </div>
               )}
@@ -96,4 +96,7 @@ const HorseContainer = styled.div`
 `;
 
 const SmallDiv = styled.div`
+`;
+const Hhorsename = styled.h3`
+color:red;
 `;

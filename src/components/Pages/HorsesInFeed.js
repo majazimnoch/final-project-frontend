@@ -49,4 +49,5 @@ export default HorsesInFeed;
 
 const HorseFeed = styled.div`
 background-color: black;
+color: black;
  `;

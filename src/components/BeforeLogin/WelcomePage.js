@@ -82,7 +82,6 @@ grid-template-rows: 1fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 min-height: 100vh;
-border: 2px red solid;
 
 h1 {
   font-size: 3rem;
