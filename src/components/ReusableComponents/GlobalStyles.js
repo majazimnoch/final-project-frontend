@@ -33,3 +33,35 @@ color:var(--primaryWhite);
 `
 }
 `
+
+export const ButtonPrimary = styled.button`
+  background-color: var(--softPurple);
+  color: var(--primaryWhite);
+  font-size: var(--fontSize);
+  border: 1.5px solid var(--softPurple);
+  border-radius: 30px;
+  height: 50px;
+  padding: 0 4.5rem;
+  
+  &:hover {
+    background-color: var(--lemon);
+    color: var(--primaryBlack);
+    transition: 0.2s;
+  }
+  `
+export const InputPrimary = styled.input`
+height: 3rem;
+padding: 0 1.5rem;
+border-radius: 10px;
+border: 1px var(--primaryBlack) solid;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+&:focus {
+  outline: 0.5px solid var(--softPurple);
+}
+
+@media (max-width: 1023px) {
+
+}
+
+`;

@@ -48,6 +48,5 @@ const HorsesInFeed = () => {
 export default HorsesInFeed;
 
 const HorseFeed = styled.div`
-
 color: black;
  `;

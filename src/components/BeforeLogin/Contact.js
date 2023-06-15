@@ -8,6 +8,7 @@ import image2 from 'assets/horses-three.svg';
 import image3 from 'assets/sandra.jpg';
 import image4 from 'assets/ylva2.jpg';
 import image5 from 'assets/maja.jpg';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import { StyledSection, StyledTop, TopTitle, WrapperSectionContact, TopContainer, ContactDetailsBox, TopInfo, StyledSpanContact, TopEmail, IconsContainer, StyledImageDesktop, StyledImage, FlexContacts, FlexSection, StyledImageProfile, AuthorTitleBox, StyledName, StyledLine } from './ContactStyling';
 
 const Contact = () => {
@@ -44,6 +45,7 @@ const Contact = () => {
           <StyledImageProfile src={image3} alt="Profile picture Sandra" />
           <AuthorTitleBox>
             <StyledName>Sandra</StyledName>
+            <Pinside>sandra@horsey.se</Pinside>
             <StyledLine />
           </AuthorTitleBox>
         </FlexSection>
@@ -51,6 +53,7 @@ const Contact = () => {
           <StyledImageProfile src={image4} alt="Profile picture Ylva" />
           <AuthorTitleBox>
             <StyledName>Ylva</StyledName>
+            <Pinside>ylva@horsey.se</Pinside>
             <StyledLine />
           </AuthorTitleBox>
         </FlexSection>
@@ -58,6 +61,7 @@ const Contact = () => {
           <StyledImageProfile src={image5} alt="Profile picture Maja" />
           <AuthorTitleBox>
             <StyledName>Maja</StyledName>
+            <Pinside>maja@horsey.se</Pinside>
             <StyledLine />
           </AuthorTitleBox>
         </FlexSection>

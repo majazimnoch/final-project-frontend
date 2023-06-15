@@ -33,7 +33,7 @@ export const StyledHero = styled.div`
 
         .right {
         flex: 1;
-        background-color: var(--primaryWhite:);
+        background-color: var(--primaryWhite);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -44,7 +44,7 @@ export const StyledHero = styled.div`
 
 export const TextBlock = styled.div`
     flex-direction: column;
-    order-radius: 10px 30px 30px 10px;
+    border-radius: 10px 30px 30px 10px;
     padding: 4rem 2rem 4rem 2rem;
 
     @media (max-width: 1023px) {

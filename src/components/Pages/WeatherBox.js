@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import { ButtonPrimary, InputPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Player } from '@lottiefiles/react-lottie-player';
@@ -58,7 +59,7 @@ const WeatherBox = () => {
             src="https://assets3.lottiefiles.com/packages/lf20_rwq6ciql.json"
             style={{ height: '90px', width: '90px' }}
             animationSettings={{
-              loop: 2, // Adjust the number of loops as needed
+              loop: 2,
               autoplay: true,
               rendererSettings: {
                 preserveAspectRatio: 'xMidYMid slice'
@@ -78,14 +79,14 @@ const WeatherBox = () => {
         )}
         <WeatherInputBox>
           <Pinside details>If you plan to change the location, enter the desired city/town.</Pinside>
-          <InputWeather
+          <InputPrimary
             type="text"
             placeholder="Enter city/town..."
             onChange={(e) => setSearch(e.target.value)}
             required />
-          <ButtonWeather type="button" onClick={searchPressed}>
+          <ButtonPrimary type="button" onClick={searchPressed}>
             Search
-          </ButtonWeather>
+          </ButtonPrimary>
         </WeatherInputBox>
       </Weatherheader>
     </WeatherBoxContainer>
@@ -131,6 +132,8 @@ font-size: var(--fontSize);
 border: 1.5px solid var(--softPurple);
 border-radius: 30px;
 height: 40px;
+display: block;
+padding: 0 6rem;
 
 &:hover {
   background-color: var(--softPurple);
@@ -139,7 +142,7 @@ height: 40px;
 }
 
 @media (max-width: 1023px) {
-  padding: 0 3rem;
+  padding: 0 8rem;
 }
 `
 export const InputWeather = styled.input`
@@ -163,6 +166,6 @@ min-width: 90%;
 export const StyledSpanWeather = styled.span`
 padding: 3px;
 ${(styling) => styling.test && css`
-background-color: var(--softPurple);`
+background-color: var(--lemon);`
 }
 `;

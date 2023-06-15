@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
+import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
-// import InputTextArea from './InputTextArea';
+import InputTextArea from './InputTextArea';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
-  // const [characteristics, setCharacteristics] = useState([])
+  const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
-  // const [instructions, setInstructions] = useState([])
+  const [instructions, setInstructions] = useState([])
   const dispatch = useDispatch();
 
   // added useEffect below since our horses rerenders all the time and never stops in
@@ -36,9 +38,9 @@ const Form = ({ setCollapsed }) => {
       body: JSON.stringify({
         horse: {
           name: horseName,
-          description
-          // characteristics,
-          // instructions
+          description,
+          characteristics,
+          instructions
         }
       })
     }
@@ -53,13 +55,13 @@ const Form = ({ setCollapsed }) => {
     setHorseName(event.target.value)
   }
 
-  // const handleCharacteristics = (event) => {
-  //   setCharacteristics(event.target.value)
-  // }
+  const handleCharacteristics = (event) => {
+    setCharacteristics(event.target.value)
+  }
 
-  // const handleInstructions = (event) => {
-  //   setInstructions(event.target.value)
-  // }
+  const handleInstructions = (event) => {
+    setInstructions(event.target.value)
+  }
 
   const handleDescription = (event) => {
     setDescription(event.target.value)
@@ -73,7 +75,8 @@ const Form = ({ setCollapsed }) => {
   return (
     <FormStyledDiv>
       <CreateHorseDiv>
-        <h1>Create a horse</h1>
+        <h1>Create horse</h1>
+        <button type="button" onClick={closeForm} />
       </CreateHorseDiv>
       <FormAdd onSubmit={(e) => onSubmit(e)}>
         <Input
@@ -88,7 +91,7 @@ const Form = ({ setCollapsed }) => {
           placeholder="My horse lives in... "
           value={description}
           onChange={handleDescription} />
-        {/* <label>
+        <label>
           <Pinside>Characteristics:</Pinside>
           <InputTextArea
             srOnly="Characteristics"
@@ -103,7 +106,10 @@ const Form = ({ setCollapsed }) => {
             placeholder="Separate the steps by using a line-break after each step"
             value={instructions}
             onChange={handleInstructions} />
-        </label> */}
+        </label>
+        <ButtonDiv>
+          <StyledButton type="submit">Add horse</StyledButton>
+        </ButtonDiv>
       </FormAdd>
     </FormStyledDiv>
   )
@@ -129,3 +135,9 @@ flex-direction: column;
 align-items: center;
 gap:2rem;
 `;
+const ButtonDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  `;
