@@ -1,15 +1,17 @@
 /* eslint-disable no-underscore-dangle */
-import { Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import HorsesInFeed from './HorsesInFeed';
 
 const UserPage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
   const accessToken = localStorage.getItem('token');
-  const userId = localStorage.getItem('userId');
+  // const [responseData, setResponseData] = useState({});
+  // const userId = localStorage.getItem('userId');
 
   const params = useParams()
 
@@ -24,14 +26,16 @@ const UserPage = () => {
 
     fetch(API_URL(`users/${params.userId}/posts`), fetchOptions)
       .then((response) => response.json())
+      // .then((data) => setResponseData(data))
       .then((data) => {
-        setUsername(data.user.username || data.response.username);
+        // setUsername(data.user.username || data.response.username); FRON SO:S KOD
+        setUsername(data.user.username);
         setPosts(data.response.reverse());
       })
       .catch((e) => {
         console.error('Error:', e);
       });
-  }, [accessToken, userId, params]);
+  }, [accessToken, params.userId]);
 
   return (
     <HorseFeed>
@@ -39,6 +43,7 @@ const UserPage = () => {
         <ContainerHorsesText>
           <Pinside uppercase><span>Your horse collection</span></Pinside>
           <h4>{username}&apos;s horses</h4>
+          <HorsesInFeed />
         </ContainerHorsesText>
       </HeadlineDiv>
       {posts.length > 0 && (

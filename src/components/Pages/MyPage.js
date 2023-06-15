@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import HorseCard from './HorseCard';
 // import HorseFeed from './HorseFeed';
 import Form from './Form';
-import SearchForUser from './UserSearch';
+// import SearchForUser from './UserSearch';
 
 const MyPage = () => {
   const [myPosts, setMyPosts] = useState([]);
@@ -34,8 +34,14 @@ const MyPage = () => {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch(API_URL(`users/${userId}/posts`), options);
+        // const response = await fetch(API_URL(`users/${userId}/posts`), options);
+        // const data = await response.json(); DETTA ÄR FRÅN SO:S KOD
+        const url = API_URL(`users/${userId}/posts`);
+        console.log('API URL:', url);
+        const response = await fetch(url, options);
         const data = await response.json();
+        console.log('Response:', data);
+
         setMyPosts(data.response.reverse());
       } catch (error) {
         console.error('Error:', error);
@@ -53,8 +59,6 @@ const MyPage = () => {
         <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
-      {/* <HorseFeed /> */}
-      <SearchForUser />
     </HorseyUser>
   );
 };
