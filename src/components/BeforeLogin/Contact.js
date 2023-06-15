@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import image1 from 'assets/croppedhorses.png';
 import image2 from 'assets/horses-three.svg';
 import image3 from 'assets/sandra.jpg';
-import { StyledSection, StyledTop, TopTitle, WrapperSectionContact, TopContainer, ContactDetailsBox, TopInfo, StyledSpanContact, TopEmail, IconsContainer, StyledImageDesktop, StyledImage, FlexContacts, FlexSection, StyledImageProfile, AuthorTitleBox, StyledEmail, StyledName, StyledLine } from './ContactStyling';
+import image4 from 'assets/ylva2.jpg';
+import image5 from 'assets/maja.jpg';
+import { StyledSection, StyledTop, TopTitle, WrapperSectionContact, TopContainer, ContactDetailsBox, TopInfo, StyledSpanContact, TopEmail, IconsContainer, StyledImageDesktop, StyledImage, FlexContacts, FlexSection, StyledImageProfile, AuthorTitleBox, StyledName, StyledLine } from './ContactStyling';
 
 const Contact = () => {
   library.add(faFacebookF, faInstagram, faLinkedinIn);
@@ -43,23 +45,20 @@ const Contact = () => {
           <AuthorTitleBox>
             <StyledName>Sandra</StyledName>
             <StyledLine />
-            <StyledEmail>sandra@loremipsum.com</StyledEmail>
           </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image3} alt="Profile picture Ylva" />
+          <StyledImageProfile src={image4} alt="Profile picture Ylva" />
           <AuthorTitleBox>
             <StyledName>Ylva</StyledName>
             <StyledLine />
-            <StyledEmail>ylva_87@hotmail.com</StyledEmail>
           </AuthorTitleBox>
         </FlexSection>
         <FlexSection>
-          <StyledImageProfile src={image3} alt="Profile picture Maja" />
+          <StyledImageProfile src={image5} alt="Profile picture Maja" />
           <AuthorTitleBox>
             <StyledName>Maja</StyledName>
             <StyledLine />
-            <StyledEmail>majamzimnoch@gmail.com</StyledEmail>
           </AuthorTitleBox>
         </FlexSection>
       </FlexContacts>

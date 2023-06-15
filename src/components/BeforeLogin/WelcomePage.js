@@ -68,6 +68,11 @@ display: flex;
 flex-direction: column;
 gap: 3rem;
 margin-top: 1rem;
+
+@media (max-width: 1023px) {
+min-width: 100%;
+}
+
 `
 const ProfileContainer = styled.div`
 background-color: var(--primaryWhite);
@@ -78,7 +83,6 @@ grid-template-rows: 1fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 min-height: 100vh;
-border: 2px red solid;
 
 h1 {
   font-size: 3rem;

@@ -112,6 +112,7 @@ const WeatherInputBox = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
 `;
 
 const WeatherInfoBox = styled.div`
@@ -137,8 +138,8 @@ height: 40px;
   transition: 0.2s;
 }
 
-@media (min-width: 668px) {
-  padding: 0 1.5rem;
+@media (max-width: 1023px) {
+  padding: 0 3rem;
 }
 `
 export const InputWeather = styled.input`
@@ -151,6 +152,10 @@ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 &:focus {
   outline: 0.5px solid var(--softPurple);
+}
+
+@media (max-width: 1023px) {
+min-width: 90%;
 }
 
 `;
