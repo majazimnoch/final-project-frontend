@@ -20,7 +20,6 @@ const HorseCard = ({ horseList }) => {
     await fetch(API_URL(`horses/${horseid}`), options)
       .then((response) => response.json())
       .then(() => {
-        window.location.reload();
       });
   };
 
