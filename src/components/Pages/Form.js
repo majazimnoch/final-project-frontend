@@ -41,6 +41,7 @@ const Form = ({ setCollapsed }) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(horses.actions.setNewHorse(data.response))
+        window.location.reload();
       })
   }
 

@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import Button from 'components/BeforeLogin/Button';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -88,4 +87,8 @@ const DescriptionDiv = styled.div`
 
 const DeleteContainer = styled.div`
 
+`;
+
+const Button = styled.button`
+display: none;
 `;
