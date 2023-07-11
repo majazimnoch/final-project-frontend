@@ -4,7 +4,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
-// import Horse from './Horse';
 
 const HorseCard = ({ horseList }) => {
   const userId = localStorage.getItem('userId');
