@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL } from 'utils/urls';
 import { useParams, Link } from 'react-router-dom';
+import { StyledLinkAdd } from 'components/Pages/WelcomePage';
 import styled from 'styled-components';
 import HorseDetails from './HorseDetails';
 
@@ -32,19 +33,24 @@ const Horse = () => {
   return (
     <HorseDiv>
       {horse.map((horseInfo) => (
-        <HorseInfoContainer key={horseInfo._id}>
-          <UserInfoDiv>
-            <Link to={`/users/${horseInfo.userId}`}>{horseInfo.username}</Link>
-            <p>{`${new Date(horseInfo.createdAt).toLocaleDateString('en-us', { year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit',
-              hour12: false })}`}
-            </p>
-          </UserInfoDiv>
-          <HorseDetails horseInfo={[horseInfo.horse]} />
-        </HorseInfoContainer>
+        <>
+          <HorseInfoContainer key={horseInfo._id}>
+            <UserInfoDiv>
+              <Link to={`/users/${horseInfo.userId}`}>{horseInfo.username}</Link>
+              <p>{`${new Date(horseInfo.createdAt).toLocaleDateString('en-us', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+              })}`}
+              </p>
+            </UserInfoDiv>
+            <HorseDetails horseInfo={[horseInfo.horse]} />
+          </HorseInfoContainer>
+          <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+        </>
       ))}
     </HorseDiv>
   )

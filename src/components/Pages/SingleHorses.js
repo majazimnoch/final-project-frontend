@@ -9,7 +9,7 @@ import { API_URL } from '../../utils/urls';
 const SingleHorses = (singleHorse, horse) => {
   const accessToken = localStorage.getItem('token')
   const dispatch = useDispatch()
-  // const horseList = useSelector((store) => store.horses.items)
+  // const horse = useSelector((store) => store.horse.item)
 
   // Fetch individual horse
   useEffect(() => {
@@ -20,7 +20,7 @@ const SingleHorses = (singleHorse, horse) => {
         Authorization: accessToken
       }
     }
-    fetch(API_URL(`horses/${singleHorse._id}`), options)
+    fetch(API_URL('horses/:horseId'), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -58,6 +58,8 @@ export default SingleHorses;
 const MainHorseDiv = styled.div`
 color: black;
 `;
+
+// fetch(API_URL(`horses/${singleHorse._id}`), options)
 
 // const response = await fetch(API_URL(`/horses/${horseId}`), {
 

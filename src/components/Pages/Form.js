@@ -6,11 +6,15 @@ import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
+import InputTextArea from './InputTextArea';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
+  const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
+  const [instructions, setInstructions] = useState([])
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,8 +36,9 @@ const Form = ({ setCollapsed }) => {
       body: JSON.stringify({
         horse: {
           name: horseName,
-          description
-
+          description,
+          characteristics,
+          instructions
         }
       })
     }
@@ -47,6 +52,14 @@ const Form = ({ setCollapsed }) => {
 
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
+  }
+
+  const handleCharacteristics = (event) => {
+    setCharacteristics(event.target.value)
+  }
+
+  const handleInstructions = (event) => {
+    setInstructions(event.target.value)
   }
 
   const handleDescription = (event) => {
@@ -76,6 +89,22 @@ const Form = ({ setCollapsed }) => {
           placeholder="Fact about my horse... "
           value={description}
           onChange={handleDescription} />
+        <label>
+          <Pinside>Characteristics:</Pinside>
+          <InputTextArea
+            srOnly="Characteristics"
+            placeholder="Separate your horses characteristics with a comma"
+            value={characteristics}
+            onChange={handleCharacteristics} />
+        </label>
+        <label>
+          <Pinside>Instructions:</Pinside>
+          <InputTextArea
+            srOnly="Instructions"
+            placeholder="Separate the steps by using a line-break after each step"
+            value={instructions}
+            onChange={handleInstructions} />
+        </label>
         <ButtonDiv>
           <StyledButton type="submit">Add a horse</StyledButton>
         </ButtonDiv>
