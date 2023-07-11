@@ -107,7 +107,7 @@ const Form = ({ setCollapsed }) => {
             onChange={handleInstructions} />
         </label>
         <ButtonDiv>
-          <StyledButton><Link to="/welcomepage">Add a horse</Link></StyledButton>
+          <StyledButton><Link to="/welcomepage" type="submit">Add a horse</Link></StyledButton>
         </ButtonDiv>
       </FormAdd>
     </FormStyledDiv>
