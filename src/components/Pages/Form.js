@@ -101,7 +101,7 @@ const Form = ({ setCollapsed }) => {
           <Pinside>Instructions:</Pinside>
           <InputTextArea
             srOnly="Instructions"
-            placeholder="Separate the steps by using a line-break after each step"
+            placeholder="Separate the instructions by using a new line for each new one"
             value={instructions}
             onChange={handleInstructions} />
         </label>

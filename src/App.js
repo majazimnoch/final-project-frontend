@@ -11,7 +11,6 @@ import WelcomePage from './components/Pages/WelcomePage';
 import LandingPage from './components/Pages/LandingPage';
 import HorseFeed from './components/Pages/HorseFeed';
 import Horse from './components/Pages/Horse';
-// import SingleHorses from './components/Pages/SingleHorses';
 import Logout from './components/Pages/Logout';
 import NotFound from './components/Pages/NotFound';
 

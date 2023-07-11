@@ -83,6 +83,15 @@ color: var(--lemon);
 
 const DescriptionDiv = styled.div`
 color: var(--primaryWhite);
+
+h3 {
+  font-size: 2.5rem;
+}
+
+p {
+  color: var(--primaryBlack);
+  font-size: 1.5rem;
+}
 `;
 
 const DeleteContainer = styled.div`

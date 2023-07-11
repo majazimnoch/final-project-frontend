@@ -37,7 +37,7 @@ const UserPage = () => {
     <HorseFeed>
       <HeadlineDiv>
         <ContainerHorsesText>
-          <Pinside uppercase><span>All horses</span></Pinside>
+          <Pinside uppercase><span>All horses - click on a horse to see its details</span></Pinside>
           <h4>{username}</h4>
           <HorsesInFeed />
         </ContainerHorsesText>
@@ -78,7 +78,6 @@ export default UserPage;
 const ContainerHorsesText = styled.div`
 margin: 2rem;
 `
-
 const HorseFeed = styled.div`
 `;
 
@@ -92,8 +91,7 @@ const HorseContainer = styled.div`
 `;
 
 const SmallDiv = styled.div`
-background-color: red;
 `;
+
 const Hhorsename = styled.h3`
-color:red;
 `;
