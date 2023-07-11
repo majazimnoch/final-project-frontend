@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
@@ -106,7 +107,7 @@ const Form = ({ setCollapsed }) => {
             onChange={handleInstructions} />
         </label>
         <ButtonDiv>
-          <StyledButton type="submit">Add a horse</StyledButton>
+          <StyledButton><Link to="/welcomepage">Add a horse</Link></StyledButton>
         </ButtonDiv>
       </FormAdd>
     </FormStyledDiv>
