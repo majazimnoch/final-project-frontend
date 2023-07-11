@@ -8,6 +8,7 @@ import UserPage from 'components/Pages/UserPage';
 import { ButtonPrimary } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from './Facts/RandomFacts';
 import Horseheader from './Horseheader';
+import UserSearch from './UserSearch';
 
 const WelcomePage = () => {
   return (
@@ -24,6 +25,7 @@ const WelcomePage = () => {
         <LinksBox>
           <ButtonPrimary><Link to="/mypage">Add horses</Link></ButtonPrimary>
           <RandomFacts />
+          <UserSearch />
         </LinksBox>
         <DivSearchLogout>
           <Logout />

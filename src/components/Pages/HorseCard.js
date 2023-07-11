@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+// import Horse from './Horse';
 
 const HorseCard = ({ horseList }) => {
   const userId = localStorage.getItem('userId');
@@ -30,20 +31,20 @@ const HorseCard = ({ horseList }) => {
           {singleHorse.horse && (
             <>
               <SmallInfo>
-                <Link to={`/users/${singleHorse.userId}`}>
-                  {singleHorse.username},
-                  {`${new Date(singleHorse.createdAt).toLocaleDateString(
-                    'en-us',
-                    {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                      hour12: false
-                    }
-                  )}`}
-                </Link>
+                {/* <Link to={`/users/${singleHorse.userId}`}> */}
+                {singleHorse.username},
+                {`${new Date(singleHorse.createdAt).toLocaleDateString(
+                  'en-us',
+                  {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                  }
+                )}`}
+                {/* </Link> */}
               </SmallInfo>
               <Link to={`/horses/${singleHorse._id}`}>
                 <DescriptionDiv>
@@ -51,6 +52,7 @@ const HorseCard = ({ horseList }) => {
                   <p>{singleHorse.horse.description}</p>
                 </DescriptionDiv>
               </Link>
+              {/* <Horse horseInfo={[singleHorses]} /> */}
             </>
           )}
           <DeleteContainer>
@@ -77,11 +79,11 @@ const HorseContainer = styled.div`
 `;
 
 const SmallInfo = styled.section`
-
+color: var(--lemon);
 `;
 
 const DescriptionDiv = styled.div`
-
+color: var(--primaryWhite);
 `;
 
 const DeleteContainer = styled.div`

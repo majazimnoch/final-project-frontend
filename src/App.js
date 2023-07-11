@@ -11,6 +11,7 @@ import WelcomePage from './components/Pages/WelcomePage';
 import LandingPage from './components/Pages/LandingPage';
 import HorseFeed from './components/Pages/HorseFeed';
 import Horse from './components/Pages/Horse';
+import SingleHorses from './components/Pages/SingleHorses';
 import Logout from './components/Pages/Logout';
 import NotFound from './components/Pages/NotFound';
 
@@ -28,6 +29,7 @@ export const App = () => {
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/horsefeed" element={<HorseFeed />} />
         <Route path="/horse" element={<Horse />} />
+        <Route path="/horses/:horseId" element={<SingleHorses />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
