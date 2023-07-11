@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import { API_URL } from 'utils/urls';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { StyledLinkAdd } from 'components/Pages/WelcomePage';
 import styled from 'styled-components';
 import HorseDetails from './HorseDetails';
@@ -36,7 +36,7 @@ const Horse = () => {
         <>
           <HorseInfoContainer key={horseInfo._id}>
             <UserInfoDiv>
-              <Link to={`/users/${horseInfo.userId}`}>{horseInfo.username}</Link>
+              {/* <Link to={`/users/${horseInfo.userId}`}>{horseInfo.username}</Link> */}
               <p>{`${new Date(horseInfo.createdAt).toLocaleDateString('en-us', {
                 year: 'numeric',
                 month: 'short',
