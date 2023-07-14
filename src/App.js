@@ -28,6 +28,7 @@ export const App = () => {
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/horsefeed" element={<HorseFeed />} />
         <Route path="/horse" element={<Horse />} />
+        <Route path="/horses/:horseId" element={<Horse />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -20,7 +20,6 @@ const HorseCard = ({ horseList }) => {
     await fetch(API_URL(`horses/${horseid}`), options)
       .then((response) => response.json())
       .then(() => {
-        window.location.reload();
       });
   };
 
@@ -31,20 +30,20 @@ const HorseCard = ({ horseList }) => {
           {singleHorse.horse && (
             <>
               <SmallInfo>
-                <Link to={`/users/${singleHorse.userId}`}>
-                  {singleHorse.username},
-                  {`${new Date(singleHorse.createdAt).toLocaleDateString(
-                    'en-us',
-                    {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                      hour12: false
-                    }
-                  )}`}
-                </Link>
+                {/* <Link to={`/users/${singleHorse.userId}`}> */}
+                {singleHorse.username},
+                {`${new Date(singleHorse.createdAt).toLocaleDateString(
+                  'en-us',
+                  {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                  }
+                )}`}
+                {/* </Link> */}
               </SmallInfo>
               <Link to={`/horses/${singleHorse._id}`}>
                 <DescriptionDiv>
@@ -52,6 +51,7 @@ const HorseCard = ({ horseList }) => {
                   <p>{singleHorse.horse.description}</p>
                 </DescriptionDiv>
               </Link>
+              {/* <Horse horseInfo={[singleHorses]} /> */}
             </>
           )}
           <DeleteContainer>
@@ -78,11 +78,20 @@ const HorseContainer = styled.div`
 `;
 
 const SmallInfo = styled.section`
-
+color: var(--lemon);
 `;
 
 const DescriptionDiv = styled.div`
+color: var(--primaryWhite);
 
+h3 {
+  font-size: 2.5rem;
+}
+
+p {
+  color: var(--primaryBlack);
+  font-size: 1.5rem;
+}
 `;
 
 const DeleteContainer = styled.div`

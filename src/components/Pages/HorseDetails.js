@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
 const HorseDetails = ({ horseInfo }) => {
+  console.log(horseInfo);
   // Turning characteristics string into array (to be able to display the characteristics in a list). The string is split at each comma.
   const CharacteristicsIntoList = horseInfo.map((horse) => {
     return (

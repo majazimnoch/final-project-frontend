@@ -3,14 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
+// import { Link } from 'react-router-dom';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
+import InputTextArea from './InputTextArea';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
+  const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
+  const [instructions, setInstructions] = useState([])
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,8 +37,9 @@ const Form = ({ setCollapsed }) => {
       body: JSON.stringify({
         horse: {
           name: horseName,
-          description
-
+          description,
+          characteristics,
+          instructions
         }
       })
     }
@@ -47,6 +53,14 @@ const Form = ({ setCollapsed }) => {
 
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
+  }
+
+  const handleCharacteristics = (event) => {
+    setCharacteristics(event.target.value)
+  }
+
+  const handleInstructions = (event) => {
+    setInstructions(event.target.value)
   }
 
   const handleDescription = (event) => {
@@ -76,6 +90,22 @@ const Form = ({ setCollapsed }) => {
           placeholder="Fact about my horse... "
           value={description}
           onChange={handleDescription} />
+        <label>
+          <Pinside>Characteristics:</Pinside>
+          <InputTextArea
+            srOnly="Characteristics"
+            placeholder="Separate your horses characteristics with a comma"
+            value={characteristics}
+            onChange={handleCharacteristics} />
+        </label>
+        <label>
+          <Pinside>Instructions:</Pinside>
+          <InputTextArea
+            srOnly="Instructions"
+            placeholder="Separate the instructions by using a new line for each new one"
+            value={instructions}
+            onChange={handleInstructions} />
+        </label>
         <ButtonDiv>
           <StyledButton type="submit">Add a horse</StyledButton>
         </ButtonDiv>
@@ -89,10 +119,11 @@ export default Form;
 const FormStyledDiv = styled.div`
 display: flex;
 flex-direction: column;
-min-width: 200px;
-display: flex;
-flex-direction: column;
-min-width: 200px;
+width: 100%;
+max-width: 700px;
+
+margin: 0 auto;
+border: 1px red solid;
 `;
 
 const CreateHorseDiv = styled.div`

@@ -47,22 +47,27 @@ const SearchForUser = () => {
     }
   }
   const handleClick = () => {
-    handleSearchChange('')
-  }
+    console.log('handleClick executed');
+    setSearchedUsers([]);
+  };
 
   return (
     <>
       <SearchForUserForm onSubmit={handleSubmit}>
-        <label>
+        <div>
           <input
             type="text"
             placeholder="Name..."
             onChange={handleSearchChange} />
-          <button
+          <button type="button" onClick={() => console.log('Search button clicked')}>
+  Search
+          </button>
+
+          {/* <button
             type="button"
             onClick={handleClick}>Search
-          </button>
-        </label>
+          </button> */}
+        </div>
       </SearchForUserForm>
       {searchedUsers.length !== 0 && (
         <SearchResultsDiv>
@@ -92,6 +97,7 @@ const SearchForUserForm = styled.form`
     button {
         border: none;
         background-color: inherit;
+        cursor: pointer;
     }
 
     @media (min-width: 1024px) {
