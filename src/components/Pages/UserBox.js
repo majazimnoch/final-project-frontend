@@ -65,5 +65,4 @@ const UserImage = styled.img`
 position: relative;
 top: 5px; left: 0px;
 height: 80%;
-  
 `;

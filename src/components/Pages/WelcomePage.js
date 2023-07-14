@@ -51,12 +51,7 @@ export const StyledLinkAdd = styled(Link)`
   padding: 0 40px;
 
   &:hover {
-    background-color: var(--lemon);
-    color: var(--primaryBlack);
-    padding: 0 40px;
-    height: 50px;
-    box-shadow: none!important;
-   
+
   }
 `;
 

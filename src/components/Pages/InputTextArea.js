@@ -8,8 +8,7 @@ const StyledTextArea = styled.textarea`
   border-radius: 10px;
   border: 1px solid var(--primaryBlack);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  max-width: 200px;
-  max-height:200px;
+  resize: none;
 
   &:focus {
     outline: 0.5px solid var(--softPurple);

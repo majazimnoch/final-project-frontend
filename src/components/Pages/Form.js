@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
-import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import { ButtonPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
 import InputTextArea from './InputTextArea';
+import plusicon from '../../assets/add.png';
 
 const Form = ({ setCollapsed }) => {
   const [horseName, setHorseName] = useState('')
@@ -74,42 +75,54 @@ const Form = ({ setCollapsed }) => {
 
   return (
     <FormStyledDiv>
-      <CreateHorseDiv>
+      <div>
         <h1>Create a horse</h1>
-      </CreateHorseDiv>
-      <FormAdd onSubmit={(e) => onSubmit(e)}>
-        <Input
-          type="text"
-          srOnly="Name of horse"
-          placeholder="My horse is called..."
-          value={horseName}
-          onChange={handleHorseName} />
-        <Input
-          type="text"
-          srOnly="Description"
-          placeholder="Fact about my horse... "
-          value={description}
-          onChange={handleDescription} />
-        <label>
-          <Pinside>Characteristics:</Pinside>
-          <InputTextArea
-            srOnly="Characteristics"
-            placeholder="Separate your horses characteristics with a comma"
-            value={characteristics}
-            onChange={handleCharacteristics} />
-        </label>
-        <label>
-          <Pinside>Instructions:</Pinside>
-          <InputTextArea
-            srOnly="Instructions"
-            placeholder="Separate the instructions by using a new line for each new one"
-            value={instructions}
-            onChange={handleInstructions} />
-        </label>
+      </div>
+      <FormCreateHorseBox>
+        <FormAdd onSubmit={(e) => onSubmit(e)}>
+          <FormCreateHorseLeft>
+            <Input
+              type="text"
+              srOnly="Name of horse"
+              placeholder="My horse is called..."
+              value={horseName}
+              onChange={handleHorseName} />
+            <Input
+              type="text"
+              srOnly="Description"
+              placeholder="Fact about my horse... "
+              value={description}
+              onChange={handleDescription} />
+          </FormCreateHorseLeft>
+          <FormCreateHorseRight>
+            <label>
+              <Pinside>Characteristics:</Pinside>
+              <InputTextArea
+                srOnly="Characteristics"
+                placeholder="Separate your horses characteristics with a comma"
+                value={characteristics}
+                onChange={handleCharacteristics} />
+            </label>
+            <label>
+              <Pinside>Instructions:</Pinside>
+              <InputTextArea
+                srOnly="Instructions"
+                placeholder="Separate the instructions by using a new line for each new one"
+                value={instructions}
+                onChange={handleInstructions} />
+            </label>
+          </FormCreateHorseRight>
+        </FormAdd>
         <ButtonDiv>
-          <StyledButton type="submit">Add a horse</StyledButton>
+          <ButtonAdd type="submit">
+            <PlusSign src={plusicon} alt="Icon" />
+            <div>
+              Add a horse
+            </div>
+          </ButtonAdd>
+          <ButtonPrimary><Link to="/welcomepage">Go back</Link></ButtonPrimary>
         </ButtonDiv>
-      </FormAdd>
+      </FormCreateHorseBox>
     </FormStyledDiv>
   )
 };
@@ -119,25 +132,67 @@ export default Form;
 const FormStyledDiv = styled.div`
 display: flex;
 flex-direction: column;
+align-items: center;
 width: 100%;
-max-width: 700px;
-
 margin: 0 auto;
-border: 1px red solid;
 `;
 
-const CreateHorseDiv = styled.div`
+const FormCreateHorseBox = styled.div`
+display: flex;
+flex-direction: column;
 `;
 
 const FormAdd = styled.form`
 display: flex;
+flex-direction: row;
+align-items: center;
+gap: 2rem;
+`;
+
+const FormCreateHorseLeft = styled.form`
+display: flex;
 flex-direction: column;
 align-items: center;
-gap:2rem;
+gap: 2rem;
 `;
+
+const FormCreateHorseRight = styled.form`
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 2rem;
+`;
+
 const ButtonDiv = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+align-content: left;
+width: 100%;
+margin-top: 2rem;
+`;
+
+const PlusSign = styled.img`
+top: 100px; left: 0px;
+height: 80%;
+`;
+
+export const ButtonAdd = styled.button`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  `;
+  gap: .5rem;
+  background-color: var(--primaryWhite);
+  color: var(--primaryBlack);
+  font-size: var(--fontSize);
+  border: 1.5px solid var(--softPurple);
+  border-radius: 30px;
+  height: 50px;
+  padding: 0 40px;
+  
+  &:hover {
+    background-color: var(--softPurple);
+    color: var(--primaryWhite);
+    transition: 0.2s;
+  }
+`;

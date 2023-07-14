@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from 'utils/urls';
-import { StyledLinkAdd } from 'components/Pages/WelcomePage';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HorseCard from './HorseCard';
@@ -51,7 +50,8 @@ const MyPage = () => {
   return (
     <HorseyUser>
       <HeadlineDiv>
-        <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+        {/* <ButtonPrimary><Link to="/welcomepage">Go back</Link></ButtonPrimary> */}
+        {/* <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd> */}
         <Form />
       </HeadlineDiv>
       <HorseCard horseList={myPosts} />
