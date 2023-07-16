@@ -100,8 +100,7 @@ const LeftColumn = styled.div`
 grid-area: 1 / 1 / 2 / 2;
 `
 const MiddleColumn = styled.div`
-grid-area: 1 / 2 / 2 / 4;; 
-background-color: var(--softPurple);
+grid-area: 1 / 2 / 2 / 4;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `
 const RightColumn = styled.div`

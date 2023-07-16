@@ -12,6 +12,21 @@ export const Header = styled.header`
     @media only screen and (max-width:1024px) {
     }   
 `
+
+export const StyledAnchor = styled.a`
+margin: 0 1rem;
+color: var(--primaryWhite);
+text-decoration: none;
+border-bottom: 4px solid var(--lemon);
+padding-bottom: 3px;
+  
+&:hover {
+color: var(--primaryWhite);
+border-bottom: 4px solid var(--softPurple);
+transition: 0.2s;
+  }
+`;
+
 export const Img = styled.img`
   height: 100%;
 `

@@ -71,10 +71,16 @@ const HorseCard = ({ horseList }) => {
 export default HorseCard;
 
 const HorseList = styled.div`
+display: flex;
+flex-direction: column;
+gap:1rem;
 `;
 
 const HorseContainer = styled.div`
-
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
+color: var(--primaryBlack);
 `;
 
 const SmallInfo = styled.section`
@@ -86,6 +92,7 @@ color: var(--primaryWhite);
 
 h3 {
   font-size: 2.5rem;
+  color: black;
 }
 
 p {

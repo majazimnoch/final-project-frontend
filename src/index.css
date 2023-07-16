@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primaryWhite);
   font-family: 'Poppins', sans-serif;
+  text-decoration: none;
 }
 
 code {
@@ -25,3 +26,6 @@ code {
   --fontParagraph:'Poppins', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}

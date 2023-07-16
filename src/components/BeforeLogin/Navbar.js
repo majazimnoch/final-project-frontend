@@ -2,9 +2,8 @@ import React, { useRef } from 'react';
 import './NavbarStyle.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import LogoIcon from 'assets/horsey.jpg';
-import { HashLink as Link } from 'react-router-hash-link';
 import { useNavigate } from 'react-router-dom';
-import { Header, Img, Nav } from './NavbarStyling';
+import { Header, Img, Nav, StyledAnchor } from './NavbarStyling';
 
 const Navbar = () => {
   const navRef = useRef();
@@ -29,12 +28,12 @@ const Navbar = () => {
       </div>
       <div>
         <Nav ref={navRef}>
-          <Link to="#faq" onClick={handleLinkClick1}>
-            FAQ
-          </Link>
-          <Link to="#contact" onClick={handleLinkClick2}>
-            Contact
-          </Link>
+          <StyledAnchor href="#faq" onClick={handleLinkClick1}>
+          FAQ
+          </StyledAnchor>
+          <StyledAnchor href="#contact" onClick={handleLinkClick2}>
+          Contact
+          </StyledAnchor>
           <button
             type="button"
             className="nav-btn nav-close-btn"
@@ -42,10 +41,7 @@ const Navbar = () => {
             <FaTimes />
           </button>
         </Nav>
-        <button
-          type="button"
-          className="nav-btn"
-          onClick={showNavbar}>
+        <button type="button" className="nav-btn" onClick={showNavbar}>
           <FaBars />
         </button>
       </div>

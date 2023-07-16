@@ -48,7 +48,7 @@ export const ButtonPrimary = styled.button`
   border-radius: 30px;
   height: 50px;
   padding: 0 4.5rem;
-  
+  text-decoration: none;
   &:hover {
     background-color: var(--lemon);
     color: var(--primaryBlack);
