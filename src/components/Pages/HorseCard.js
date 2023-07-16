@@ -9,10 +9,9 @@ import { API_URL } from 'utils/urls';
 const HorseCard = ({ horseList }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const visibleHorses = horseList.slice(0, endIndex).reverse();
+  const visibleHorses = horseList.slice(startIndex, endIndex);
 
   const userId = localStorage.getItem('userId');
   const accessToken = localStorage.getItem('token');
@@ -33,15 +32,11 @@ const HorseCard = ({ horseList }) => {
   };
 
   const handleNextPage = () => {
-    if (endIndex < horseList.length) {
-      setCurrentPage((prevPage) => prevPage + 1);
-    }
+    setCurrentPage((prevPage) => prevPage + 1);
   };
 
   const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-    }
+    setCurrentPage((prevPage) => prevPage - 1);
   };
 
   return (
