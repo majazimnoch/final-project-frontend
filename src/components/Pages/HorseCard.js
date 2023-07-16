@@ -1,11 +1,19 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
 
 const HorseCard = ({ horseList }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const visibleHorses = horseList.slice(startIndex, endIndex);
+
   const userId = localStorage.getItem('userId');
   const accessToken = localStorage.getItem('token');
 
@@ -20,29 +28,36 @@ const HorseCard = ({ horseList }) => {
     await fetch(API_URL(`horses/${horseid}`), options)
       .then((response) => response.json())
       .then(() => {
+        // Handle response if needed
       });
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
   };
 
   return (
     <HorseList>
-      {horseList.map((singleHorse) => (
+      {visibleHorses.map((singleHorse) => (
         <HorseContainer key={singleHorse._id}>
           {singleHorse.horse && (
             <>
               <SmallInfo>
-                {/* <Link to={`/users/${singleHorse.userId}`}> */}
-                {singleHorse.username},
-                {`${new Date(singleHorse.createdAt).toLocaleDateString(
-                  'en-us',
-                  {
+                <Pinside>{/* <Link to={`/users/${singleHorse.userId}`}> */}
+                  {singleHorse.username},{' '}
+                  {`${new Date(singleHorse.createdAt).toLocaleDateString('en-us', {
                     year: 'numeric',
                     month: 'short',
                     day: 'numeric',
                     hour: '2-digit',
                     minute: '2-digit',
                     hour12: false
-                  }
-                )}`}
+                  })}`}
+                </Pinside>
                 {/* </Link> */}
               </SmallInfo>
               <Link to={`/horses/${singleHorse._id}`}>
@@ -64,6 +79,16 @@ const HorseCard = ({ horseList }) => {
           </DeleteContainer>
         </HorseContainer>
       ))}
+      {horseList.length > itemsPerPage && (
+        <Pagination>
+          {currentPage > 1 && (
+            <PaginationButton onClick={handlePreviousPage}>Previous</PaginationButton>
+          )}
+          {endIndex < horseList.length && (
+            <PaginationButton onClick={handleNextPage}>Next</PaginationButton>
+          )}
+        </Pagination>
+      )}
     </HorseList>
   );
 };
@@ -91,13 +116,13 @@ const DescriptionDiv = styled.div`
 color: var(--primaryWhite);
 
 h3 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: black;
 }
 
 p {
   color: var(--primaryBlack);
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 `;
 
@@ -107,4 +132,10 @@ const DeleteContainer = styled.div`
 
 const Button = styled.button`
 display: none;
+`;
+
+const Pagination = styled.div`
+`;
+
+const PaginationButton = styled.button`
 `;
