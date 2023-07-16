@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
@@ -110,6 +109,8 @@ color: var(--primaryBlack);
 
 const SmallInfo = styled.section`
 color: var(--lemon);
+padding: 0;
+margin: 0;
 `;
 
 const DescriptionDiv = styled.div`
@@ -135,7 +136,9 @@ display: none;
 `;
 
 const Pagination = styled.div`
+  /* Your pagination styles here */
 `;
 
 const PaginationButton = styled.button`
+  /* Your pagination button styles here */
 `;
