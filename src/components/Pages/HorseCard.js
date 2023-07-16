@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { Pinside } from 'components/ReusableComponents/GlobalStyles';
+import { ButtonPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -9,9 +9,10 @@ import { API_URL } from 'utils/urls';
 const HorseCard = ({ horseList }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const visibleHorses = horseList.slice(startIndex, endIndex);
+  const visibleHorses = horseList.slice(0, endIndex).reverse();
 
   const userId = localStorage.getItem('userId');
   const accessToken = localStorage.getItem('token');
@@ -32,11 +33,15 @@ const HorseCard = ({ horseList }) => {
   };
 
   const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    if (endIndex < horseList.length) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
   };
 
   const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
   };
 
   return (
@@ -81,10 +86,10 @@ const HorseCard = ({ horseList }) => {
       {horseList.length > itemsPerPage && (
         <Pagination>
           {currentPage > 1 && (
-            <PaginationButton onClick={handlePreviousPage}>Previous</PaginationButton>
+            <ButtonPrimary onClick={handlePreviousPage}>Previous</ButtonPrimary>
           )}
           {endIndex < horseList.length && (
-            <PaginationButton onClick={handleNextPage}>Next</PaginationButton>
+            <ButtonPrimary onClick={handleNextPage}>Next</ButtonPrimary>
           )}
         </Pagination>
       )}
@@ -136,9 +141,8 @@ display: none;
 `;
 
 const Pagination = styled.div`
-  /* Your pagination styles here */
-`;
-
-const PaginationButton = styled.button`
-  /* Your pagination button styles here */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 `;

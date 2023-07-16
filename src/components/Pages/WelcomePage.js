@@ -22,12 +22,13 @@ const WelcomePage = () => {
       </MiddleColumn>
       <RightColumn>
         <LinksBox>
-          <ButtonPrimary><Link to="/mypage">Add horses</Link></ButtonPrimary>
+          <ButtonsCorner>
+            <ButtonPrimary><Link to="/mypage">Add horses</Link></ButtonPrimary>
+            <Logout />
+          </ButtonsCorner>
           <RandomFacts />
         </LinksBox>
-        <DivSearchLogout>
-          <Logout />
-        </DivSearchLogout>
+        <DivSearchLogout />
       </RightColumn>
     </ProfileContainer>
   );
@@ -65,7 +66,14 @@ margin-top: 1rem;
 min-width: 100%;
 }
 
-`
+`;
+const ButtonsCorner = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 2rem;
+`;
+
 const ProfileContainer = styled.div`
 background-color: var(--primaryWhite);
 color: var(--primaryBlack);

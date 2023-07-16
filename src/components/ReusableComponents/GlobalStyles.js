@@ -40,14 +40,19 @@ font-size: 2rem;
 `
 
 export const ButtonPrimary = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
   background-color: var(--softPurple);
   color: var(--primaryWhite);
   font-size: var(--fontSize);
   border: 1.5px solid var(--softPurple);
   border-radius: 30px;
   height: 50px;
-  padding: 0 4.5rem;
   text-decoration: none;
+  cursor: pointer;
   &:hover {
     background-color: var(--lemon);
     color: var(--primaryBlack);
