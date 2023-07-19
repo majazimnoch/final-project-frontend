@@ -14,7 +14,7 @@ const Horseheader = () => {
 const Horseheaderdiv = styled.div`
 background-image: url(${(props) => props.img});
 background-size: cover;
-background-color: var(--claret);
+background-color: var(--primaryWhite);
 color: var(--primaryWhite);
 height:20vh;
 display: flex;
