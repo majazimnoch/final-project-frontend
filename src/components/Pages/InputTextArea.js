@@ -9,6 +9,11 @@ const StyledTextArea = styled.textarea`
   border: 1px solid var(--primaryBlack);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   resize: none;
+  ::placeholder {
+    font-family: var(--fontParagraph);
+    font-size: 14px;
+    font-weight: 400;
+  }
 
   &:focus {
     outline: 0.5px solid var(--softPurple);

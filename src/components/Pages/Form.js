@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
-import { StyledButton } from 'components/BeforeLogin/ButtonStyling';
 import { useDispatch } from 'react-redux';
 import horses from 'reducers/horses';
 import styled from 'styled-components';
 import { API_URL } from 'utils/urls';
-import { ButtonPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import { Link } from 'react-router-dom';
 import Input from './Input';
 import InputTextArea from './InputTextArea';
@@ -113,8 +112,8 @@ const Form = ({ setCollapsed }) => {
           </ExtraInfoBox>
         </FormQuestionsBox>
         <ButtonDiv>
-          <StyledButton type="submit">Add a horse</StyledButton>
-          <ButtonPrimary><Link to="/welcomepage">Go back</Link></ButtonPrimary>
+          <ButtonAdd type="submit">Add a horse</ButtonAdd>
+          <ButtonAdd><Link to="/welcomepage">Go back</Link></ButtonAdd>
         </ButtonDiv>
       </FormAdd>
     </FormStyledDiv>
@@ -134,6 +133,7 @@ const BasicInfoBox = styled.div`
 display:flex;
 flex-direction:column;
 gap: 2rem;
+margin-top: .7rem;
 margin-right: 2rem;`;
 
 const ExtraInfoBox = styled.div`
@@ -157,8 +157,30 @@ align-items: center;
 gap:2rem;
 `;
 const ButtonDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  `;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+gap: 1rem;
+`;
+
+const ButtonAdd = styled.button`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 1rem 1.5rem;
+background-color: var(--softPurple);
+color: var(--primaryWhite);
+font-size: var(--fontSize);
+border: 1.5px solid var(--softPurple);
+border-radius: 30px;
+height: 50px;
+text-decoration: none;
+cursor: pointer;
+&:hover {
+  background-color: var(--lemon);
+  color: var(--primaryBlack);
+  transition: 0.2s;
+}
+`

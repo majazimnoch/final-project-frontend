@@ -11,7 +11,7 @@ const HorseCard = ({ horseList }) => {
   const itemsPerPage = 10;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const visibleHorses = horseList.slice(startIndex, endIndex);
+  const visibleHorses = horseList.slice().reverse().slice(startIndex, endIndex);
 
   const userId = localStorage.getItem('userId');
   const accessToken = localStorage.getItem('token');

@@ -22,11 +22,11 @@ align-items: center;
 justify-content: center;
 background-size: cover;
 background-position: center;
-box-shadow: 0 5px 0px rgba(183, 253, 073);
+box-shadow: 0 5px 0px rgba(183, 253, 173);
+color: #b7fdad;
 
 &:hover {
     opacity: 0.5;
   }
-
 `
 export default Horseheader
