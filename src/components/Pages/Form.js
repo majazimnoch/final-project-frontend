@@ -78,34 +78,40 @@ const Form = ({ setCollapsed }) => {
         <h1>Create a horse</h1>
       </CreateHorseDiv>
       <FormAdd onSubmit={(e) => onSubmit(e)}>
-        <Input
-          type="text"
-          srOnly="Name of horse"
-          placeholder="My horse is called..."
-          value={horseName}
-          onChange={handleHorseName} />
-        <Input
-          type="text"
-          srOnly="Description"
-          placeholder="Fact about my horse... "
-          value={description}
-          onChange={handleDescription} />
-        <label>
-          <Pinside>Characteristics:</Pinside>
-          <InputTextArea
-            srOnly="Characteristics"
-            placeholder="Separate your horses characteristics with a comma"
-            value={characteristics}
-            onChange={handleCharacteristics} />
-        </label>
-        <label>
-          <Pinside>Instructions:</Pinside>
-          <InputTextArea
-            srOnly="Instructions"
-            placeholder="Separate the instructions by using a new line for each new one"
-            value={instructions}
-            onChange={handleInstructions} />
-        </label>
+        <FormQuestionsBox>
+          <BasicInfoBox>
+            <Input
+              type="text"
+              srOnly="Name of horse"
+              placeholder="My horse is called..."
+              value={horseName}
+              onChange={handleHorseName} />
+            <Input
+              type="text"
+              srOnly="Description"
+              placeholder="Fact about my horse... "
+              value={description}
+              onChange={handleDescription} />
+          </BasicInfoBox>
+          <ExtraInfoBox>
+            <label>
+              <Pinside>Characteristics:</Pinside>
+              <InputTextArea
+                srOnly="Characteristics"
+                placeholder="Separate your horses characteristics with a comma"
+                value={characteristics}
+                onChange={handleCharacteristics} />
+            </label>
+            <label>
+              <Pinside>Instructions:</Pinside>
+              <InputTextArea
+                srOnly="Instructions"
+                placeholder="Separate the instructions by using a new line for each new one"
+                value={instructions}
+                onChange={handleInstructions} />
+            </label>
+          </ExtraInfoBox>
+        </FormQuestionsBox>
         <ButtonDiv>
           <StyledButton type="submit">Add a horse</StyledButton>
           <ButtonPrimary><Link to="/welcomepage">Go back</Link></ButtonPrimary>
@@ -117,10 +123,25 @@ const Form = ({ setCollapsed }) => {
 
 export default Form;
 
-const FormStyledDiv = styled.div`
+const FormQuestionsBox = styled.div`
 display: flex;
-flex-direction: column;
-min-width: 200px;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+`;
+
+const BasicInfoBox = styled.div`
+display:flex;
+flex-direction:column;
+gap: 2rem;
+margin-right: 2rem;`;
+
+const ExtraInfoBox = styled.div`
+display:flex;
+flex-direction:row;
+gap: 2rem;`;
+
+const FormStyledDiv = styled.div`
 display: flex;
 flex-direction: column;
 min-width: 200px;
