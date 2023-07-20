@@ -50,6 +50,8 @@ const Horse = () => {
             <HorseDetails horseInfo={[horseInfo.horse]} />
           </HorseInfoContainer>
           <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+          {/* New button to edit horse /YK */}
+          <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
         </>
       ))}
     </HorseDiv>

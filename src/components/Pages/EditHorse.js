@@ -1,35 +1,57 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
-import horses from 'reducers/horses';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
 import { ButtonPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
 import InputTextArea from './InputTextArea';
 import plusicon from '../../assets/add.png';
 
-const Form = ({ setCollapsed }) => {
+const EditHorse = ({ setCollapsed }) => {
+  const accessToken = localStorage.getItem('token')
+  const params = useParams();
+
   const [horseName, setHorseName] = useState('')
   const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
   const [instructions, setInstructions] = useState([])
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    fetch(API_URL(`horses/${params.horseId}`), options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.response[0].horse);
+        setHorseName(data.response[0].horse.name)
+        setDescription(data.response[0].horse.description)
+        setInstructions(data.response[0].horse.instructions)
+        setCharacteristics(data.response[0].horse.characteristics)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  }, [])
 
   useEffect(() => {
     console.log('Inside useEffect');
   }, []);
 
-  const accessToken = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
 
-  // Submitting new horse
-  const onSubmit = () => {
+  // Submitting edited horse
+  const onSubmit = (e) => {
+    e.preventDefault()
     const options = {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Authorization: accessToken,
@@ -44,11 +66,10 @@ const Form = ({ setCollapsed }) => {
         }
       })
     }
-    fetch(API_URL('horses'), options)
+    fetch(API_URL(`horses/${params.horseId}`), options)
       .then((res) => res.json())
-      .then((data) => {
-        dispatch(horses.actions.setNewHorse(data.response))
-        window.location.reload();
+      .then(() => {
+        navigate(`/horses/${params.horseId}`);
       })
   }
 
@@ -76,7 +97,7 @@ const Form = ({ setCollapsed }) => {
   return (
     <FormStyledDiv>
       <div>
-        <h1>Create a horse</h1>
+        <h1>Edit your horse</h1>
       </div>
       <FormCreateHorseBox>
         <FormAdd onSubmit={(e) => onSubmit(e)}>
@@ -118,7 +139,7 @@ const Form = ({ setCollapsed }) => {
             <ButtonAdd type="submit">
               <PlusSign src={plusicon} alt="Icon" />
               <div>
-              Add a horse
+              Save your horse
               </div>
             </ButtonAdd>
             <ButtonPrimary><Link to="/welcomepage">Go back</Link></ButtonPrimary>
@@ -129,7 +150,7 @@ const Form = ({ setCollapsed }) => {
   )
 };
 
-export default Form;
+export default EditHorse;
 
 const FormStyledDiv = styled.div`
 display: flex;

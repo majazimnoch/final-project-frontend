@@ -40,7 +40,8 @@ const MyPage = () => {
 
         setMyPosts(data.response.reverse());
       } catch (error) {
-        console.error('Error:', error);
+        console.log('FUNKAR EJ:');
+        // console.error('Error:', error);
       }
     };
 
