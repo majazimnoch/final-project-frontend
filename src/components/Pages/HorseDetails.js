@@ -25,7 +25,7 @@ const HorseDetails = ({ horseInfo }) => {
   const CharacteristicsIntoList = horseInfo.map((horse) => {
     if (horse.characteristics.length === 0) {
       return (
-        ['EMPTY']
+        ['No characteristics yet - use the Edit-button below to add some']
       )
     }
     return (
@@ -37,7 +37,7 @@ const HorseDetails = ({ horseInfo }) => {
   const InstructionsIntoList = horseInfo.map((horse) => {
     if (horse.instructions.length === 0) {
       return (
-        ['EMPTY']
+        ['No instructions yet - use the Edit-button below to add some']
       )
     }
     return (
@@ -55,6 +55,7 @@ const HorseDetails = ({ horseInfo }) => {
           <MainHorseDiv key={horse._id}>
             <div>
               <h1>{horse.name}</h1>
+              {/* Maybe we could add the Name and description as "headlines" like Characteristics and Instructions have */}
               <p>{horse.description}</p>
             </div>
             <HorseInstructionsDiv>
