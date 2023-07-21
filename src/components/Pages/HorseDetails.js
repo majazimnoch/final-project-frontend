@@ -4,20 +4,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
-// EDIT HORSE
+// EDIT HORSE - kommentarer för min branch - kan tas bort sen =) /YK
 // KLAR - 1. ta PATCH-koden från min backend-version och lägg till i backend (feature/edithorse)
-
-// lägga till knapp för att kunna redigera en häst
-// göra en ny sida som liknar denna HorseDetails och CREATE /form för att skapa en ny häst
-// Hämta hästen från backend och lägga till den datan i fälten som visas
-// Create-sidan - alltså HorseDetails ska då uppdateras med den redigerade informationen
-// Man vill komma in på Create-formet fast med fälten ifyllda med existerande värden
-// och sedan ska Add-knappen på "edit"-sidan ska då skicka den form-datan till PATCH-endpointen
-// istället för att uppdatera infon.
+// KLAR - lägga till knapp för att kunna redigera en häst
+// KLAR - göra en ny sida som liknar denna HorseDetails och CREATE /form för att skapa en ny häst
+// KLAR - Hämta hästen från backend och lägga till den datan i fälten som visas
+// KLAR - Create-sidan - alltså kopian av HorseDetails ska då uppdateras med den redigerade informationen
+// KLAR - Man vill komma in på Create-formet fast med fälten ifyllda med existerande värden
+//  - och sedan ska Add-knappen på "edit"-sidan ska då skicka den form-datan till PATCH-endpointen
+//  - istället för att uppdatera infon.
 //
-// MÅSTE hämta horseId - för att uppdatera rätt häst
-// hämta datan från den hästen (som den gör här på HorseDetails) - sätta värdena i formen
-// till dessa.
+// KLAR - MÅSTE hämta horseId - för att uppdatera rätt häst
+// KLAR - hämta datan från den hästen (som den gör här på HorseDetails) - sätta värdena i formen
+//  - till dessa.
 
 const HorseDetails = ({ horseInfo }) => {
   console.log(horseInfo);

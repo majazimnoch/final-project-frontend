@@ -40,6 +40,7 @@ const EditHorse = ({ setCollapsed }) => {
         console.error('Error:', error)
       })
   }, [])
+  // This message above that dependencies are missing was nothing to worry about - it works anyway
 
   useEffect(() => {
     console.log('Inside useEffect');
