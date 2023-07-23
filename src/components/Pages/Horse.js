@@ -49,6 +49,7 @@ const Horse = () => {
             </UserInfoDiv>
             <HorseDetails horseInfo={[horseInfo.horse]} />
           </HorseInfoContainer>
+          <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
           <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
         </>
       ))}
