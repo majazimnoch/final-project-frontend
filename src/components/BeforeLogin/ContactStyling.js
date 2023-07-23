@@ -14,10 +14,13 @@ flex-direction: column;
 background-image: url(${image2});
 background-repeat: no-repeat;
 background-size: cover;
+background-color: var(--softPurple);
 
 @media (min-width: 1024px) {
-  background-position: center bottom -300px;
+  background-position: center top -100px;
 }
+
+
 `;
 
 export const TopContainer = styled.div`
@@ -154,14 +157,13 @@ export const FlexContacts = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-padding: 8rem 2rem;
+padding: 3.5rem 2rem;
 background-color: var(--softPurple);
 gap: 3rem;
 
 @media (min-width: 668px) {
 flex-direction: row;
 justify-content: space-between;
-
 }
 
 `;
@@ -171,6 +173,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-start;
+
 @media (min-width: 1024px) {
 flex-direction: row;
 }

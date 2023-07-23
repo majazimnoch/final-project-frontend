@@ -29,6 +29,7 @@ export const StyledHero = styled.div`
         background-size: 100% 100%;
         background-size: cover;
         background-position: left -100px;
+        background-repeat: repeat;
         }
 
         .right {
