@@ -10,11 +10,9 @@ const HorseDetails = ({ horseInfo }) => {
   // useState to handle the image URL state
   const [horseImage, setHorseImage] = useState('');
 
-  // Fetch the image URL from the API
   useEffect(() => {
     fetch('https://source.unsplash.com/500x500/?horses')
       .then((response) => {
-        // Get the URL of the fetched image
         setHorseImage(response.url);
       })
       .catch((error) => {
@@ -64,7 +62,12 @@ const HorseDetails = ({ horseInfo }) => {
                     <li key={uuidv4()}>{li}</li>
                   ))}
                 </ol>
-                {horseImage && <img src={horseImage} alt="Horse" />}
+                {/* Show a loading message while the image is being fetched */}
+                {!horseImage ? (
+                  <p>Loading image...</p>
+                ) : (
+                  <img src={horseImage} alt="Horse" />
+                )}
               </Instructions>
             </HorseInstructionsDiv>
           </MainHorseDiv>
