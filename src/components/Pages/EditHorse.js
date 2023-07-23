@@ -4,10 +4,9 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
-import { ButtonPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
 import InputTextArea from './InputTextArea';
-import plusicon from '../../assets/add.png';
 
 const EditHorse = ({ setCollapsed }) => {
   const accessToken = localStorage.getItem('token')
@@ -97,133 +96,114 @@ const EditHorse = ({ setCollapsed }) => {
 
   return (
     <FormStyledDiv>
-      <div>
+      <CreateHorseDiv>
         <h1>Edit your horse</h1>
-      </div>
-      <FormCreateHorseBox>
-        <FormAdd onSubmit={(e) => onSubmit(e)}>
-          <FormCreateFieldsBox>
-            <FormCreateHorseLeft>
-              <Input
-                type="text"
-                srOnly="Name of horse"
-                placeholder="My horse is called..."
-                value={horseName}
-                onChange={handleHorseName} />
-              <Input
-                type="text"
-                srOnly="Description"
-                placeholder="Fact about my horse... "
-                value={description}
-                onChange={handleDescription} />
-            </FormCreateHorseLeft>
-            <FormCreateHorseRight>
-              <label>
-                <Pinside>Characteristics:</Pinside>
-                <InputTextArea
-                  srOnly="Characteristics"
-                  placeholder="Separate your horses characteristics with a comma"
-                  value={characteristics}
-                  onChange={handleCharacteristics} />
-              </label>
-              <label>
-                <Pinside>Instructions:</Pinside>
-                <InputTextArea
-                  srOnly="Instructions"
-                  placeholder="Separate the instructions by using a new line for each new one"
-                  value={instructions}
-                  onChange={handleInstructions} />
-              </label>
-            </FormCreateHorseRight>
-          </FormCreateFieldsBox>
-          <ButtonDiv>
-            <ButtonAdd type="submit">
-              <PlusSign src={plusicon} alt="Icon" />
-              <div>
-              Save your horse
-              </div>
-            </ButtonAdd>
-            <ButtonPrimary><Link to="/welcomepage">Go back</Link></ButtonPrimary>
-          </ButtonDiv>
-        </FormAdd>
-      </FormCreateHorseBox>
+      </CreateHorseDiv>
+      <FormAdd onSubmit={(e) => onSubmit(e)}>
+        <FormQuestionsBox>
+          <BasicInfoBox>
+            <Input
+              type="text"
+              srOnly="Name of horse"
+              placeholder="My horse is called..."
+              value={horseName}
+              onChange={handleHorseName} />
+            <Input
+              type="text"
+              srOnly="Description"
+              placeholder="Fact about my horse... "
+              value={description}
+              onChange={handleDescription} />
+          </BasicInfoBox>
+          <ExtraInfoBox>
+            <label>
+              <Pinside>Characteristics:</Pinside>
+              <InputTextArea
+                srOnly="Characteristics"
+                placeholder="Separate your horses characteristics with a comma"
+                value={characteristics}
+                onChange={handleCharacteristics} />
+            </label>
+            <label>
+              <Pinside>Instructions:</Pinside>
+              <InputTextArea
+                srOnly="Instructions"
+                placeholder="Separate the instructions by using a new line for each new one"
+                value={instructions}
+                onChange={handleInstructions} />
+            </label>
+          </ExtraInfoBox>
+        </FormQuestionsBox>
+        <ButtonDiv>
+          <ButtonAdd type="submit">Save your horse</ButtonAdd>
+          <ButtonAdd><Link to="/welcomepage">Go back</Link></ButtonAdd>
+        </ButtonDiv>
+      </FormAdd>
     </FormStyledDiv>
   )
 };
 
 export default EditHorse;
 
+const FormQuestionsBox = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+`;
+
+const BasicInfoBox = styled.div`
+display:flex;
+flex-direction:column;
+gap: 2rem;
+margin-top: .7rem;
+margin-right: 2rem;`;
+
+const ExtraInfoBox = styled.div`
+display:flex;
+flex-direction:row;
+gap: 2rem;`;
+
 const FormStyledDiv = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
-width: 100%;
-margin: 0 auto;
+min-width: 200px;
 `;
 
-const FormCreateHorseBox = styled.div`
-display: flex;
-flex-direction: column;
-`;
-
-const FormCreateFieldsBox = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
+const CreateHorseDiv = styled.div`
 `;
 
 const FormAdd = styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 2rem;
+gap:2rem;
 `;
-
-const FormCreateHorseLeft = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 2rem;
-`;
-
-const FormCreateHorseRight = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 2rem;
-`;
-
 const ButtonDiv = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-align-content: left;
 width: 100%;
-margin-top: 2rem;
+gap: 1rem;
 `;
 
-const PlusSign = styled.img`
-top: 100px; left: 0px;
-height: 80%;
-`;
-
-export const ButtonAdd = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: .5rem;
-  background-color: var(--primaryWhite);
+const ButtonAdd = styled.button`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 1rem 1.5rem;
+background-color: var(--softPurple);
+color: var(--primaryWhite);
+font-size: var(--fontSize);
+border: 1.5px solid var(--softPurple);
+border-radius: 30px;
+height: 50px;
+text-decoration: none;
+cursor: pointer;
+&:hover {
+  background-color: var(--lemon);
   color: var(--primaryBlack);
-  font-size: var(--fontSize);
-  border: 1.5px solid var(--softPurple);
-  border-radius: 30px;
-  height: 50px;
-  padding: 0 40px;
-  
-  &:hover {
-    background-color: var(--softPurple);
-    color: var(--primaryWhite);
-    transition: 0.2s;
-  }
-`;
+  transition: 0.2s;
+}
+`
