@@ -4,6 +4,7 @@ import Hero from './Hero'
 import Contact from './Contact'
 import Faq from './Faq/Faq'
 import Login from './Login'
+import Footer from './Footer'
 
 const PublicMain = () => {
   return (
@@ -13,6 +14,7 @@ const PublicMain = () => {
       <Faq />
       <Contact />
       <Login />
+      <Footer />
     </>
   );
 };

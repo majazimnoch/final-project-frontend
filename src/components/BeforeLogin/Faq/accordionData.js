@@ -4,7 +4,7 @@ export const accordionData = [
   {
     id: uuidv4(),
     title: 'What is Horsey App?',
-    content: `Introducing Horsey, the ultimate app for horse riders and enthusiasts. Revolutionizing the equestrian experience, Horsey provides a comprehensive platform to collect horse information, track goals, and establish routines. Create profiles for your horses, capturing vital details like breed, age, and medical history. Set short-term and long-term goals, monitor progress, and stay motivated. Plan personalized routines for feeding, exercise, and appointments. Share experiences from horse events and seek advice. Enhance your equestrian journey with Horsey.
+    content: `Introducing Horsey, the ultimate app for horse riders and enthusiasts. Revolutionizing the equestrian experience, Horsey provides a comprehensive platform to collect horse information, track goals, and establish routines. Create profiles for your horses, capturing vital details like breed, age, and medical history. Set short-term and long-term goals, monitor progress, and stay motivated. Plan personalized routines for feeding, exercise, and appointments. Enhance your equestrian journey with Horsey.
     `
   },
   {
@@ -16,7 +16,7 @@ export const accordionData = [
   {
     id: uuidv4(),
     title: 'Technigo Final Project?',
-    content: `This app is a final project of Techigo Web Development Bootcamp, made by three frontend developers, Sandra, Ylva and Maja. 
+    content: `This app is a final project of Techigo Web Development Bootcamp, made by three frontend developers, Sandra, Ylva and Maja. The contact email 'info@horsey.se' is fictional and shown only to match the design. If you want to contact us, please, use the info in the footer.
     `
   }
 ];

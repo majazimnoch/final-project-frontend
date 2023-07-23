@@ -89,8 +89,9 @@ const Login = () => {
       <LeftLogin>
         <TextLoginBox>
           <StyledPlayfulHorse src={Horseplayful} alt="Little horse" />
-          <h2>Saddle up for digital horsekeeping perfection with our Horsey app! </h2>
-          <p>Track, manage, and stay in sync with your equine companions effortlessly. Join us now!</p>
+          <h2>Saddle up for digital horsekeeping perfection with Horsey app! </h2>
+          <p>The app allows you to create a horse and add it to our database. All horses are public, so everyone can click on them and read about their characteristics and instructions. Additional features of the app include weather forecasts and random facts about horses.
+          </p>
         </TextLoginBox>
       </LeftLogin>
       <RightLogin>
@@ -129,11 +130,11 @@ const Login = () => {
           <PSwitchaccount>
             {loginOrRegister === 'login' ? (
               <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
-        I do not have an account yet
+                <bold>I do not have an account yet</bold>
               </a>
             ) : (
               <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
-        I already have an account
+                <bold>I already have an account</bold>
               </a>
             )}
           </PSwitchaccount>

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import image2 from 'assets/light-horses.jpg';
 
 export const StyledSection = styled.section`
 display: flex;
@@ -10,8 +11,13 @@ min-height: 100vh;
 export const StyledTop = styled.div`
 display: flex;
 flex-direction: column;
-background-color: var(--primaryWhite);
-justify-content: space-between;
+background-image: url(${image2});
+background-repeat: no-repeat;
+background-size: cover;
+
+@media (min-width: 1024px) {
+  background-position: center bottom -300px;
+}
 `;
 
 export const TopContainer = styled.div`
@@ -25,8 +31,9 @@ justify-content: center;
 
 @media (min-width: 1024px) {
   flex-direction: row;
-  gap: 6rem;
+  gap: 16rem;
   align-items: center;
+  margin: 7rem 0;
 }
 `;
 
@@ -93,6 +100,8 @@ gap: 1.5rem;
 justify-content: center;
 margin-top: 4rem;
 margin-bottom: 0;
+padding: 5px;
+background-color: var(--lemon);
 
 @media (min-width: 668px) {
   font-size: 1.5rem;
@@ -144,9 +153,10 @@ max-width: 180px;
 export const FlexContacts = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
+align-items: flex-start;
 padding: 8rem 2rem;
 background-color: var(--softPurple);
+gap: 3rem;
 
 @media (min-width: 668px) {
 flex-direction: row;
@@ -161,8 +171,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-start;
-
-
 @media (min-width: 1024px) {
 flex-direction: row;
 }
@@ -174,6 +182,11 @@ flex-direction: column;
 justify-content: flex-start;
 align-items: flex-start;
 justify-items: flex-start;
+text-align: left;
+
+@media (min-width: 1024px) {
+max-width: 250px;
+}
 `
 
 export const StyledName = styled.h4`
@@ -239,4 +252,3 @@ ${(styling) => styling.email && css`
 background-color: var(--lemon);`
 }
 `;
-
