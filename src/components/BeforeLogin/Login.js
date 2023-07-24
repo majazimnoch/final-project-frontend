@@ -180,6 +180,7 @@ const LoginWrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
+  
 `;
 
 const TextLoginBox = styled.div``;
@@ -210,6 +211,11 @@ const RightLogin = styled.div`
     font-size: 1rem;
     color: var(--primaryBlack);
   }
+
+  @media (min-width: 668px) and (max-width: 1023px) {
+    margin: 2rem 0;
+
+}
 
   @media (max-width: 1023px) {
     padding: 1rem;

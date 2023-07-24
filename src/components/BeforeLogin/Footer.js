@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <p>Authors:</p>
+      <StyledPAuthors>Authors:</StyledPAuthors>
       <AuthorsBox>
         <SingleAuthor>
           <p>Sandra Olsson</p>
@@ -50,13 +50,22 @@ const Footer = () => {
 }
 
 export default Footer;
+
 const StyledFooter = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 background-color: var(--claret);
+background: var(--claret);
 color: var(--primaryWhite);
+padding-top: 2rem;
 `
+const StyledPAuthors = styled.p`
+border-bottom: 2px solid var(--primaryWhite);
+padding-bottom: 3px;
+text-transform: uppercase;
+`
+
 const AuthorsBox = styled.div`
 display: flex;
 flex-direction: row;
@@ -64,7 +73,7 @@ gap: 3rem;
 
 @media (max-width: 1023px) {
 flex-direction: column;
-gap: 1rem;
+gap: .3rem;
 }
 
 `
@@ -72,6 +81,11 @@ const SingleAuthor = styled.div`
 display: flex;
 flex-direction: column;
 margin-bottom: 2rem;
+
+@media (max-width: 1023px) {
+  margin-bottom: .2rem;
+}
+
 `
 const IconsSoMeDiv = styled.div`
 display: flex;

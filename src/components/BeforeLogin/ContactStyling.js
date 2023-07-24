@@ -5,7 +5,6 @@ export const StyledSection = styled.section`
 display: flex;
 flex-direction: column;
 text-align: center;
-min-height: 100vh;
 `;
 
 export const StyledTop = styled.div`
@@ -19,8 +18,6 @@ background-color: var(--softPurple);
 @media (min-width: 1024px) {
   background-position: center top -100px;
 }
-
-
 `;
 
 export const TopContainer = styled.div`
