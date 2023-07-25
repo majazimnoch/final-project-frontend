@@ -5,7 +5,7 @@ import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
-import { ButtonPrimary } from 'components/ReusableComponents/GlobalStyles';
+import { ButtonPrimaryRight } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from './Facts/RandomFacts';
 import Horseheader from './Horseheader';
 
@@ -23,7 +23,7 @@ const WelcomePage = () => {
       <RightColumn>
         <LinksBox>
           <ButtonsCorner>
-            <ButtonPrimary><Link to="/mypage">Add horses</Link></ButtonPrimary>
+            <ButtonPrimaryRight><Link to="/mypage">Add horses</Link></ButtonPrimaryRight>
             <Logout />
           </ButtonsCorner>
           <RandomFacts />
@@ -45,15 +45,10 @@ export const StyledLinkAdd = styled(Link)`
   text-decoration: none;
   background-color: var(--softPurple);
   color: var(--primaryWhite);
-  font-size: var(--fontSize);
   border: 1.5px solid var(--softPurple);
   border-radius: 30px;
   height: 50px;
   padding: 0 40px;
-
-  &:hover {
-
-  }
 `;
 
 const LinksBox = styled.div`

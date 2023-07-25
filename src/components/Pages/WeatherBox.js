@@ -106,6 +106,10 @@ const WeatherBoxContainer = styled.div`
   margin: 1rem 1.5rem;
   text-align:center;
 
+  @media (max-width: 1023px) {
+  max-width: 90vw;
+}
+
 `;
 
 const Weatherheader = styled.header`
@@ -145,18 +149,22 @@ padding: 0.5rem;
 }
 
 @media (max-width: 1023px) {
-  padding: 0 8rem;
+  width: 50px;
 }
 `
 const StyledSearchIcon = styled.img`
 height: 30px;
 cursor: pointer;
+
+@media (max-width: 1023px) {
+  width: 30px;
+}
 `;
 
 export const InputWeather = styled.input`
 display: block;
 height: 3rem;
-padding: 0 4rem;
+padding: 0 1rem;
 border-radius: 10px;
 border: 1px var(--primaryBlack) solid;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -166,14 +174,17 @@ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 @media (max-width: 1023px) {
-min-width: 90%;
-padding: 0;
+  padding: 0 1rem;
 }
 `;
 
 const WeatherInputButtonBox = styled.div`
 display: flex;
 flex-direction: row;
+
+@media (max-width: 1023px) {
+  max-width: 90vw;
+}
 `;
 
 export const StyledSpanWeather = styled.span`

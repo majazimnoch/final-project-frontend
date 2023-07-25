@@ -57,7 +57,7 @@ const Contact = () => {
           <AuthorTitleBox>
             <StyledName>Maja</StyledName>
             <StyledLine />
-            <Pinside>Frontend developer and curious about horses</Pinside>
+            <Pinside>Frontend developer & curious about horses</Pinside>
           </AuthorTitleBox>
         </FlexSection>
       </FlexContacts>

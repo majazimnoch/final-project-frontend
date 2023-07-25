@@ -88,7 +88,7 @@ const Form = ({ setCollapsed }) => {
             <Input
               type="text"
               srOnly="Description"
-              placeholder="Fact about my horse... "
+              placeholder="My horse is based... "
               value={description}
               onChange={handleDescription} />
           </BasicInfoBox>
@@ -127,6 +127,10 @@ display: flex;
 flex-direction: row;
 justify-content: flex-end;
 align-items: center;
+
+@media (max-width: 1023px) {
+    flex-direction: column;
+}
 `;
 
 const BasicInfoBox = styled.div`
@@ -134,12 +138,22 @@ display:flex;
 flex-direction:column;
 gap: 2rem;
 margin-top: .7rem;
-margin-right: 2rem;`;
+margin-right: 2rem;
+
+@media (max-width: 1023px) {
+    margin-right: 0;
+}`;
 
 const ExtraInfoBox = styled.div`
 display:flex;
 flex-direction:row;
-gap: 2rem;`;
+gap: 2rem;
+
+@media (max-width: 1023px) {
+    flex-direction: column;
+}
+
+`;
 
 const FormStyledDiv = styled.div`
 display: flex;
@@ -162,6 +176,10 @@ align-items: center;
 justify-content: center;
 width: 100%;
 gap: 1rem;
+
+@media (max-width: 1023px) {
+    flex-direction: column;
+}
 `;
 
 const ButtonAdd = styled.button`
@@ -182,5 +200,9 @@ cursor: pointer;
   background-color: var(--lemon);
   color: var(--primaryBlack);
   transition: 0.2s;
+}
+
+@media (max-width: 1023px) {
+    font-size: 24px;
 }
 `

@@ -1,4 +1,4 @@
-import { ButtonPrimary } from 'components/ReusableComponents/GlobalStyles';
+import { ButtonPrimaryRight } from 'components/ReusableComponents/GlobalStyles';
 import React from 'react';
 
 const Logout = () => {
@@ -7,7 +7,7 @@ const Logout = () => {
     window.location.href = '/';
   }
   return (
-    <ButtonPrimary type="button" onClick={handleLogout}>Logout</ButtonPrimary>
+    <ButtonPrimaryRight type="button" onClick={handleLogout}>Logout</ButtonPrimaryRight>
   )
 }
 

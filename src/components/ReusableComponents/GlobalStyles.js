@@ -58,6 +58,7 @@ export const ButtonPrimary = styled.button`
     color: var(--primaryBlack);
     transition: 0.2s;
   }
+
   `
 export const InputPrimary = styled.input`
 height: 3rem;
@@ -70,8 +71,29 @@ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   outline: 0.5px solid var(--softPurple);
 }
 
-@media (max-width: 1023px) {
-
-}
-
 `;
+
+export const ButtonPrimaryRight = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--softPurple);
+  color: var(--primaryWhite);
+  border: 1.5px solid var(--softPurple);
+  border-radius: 30px;
+  height: 50px;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--lemon);
+    color: var(--primaryBlack);
+    transition: 0.2s;
+  }
+
+  @media (max-width: 1023px) {
+    font-size: 24px;
+}
+  `
