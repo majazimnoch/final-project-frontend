@@ -49,6 +49,12 @@ export const StyledLinkAdd = styled(Link)`
   border-radius: 30px;
   height: 50px;
   padding: 0 40px;
+
+  &:hover {
+    background-color: var(--lemon);
+    color: var(--primaryBlack);
+    transition: 0.2s;
+  }
 `;
 
 const LinksBox = styled.div`

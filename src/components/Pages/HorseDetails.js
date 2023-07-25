@@ -42,10 +42,10 @@ const HorseDetails = ({ horseInfo }) => {
 
         return (
           <MainHorseDiv key={horse._id}>
-            <div>
+            <HorseIntro>
               <h1>{horse.name}</h1>
               <p>{horse.description}</p>
-            </div>
+            </HorseIntro>
             <HorseInstructionsDiv>
               <Characteristics>
                 <h2>Characteristics</h2>
@@ -66,7 +66,7 @@ const HorseDetails = ({ horseInfo }) => {
                 {!horseImage ? (
                   <p>Loading image...</p>
                 ) : (
-                  <img src={horseImage} alt="Horse" />
+                  <DetailsPicture src={horseImage} alt="Horse" />
                 )}
               </Instructions>
             </HorseInstructionsDiv>
@@ -82,10 +82,25 @@ export default HorseDetails;
 const MainHorseDiv = styled.div`
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
+justify-items: center;
+`
+const HorseIntro = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
 `
 const HorseInstructionsDiv = styled.div`
 `
 const Characteristics = styled.div`
 `
 const Instructions = styled.div`
+`
+const DetailsPicture = styled.img`
+
+@media (max-width: 1023px) {
+   max-width: 300px;
+  }
 `

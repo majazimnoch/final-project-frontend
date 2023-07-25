@@ -49,8 +49,10 @@ const Horse = () => {
             </UserInfoDiv>
             <HorseDetails horseInfo={[horseInfo.horse]} />
           </HorseInfoContainer>
-          <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
-          <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+          <ButtonBoxHorse>
+            <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
+            <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+          </ButtonBoxHorse>
         </>
       ))}
     </HorseDiv>
@@ -60,36 +62,27 @@ const Horse = () => {
 export default Horse;
 
 const HorseDiv = styled.div`
-  margin-top: 50px;
-  width: 90%;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 
-  @media (min-width: 668px) {
-      margin-top: 70px;
-      width: 90%;
-    }
-
-  @media (min-width: 1024px) {
-    margin-top: 100px;
-    width: 60%;
+  @media (max-width: 1023px) {
+   margin:1rem;
   }
 `
 
 const HorseInfoContainer = styled.div`
-  margin-bottom: 100px;
-
-  @media (min-width: 1025px) {
-    margin-bottom: 200px;
-
-  }
+  margin-bottom: 2rem;
 `
 
 const UserInfoDiv = styled.div`
     font-size: 1rem;
-    
-    @media (min-width: 668px) {
-      margin-top: 40px;
-    }
   `;
+
+const ButtonBoxHorse = styled.div`
+  display:flex;
+  flex-direction: column;
+  gap:1rem;
+  `
