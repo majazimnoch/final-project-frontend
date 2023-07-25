@@ -88,7 +88,7 @@ const Form = ({ setCollapsed }) => {
             <Input
               type="text"
               srOnly="Description"
-              placeholder="My horse is based... "
+              placeholder="My horse is based in... "
               value={description}
               onChange={handleDescription} />
           </BasicInfoBox>
