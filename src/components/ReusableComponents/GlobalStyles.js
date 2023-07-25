@@ -87,12 +87,7 @@ export const ButtonPrimaryRight = styled.button`
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
-  &:hover {
-    background-color: var(--lemon);
-    color: var(--primaryBlack);
-    transition: 0.2s;
-  }
-
+  
   @media (max-width: 1023px) {
     font-size: 24px;
 }

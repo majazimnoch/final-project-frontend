@@ -38,6 +38,7 @@ const EditHorse = ({ setCollapsed }) => {
       .catch((error) => {
         console.error('Error:', error)
       })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   // This message above that dependencies are missing was nothing to worry about - it works anyway
 
