@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// { useEffect, useState }
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -8,20 +9,26 @@ const HorseDetails = ({ horseInfo }) => {
   console.log(horseInfo);
 
   // useState to handle the image URL state
-  const [horseImage, setHorseImage] = useState('');
+  // const [horseImage, setHorseImage] = useState('');
 
-  useEffect(() => {
-    fetch('https://source.unsplash.com/500x500/?horses')
-      .then((response) => {
-        setHorseImage(response.url);
-      })
-      .catch((error) => {
-        console.error('Error fetching horse image:', error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setHorseImage(horseInfo.imageUrl)
+  //   // fetch('https://source.unsplash.com/500x500/?horses')
+  //   // .then((response) => {
+  //   //   setHorseImage(response.url);
+  //   // })
+  //   // .catch((error) => {
+  //   //   console.error('Error fetching horse image:', error);
+  //   // });
+  // }, [horseInfo]);
 
   // Turning characteristics string into array (to be able to display the characteristics in a list). The string is split at each comma.
   const CharacteristicsIntoList = horseInfo.map((horse) => {
+    if (horse.characteristics.length === 0) {
+      return (
+        ['No characteristics yet - use the Edit-button below to add some']
+      )
+    }
     return (
       horse.characteristics[0].split(',')
     )
@@ -29,6 +36,11 @@ const HorseDetails = ({ horseInfo }) => {
 
   // Turning the instructions string into an array (to be able to display the instructions in a list). The string is split at each line-break.
   const InstructionsIntoList = horseInfo.map((horse) => {
+    if (horse.instructions.length === 0) {
+      return (
+        ['No instructions yet - use the Edit-button below to add some']
+      )
+    }
     return (
       horse.instructions[0].split('\n')
     )
@@ -63,10 +75,10 @@ const HorseDetails = ({ horseInfo }) => {
                   ))}
                 </ol>
                 {/* Show a loading message while the image is being fetched */}
-                {!horseImage ? (
-                  <p>Loading image...</p>
+                {!horse.imageUrl ? (
+                  <p>Missing Image</p>
                 ) : (
-                  <DetailsPicture src={horseImage} alt="Horse" />
+                  <DetailsPicture src={horse.imageUrl} alt="Horse" />
                 )}
               </Instructions>
             </HorseInstructionsDiv>

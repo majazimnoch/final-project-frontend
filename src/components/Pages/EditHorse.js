@@ -16,6 +16,7 @@ const EditHorse = ({ setCollapsed }) => {
   const [characteristics, setCharacteristics] = useState([])
   const [description, setDescription] = useState('')
   const [instructions, setInstructions] = useState([])
+  const [imageUrl, setImageUrl] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,7 +64,8 @@ const EditHorse = ({ setCollapsed }) => {
           name: horseName,
           description,
           characteristics,
-          instructions
+          instructions,
+          imageUrl
         }
       })
     }
@@ -88,6 +90,10 @@ const EditHorse = ({ setCollapsed }) => {
 
   const handleDescription = (event) => {
     setDescription(event.target.value)
+  }
+
+  const handleImageUrl = (event) => {
+    setImageUrl(event.target.value)
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -133,6 +139,13 @@ const EditHorse = ({ setCollapsed }) => {
                 value={instructions}
                 onChange={handleInstructions} />
             </label>
+            <Pinside>Image link:</Pinside>
+            <Input
+              type="text"
+              srOnly="ImageUrl"
+              placeholder="Edit URL to update image"
+              value={imageUrl}
+              onChange={handleImageUrl} />
           </ExtraInfoBox>
         </FormQuestionsBox>
         <ButtonDiv>
