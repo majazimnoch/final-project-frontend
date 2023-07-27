@@ -93,6 +93,7 @@ const ProfileContainer = styled.div`
   @media (max-width: 1023px) {
     display: flex;
     flex-direction: column;
+   
     h1 {
       font-size: 2.5rem;
     }
@@ -106,9 +107,11 @@ const ProfileContainer = styled.div`
 `;
 const LeftColumn = styled.div`
 grid-area: 1 / 1 / 2 / 2;
+justify-content: center;
+align-items: center;
 
-@media (min-width: 1024px) {
-  position: sticky;
+@media (max-width: 1023px) {
+  
 }
 `
 const MiddleColumn = styled.div`

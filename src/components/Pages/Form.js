@@ -115,13 +115,15 @@ const Form = ({ setCollapsed }) => {
                 value={instructions}
                 onChange={handleInstructions} />
             </label>
-            <Pinside>Image link:</Pinside>
-            <Input
-              type="text"
-              srOnly="ImageUrl"
-              placeholder="Add a URL to an image"
-              value={imageUrl}
-              onChange={handleImageUrl} />
+            <label>
+              <Pinside>Image link:</Pinside>
+              <Input
+                type="text"
+                srOnly="ImageUrl"
+                placeholder="Add a URL to an image"
+                value={imageUrl}
+                onChange={handleImageUrl} />
+            </label>
           </ExtraInfoBox>
         </FormQuestionsBox>
         <ButtonDiv>
@@ -140,6 +142,9 @@ display: flex;
 flex-direction: row;
 justify-content: flex-end;
 align-items: center;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
 
 @media (max-width: 1023px) {
     flex-direction: column;

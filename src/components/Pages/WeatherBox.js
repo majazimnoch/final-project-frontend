@@ -98,23 +98,18 @@ const WeatherBox = () => {
 export default WeatherBox;
 
 const WeatherBoxContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 1rem 1.5rem;
-  text-align:center;
-
-  @media (max-width: 1023px) {
-  max-width: 90vw;
-}
-
-`;
-
-const Weatherheader = styled.header`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 1rem 1.5rem;
+text-align: center;
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 border-radius: 10px;
 padding: 1rem .5rem;
+`;
+
+const Weatherheader = styled.header`
 `;
 
 const WeatherInputBox = styled.div`

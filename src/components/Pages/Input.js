@@ -9,6 +9,7 @@ const StyledInput = styled.input`
   border-radius: 10px;
   border: 1px var(--primaryBlack) solid;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  font-family: var(--fontParagraph);
   ::placeholder {
     font-family: var(--fontParagraph);
     font-size: 14px;
@@ -17,6 +18,10 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: 0.5px solid var(--softPurple);
+  }
+
+  @media (max-width: 1023px) {
+  width: 70vw;
   }
 `;
 

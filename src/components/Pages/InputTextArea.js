@@ -19,6 +19,10 @@ const StyledTextArea = styled.textarea`
   &:focus {
     outline: 0.5px solid var(--softPurple);
   }
+
+  @media (max-width: 1023px) {
+  width: 70vw;
+  }
 `;
 
 const InputTextArea = ({ placeholder, value, onChange }) => {

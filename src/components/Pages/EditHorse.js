@@ -166,9 +166,14 @@ display: flex;
 flex-direction: row;
 justify-content: flex-end;
 align-items: center;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
 
 @media (max-width: 1023px) {
-    flex-direction: column;
+flex-direction: column;
+justify-content: center;
+width: 90vw;
 }
 `;
 
