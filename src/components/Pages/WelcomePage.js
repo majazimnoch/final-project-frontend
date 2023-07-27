@@ -76,37 +76,40 @@ gap: 2rem;
 `;
 
 const ProfileContainer = styled.div`
-background-color: var(--primaryWhite);
-color: var(--primaryBlack);
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-template-rows: 1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-min-height: 100vh;
-
-h1 {
-  font-size: 3rem;
-  text-align: center;
-}
-
-@media (max-width: 1023px) {
-  display: flex;
-  flex-direction: column;
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 664px) {
+  background-color: var(--primaryWhite);
+  color: var(--primaryBlack);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  min-height: 100vh;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 3rem;
+    text-align: center;
   }
-}
-`
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 664px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+`;
 const LeftColumn = styled.div`
 grid-area: 1 / 1 / 2 / 2;
+
+@media (min-width: 1024px) {
+  position: sticky;
+}
 `
 const MiddleColumn = styled.div`
 grid-area: 1 / 2 / 2 / 4;
@@ -122,6 +125,11 @@ gap: 4rem;
 align-items: center;
 margin: 1rem 1.5rem 3rem 1.5rem;
 text-align: center;
+
+ @media (min-width: 1024px) {
+  position: sticky;
+    right: 0;
+  }
 `;
 
 const DivSearchLogout = styled.div`

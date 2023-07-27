@@ -4,6 +4,7 @@ import React from 'react';
 // { useEffect, useState }
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+import { StyledLinkAdd } from './WelcomePage';
 
 const HorseDetails = ({ horseInfo }) => {
   console.log(horseInfo);
@@ -53,36 +54,47 @@ const HorseDetails = ({ horseInfo }) => {
         const instructionsList = InstructionsIntoList[index];
 
         return (
-          <MainHorseDiv key={horse._id}>
-            <HorseIntro>
-              <h1>{horse.name}</h1>
-              <p>{horse.description}</p>
-            </HorseIntro>
-            <HorseInstructionsDiv>
-              <Characteristics>
-                <h2>Characteristics</h2>
-                <ul>
-                  {characteristicsList.map((li) => (
-                    <li key={uuidv4()}>{li}</li>
-                  ))}
-                </ul>
-              </Characteristics>
-              <Instructions>
-                <h2>Instructions</h2>
-                <ol>
-                  {instructionsList.map((li) => (
-                    <li key={uuidv4()}>{li}</li>
-                  ))}
-                </ol>
-                {/* Show a loading message while the image is being fetched */}
-                {!horse.imageUrl ? (
-                  <p>Missing Image</p>
-                ) : (
-                  <DetailsPicture src={horse.imageUrl} alt="Horse" />
-                )}
-              </Instructions>
-            </HorseInstructionsDiv>
-          </MainHorseDiv>
+          <TwoParts>
+            <LeftHorsedetail>
+              <MainHorseDiv key={horse._id}>
+                <HorseIntro>
+                  <h1>{horse.name}</h1>
+                  <p>{horse.description}</p>
+                </HorseIntro>
+                <HorseInstructionsDiv>
+                  <Characteristics>
+                    <h2>Characteristics</h2>
+                    <ul>
+                      {characteristicsList.map((li) => (
+                        <li key={uuidv4()}>{li}</li>
+                      ))}
+                    </ul>
+                  </Characteristics>
+                  <Instructions>
+                    <h2>Instructions</h2>
+                    <ol>
+                      {instructionsList.map((li) => (
+                        <li key={uuidv4()}>{li}</li>
+                      ))}
+                    </ol>
+                  </Instructions>
+                </HorseInstructionsDiv>
+              </MainHorseDiv>
+            </LeftHorsedetail>
+            <RightHorsedetail>
+              {/* Show a loading message while the image is being fetched */}
+              {!horse.imageUrl ? (
+                <p>Missing Image</p>
+              ) : (
+                <><DetailsPicture src={horse.imageUrl} alt="Horse" /><p>This is {horse.name}. </p></>
+              )}
+              <ButtonBoxHorse>
+                <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
+                <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
+              </ButtonBoxHorse>
+            </RightHorsedetail>
+          </TwoParts>
+
         );
       })}
     </>
@@ -91,28 +103,83 @@ const HorseDetails = ({ horseInfo }) => {
 
 export default HorseDetails;
 
+const TwoParts = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 2rem;
+grid-row-gap: 2rem;
+@media (max-width: 1023px) {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  }
+`
+const LeftHorsedetail = styled.div`
+grid-area: 1 / 1 / 2 / 3; 
+`
+const RightHorsedetail = styled.div`
+grid-area: 1 / 3 / 2 / 4;
+`
 const MainHorseDiv = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 justify-items: center;
+gap:2rem;
 `
 const HorseIntro = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
 align-items: center;
-`
-const HorseInstructionsDiv = styled.div`
-`
-const Characteristics = styled.div`
-`
-const Instructions = styled.div`
-`
-const DetailsPicture = styled.img`
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
+width: 50vw;
 
 @media (max-width: 1023px) {
-   max-width: 300px;
+  width: 80vw;
   }
 `
+const HorseInstructionsDiv = styled.div`
+display: flex;
+flex-direction: column;
+gap:2rem;
+`
+const Characteristics = styled.div`
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
+width: 50vw;
+
+@media (max-width: 1023px) {
+  width: 80vw;
+  }
+`
+const Instructions = styled.div`
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
+width: 50vw;
+
+@media (max-width: 1023px) {
+  width: 80vw;
+  }
+`
+const DetailsPicture = styled.img`
+max-width: 30vw;
+max-height:30vh;
+border-radius:10px;
+
+@media (max-width: 1023px) {
+   min-width: 80vw;
+  }
+`
+const ButtonBoxHorse = styled.div`
+  display:flex;
+  flex-direction: column;
+  gap:1rem;
+  `

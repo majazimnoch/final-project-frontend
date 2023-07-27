@@ -45,12 +45,13 @@ export const StyledHero = styled.div`
 
 export const TextBlock = styled.div`
     flex-direction: column;
-    border-radius: 10px 30px 30px 10px;
-    padding: 4rem 2rem 4rem 2rem;
+    border-radius: 10px;
+    padding: 2rem;
 
     @media (max-width: 1023px) {
         background-color: rgba(249, 247, 255, 0.7);
         width: 75vw;
+        margin: 2rem 0;
     }
 `;
 

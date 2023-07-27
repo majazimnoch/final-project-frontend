@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL } from 'utils/urls';
 import { useParams } from 'react-router-dom';
-import { StyledLinkAdd } from 'components/Pages/WelcomePage';
+// import { StyledLinkAdd } from 'components/Pages/WelcomePage';
 import styled from 'styled-components';
 import HorseDetails from './HorseDetails';
 
@@ -49,10 +49,10 @@ const Horse = () => {
             </UserInfoDiv>
             <HorseDetails horseInfo={[horseInfo.horse]} />
           </HorseInfoContainer>
-          <ButtonBoxHorse>
+          {/* <ButtonBoxHorse>
             <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
             <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
-          </ButtonBoxHorse>
+          </ButtonBoxHorse> */}
         </>
       ))}
     </HorseDiv>
@@ -81,8 +81,8 @@ const UserInfoDiv = styled.div`
     font-size: 1rem;
   `;
 
-const ButtonBoxHorse = styled.div`
-  display:flex;
-  flex-direction: column;
-  gap:1rem;
-  `
+// // const ButtonBoxHorse = styled.div`
+// //   display:flex;
+// //   flex-direction: column;
+// //   gap:1rem;
+// //   `

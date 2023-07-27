@@ -139,13 +139,15 @@ const EditHorse = ({ setCollapsed }) => {
                 value={instructions}
                 onChange={handleInstructions} />
             </label>
-            <Pinside>Image link:</Pinside>
-            <Input
-              type="text"
-              srOnly="ImageUrl"
-              placeholder="Edit URL to update image"
-              value={imageUrl}
-              onChange={handleImageUrl} />
+            <label>
+              <Pinside>Image link:</Pinside>
+              <Input
+                type="text"
+                srOnly="ImageUrl"
+                placeholder="Edit URL to update image"
+                value={imageUrl}
+                onChange={handleImageUrl} />
+            </label>
           </ExtraInfoBox>
         </FormQuestionsBox>
         <ButtonDiv>

@@ -52,7 +52,6 @@ const WeatherBox = () => {
   return (
     <WeatherBoxContainer>
       <Weatherheader>
-        <Pinside bold><StyledSpanWeather test>Check the weather before you go horse riding</StyledSpanWeather></Pinside>
         {isLoading ? (
           <Player
             autoplay
@@ -113,6 +112,9 @@ const WeatherBoxContainer = styled.div`
 `;
 
 const Weatherheader = styled.header`
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
 `;
 
 const WeatherInputBox = styled.div`
