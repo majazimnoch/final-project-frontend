@@ -170,12 +170,15 @@ width: 50vw;
   }
 `
 const DetailsPicture = styled.img`
-max-width: 30vw;
+max-width:30vw;
 max-height:30vh;
 border-radius:10px;
 
 @media (max-width: 1023px) {
-   min-width: 80vw;
+  width: 100%;
+  min-width: 200px;
+  height: auto;
+  margin: 0 auto;
   }
 `
 const ButtonBoxHorse = styled.div`
