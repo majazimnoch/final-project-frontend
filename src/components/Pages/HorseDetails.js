@@ -54,7 +54,7 @@ const HorseDetails = ({ horseInfo }) => {
         const instructionsList = InstructionsIntoList[index];
 
         return (
-          <><TwoParts>
+          <TwoParts>
             <LeftHorsedetail>
               <MainHorseDiv key={horse._id}>
                 <HorseIntro>
@@ -84,46 +84,16 @@ const HorseDetails = ({ horseInfo }) => {
             <RightHorsedetail>
               {/* Show a loading message while the image is being fetched */}
               {!horse.imageUrl ? (
-                <p>Missing Image</p>
-              ) : (
-                <><DetailsPicture src={horse.imageUrl} alt="Horse" /><p>This is {horse.name}. </p></>
-              )}
+                  <><DetailsPicture src={horseImage} alt="Random horse" /><p>You can add a picture of your horse here</p></>
+                ) : (
+                  <DetailsPicture src={horse.imageUrl} alt="Photo of this horse" />
+                )}
               <ButtonBoxHorse>
                 <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
                 <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
               </ButtonBoxHorse>
             </RightHorsedetail>
-            </TwoParts><MainHorseDiv key={horse._id}>
-            <HorseIntro>
-              <h1>{horse.name}</h1>
-              <p>{horse.description}</p>
-            </HorseIntro>
-            <HorseInstructionsDiv>
-              <Characteristics>
-                <h2>Characteristics</h2>
-                <ul>
-                  {characteristicsList.map((li) => (
-                    <li key={uuidv4()}>{li}</li>
-                  ))}
-                </ul>
-              </Characteristics>
-              <Instructions>
-                <h2>Instructions</h2>
-                <ol>
-                  {instructionsList.map((li) => (
-                    <li key={uuidv4()}>{li}</li>
-                  ))}
-                </ol>
-                {/* Show a loading message while the image is being fetched */}
-                {!horse.imageUrl ? (
-                  <><DetailsPicture src={horseImage} alt="Random horse" /><p>You can add a picture of your horse here, just click edit and place a link in the form!</p></>
-                ) : (
-                  <DetailsPicture src={horse.imageUrl} alt="Photo of this horse" />
-                )}
-              </Instructions>
-            </HorseInstructionsDiv>
-                       </MainHorseDiv>
-          </>
+          </TwoParts>
         );
       })}
     </>
