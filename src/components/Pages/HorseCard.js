@@ -46,7 +46,7 @@ const HorseCard = ({ horseList }) => {
           {singleHorse.horse && (
             <>
               <SmallInfo>
-                <Pinside>{/* <Link to={`/users/${singleHorse.userId}`}> */}
+                <Pinside>
                   {singleHorse.username},{' '}
                   {`${new Date(singleHorse.createdAt).toLocaleDateString('en-us', {
                     year: 'numeric',
@@ -65,7 +65,6 @@ const HorseCard = ({ horseList }) => {
                   <p>{singleHorse.horse.description}</p>
                 </DescriptionDiv>
               </Link>
-              {/* <Horse horseInfo={[singleHorses]} /> */}
             </>
           )}
           <DeleteContainer>

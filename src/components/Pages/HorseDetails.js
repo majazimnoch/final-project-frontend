@@ -1,7 +1,7 @@
+/* eslint-disable indent */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
-import React from 'react';
-// { useEffect, useState }
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { StyledLinkAdd } from './WelcomePage';
@@ -10,18 +10,18 @@ const HorseDetails = ({ horseInfo }) => {
   console.log(horseInfo);
 
   // useState to handle the image URL state
-  // const [horseImage, setHorseImage] = useState('');
+  const [horseImage, setHorseImage] = useState('');
 
-  // useEffect(() => {
-  //   setHorseImage(horseInfo.imageUrl)
-  //   // fetch('https://source.unsplash.com/500x500/?horses')
-  //   // .then((response) => {
-  //   //   setHorseImage(response.url);
-  //   // })
-  //   // .catch((error) => {
-  //   //   console.error('Error fetching horse image:', error);
-  //   // });
-  // }, [horseInfo]);
+  useEffect(() => {
+    setHorseImage(horseInfo.imageUrl)
+    fetch('https://source.unsplash.com/500x500/?horses')
+      .then((response) => {
+        setHorseImage(response.url);
+      })
+      .catch((error) => {
+        console.error('Error fetching horse image:', error);
+      });
+  }, [horseInfo]);
 
   // Turning characteristics string into array (to be able to display the characteristics in a list). The string is split at each comma.
   const CharacteristicsIntoList = horseInfo.map((horse) => {
@@ -54,7 +54,7 @@ const HorseDetails = ({ horseInfo }) => {
         const instructionsList = InstructionsIntoList[index];
 
         return (
-          <TwoParts>
+          <><TwoParts>
             <LeftHorsedetail>
               <MainHorseDiv key={horse._id}>
                 <HorseIntro>
@@ -93,8 +93,37 @@ const HorseDetails = ({ horseInfo }) => {
                 <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
               </ButtonBoxHorse>
             </RightHorsedetail>
-          </TwoParts>
-
+            </TwoParts><MainHorseDiv key={horse._id}>
+            <HorseIntro>
+              <h1>{horse.name}</h1>
+              <p>{horse.description}</p>
+            </HorseIntro>
+            <HorseInstructionsDiv>
+              <Characteristics>
+                <h2>Characteristics</h2>
+                <ul>
+                  {characteristicsList.map((li) => (
+                    <li key={uuidv4()}>{li}</li>
+                  ))}
+                </ul>
+              </Characteristics>
+              <Instructions>
+                <h2>Instructions</h2>
+                <ol>
+                  {instructionsList.map((li) => (
+                    <li key={uuidv4()}>{li}</li>
+                  ))}
+                </ol>
+                {/* Show a loading message while the image is being fetched */}
+                {!horse.imageUrl ? (
+                  <><DetailsPicture src={horseImage} alt="Random horse" /><p>You can add a picture of your horse here, just click edit and place a link in the form!</p></>
+                ) : (
+                  <DetailsPicture src={horse.imageUrl} alt="Photo of this horse" />
+                )}
+              </Instructions>
+            </HorseInstructionsDiv>
+                       </MainHorseDiv>
+          </>
         );
       })}
     </>

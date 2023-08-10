@@ -41,7 +41,6 @@ const EditHorse = ({ setCollapsed }) => {
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  // This message above that dependencies are missing was nothing to worry about - it works anyway
 
   useEffect(() => {
     console.log('Inside useEffect');
