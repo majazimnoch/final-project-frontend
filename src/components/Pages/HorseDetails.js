@@ -184,4 +184,8 @@ const ButtonBoxHorse = styled.div`
   display:flex;
   flex-direction: column;
   gap:1rem;
+
+  @media (max-width: 1023px) {
+  margin-bottom: 2rem;
+  }
   `
