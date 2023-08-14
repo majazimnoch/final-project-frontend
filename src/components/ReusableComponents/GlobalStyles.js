@@ -29,6 +29,7 @@ font-size: 14px;
 
 ${(styling) => styling.white && css`
 color:var(--primaryWhite);
+font-size: 2rem;
 `
 }
 
@@ -37,6 +38,7 @@ color:var(--lemon);
 font-size: 2rem;
 `
 }
+
 `
 
 export const ButtonPrimary = styled.button`

@@ -75,7 +75,7 @@ justify-content: center;
 gap: 2rem;
 padding-top: 25px;
 padding-bottom: 67px;
-box-shadow: 0 5px 0px rgba(183, 253, 173);
+
 `;
 
 const ProfileContainer = styled.div`

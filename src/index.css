@@ -16,6 +16,17 @@ code {
 }
 
 :root {
+	--softPurple: #698F3F;
+	--lemon: #E7DECD;
+	--creme: #C39790;
+	--primaryWhite: #FBFAF8;
+	--snowWhite: #FFFFFF;
+	--primaryBlack: #0A122A;
+	--claret: #804E49;	
+  --fontParagraph:'Poppins', sans-serif;
+}
+
+/* :root {
 	--softPurple: #a1a1f8;
 	--lemon: #b7fdad;
 	--creme: #C39790;
@@ -24,8 +35,15 @@ code {
 	--primaryBlack: #141414;
 	--claret: #952453;	
   --fontParagraph:'Poppins', sans-serif;
-}
+} */
 
 a {
   text-decoration: none;
 }
+
+a:link {
+color: var(--softPurple);
+}
+a:visited {
+  color: var(--primaryBlack);
+} 

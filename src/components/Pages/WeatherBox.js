@@ -1,11 +1,8 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import { ButtonPrimary, InputPrimary, Pinside } from 'components/ReusableComponents/GlobalStyles';
+import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import { Player } from '@lottiefiles/react-lottie-player';
-import searchicon from '../../assets/magnifying-glass.png';
+import styled from 'styled-components';
 
 const api = {
   key: 'b17222dd46452704ba0397a0e2981f5f',
@@ -52,19 +49,9 @@ const WeatherBox = () => {
   return (
     <WeatherBoxContainer>
       <Weatherheader>
+        <Pinside bold>Check the weather before you go horse riding</Pinside>
         {isLoading ? (
-          <Player
-            autoplay
-            loop
-            src="https://assets3.lottiefiles.com/packages/lf20_rwq6ciql.json"
-            style={{ height: '90px', width: '90px' }}
-            animationSettings={{
-              loop: 2,
-              autoplay: true,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-              }
-            }} />
+          <p>Fetching weather data...</p>
         ) : typeof weather.main !== 'undefined' ? (
           <WeatherInfoBox>
             <Pinside uppercase>{weather.name}</Pinside>
@@ -79,16 +66,14 @@ const WeatherBox = () => {
         )}
         <WeatherInputBox>
           <Pinside details>If you plan to change the location, enter the desired city/town.</Pinside>
-          <WeatherInputButtonBox>
-            <InputWeather
-              type="text"
-              placeholder="Enter city/town..."
-              onChange={(e) => setSearch(e.target.value)}
-              required />
-            <ButtonWeather type="button" onClick={searchPressed}>
-              <StyledSearchIcon src={searchicon} alt="Search Icon" />
-            </ButtonWeather>
-          </WeatherInputButtonBox>
+          <InputWeather
+            type="text"
+            placeholder="Enter city/town..."
+            onChange={(e) => setSearch(e.target.value)}
+            required />
+          <ButtonWeather type="button" onClick={searchPressed}>
+            Search
+          </ButtonWeather>
         </WeatherInputBox>
       </Weatherheader>
     </WeatherBoxContainer>
@@ -98,15 +83,12 @@ const WeatherBox = () => {
 export default WeatherBox;
 
 const WeatherBoxContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 1rem 1.5rem;
-text-align: center;
-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-border-radius: 10px;
-padding: 1rem .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1.5rem;
+  text-align:center;
 `;
 
 const Weatherheader = styled.header`
@@ -121,48 +103,37 @@ const WeatherInputBox = styled.div`
 `;
 
 const WeatherInfoBox = styled.div`
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ImgWeather = styled.img`
-height: 70px;
+height: 64px;
 `;
 
 const ButtonWeather = styled.button`
-background-color: var(--snowWhite);
+background-color: var(--primaryWhite);
 color: var(--primaryBlack);
-height: 50px;
-border-radius: 10px;
-border: 1px solid var(--primaryBlack);
-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-padding: 0.5rem;
+font-size: var(--fontSize);
+border: 1.5px solid var(--softPurple);
+border-radius: 30px;
+height: 40px;
 
 &:hover {
   background-color: var(--softPurple);
   color: var(--primaryWhite);
   transition: 0.2s;
-  outline: 0.5px solid var(--softPurple);
 }
 
-@media (max-width: 1023px) {
-  width: 50px;
+@media (min-width: 668px) {
+  padding: 0 1.5rem;
 }
 `
-const StyledSearchIcon = styled.img`
-height: 30px;
-cursor: pointer;
-
-@media (max-width: 1023px) {
-  width: 30px;
-}
-`;
-
-export const InputWeather = styled.input`
-display: block;
+const InputWeather = styled.input`
 height: 3rem;
 padding: 0 1rem;
 border-radius: 10px;
+
 border: 1px var(--primaryBlack) solid;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
@@ -170,23 +141,4 @@ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   outline: 0.5px solid var(--softPurple);
 }
 
-@media (max-width: 1023px) {
-  padding: 0 1rem;
-}
-`;
-
-const WeatherInputButtonBox = styled.div`
-display: flex;
-flex-direction: row;
-
-@media (max-width: 1023px) {
-  max-width: 90vw;
-}
-`;
-
-export const StyledSpanWeather = styled.span`
-padding: 5px;
-${(styling) => styling.test && css`
-background-color: var(--lemon);`
-}
 `;

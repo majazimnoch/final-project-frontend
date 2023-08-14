@@ -6,7 +6,7 @@ import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 const Horseheader = () => {
   return (
     <Horseheaderdiv img={image6} alt="Three horses">
-      <Pinside lemon>Horsey</Pinside>
+      <Pinside white>Horsey</Pinside>
     </Horseheaderdiv>
   )
 }
@@ -22,7 +22,7 @@ align-items: center;
 justify-content: center;
 background-size: cover;
 background-position: center;
-box-shadow: 0 5px 0px rgba(183, 253, 173);
+box-shadow: 0 5px 0px var(--lemon);
 color: #b7fdad;
 
 &:hover {
