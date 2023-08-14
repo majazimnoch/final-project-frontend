@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { API_URL } from 'utils/urls';
 import styled from 'styled-components';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
-import rideruser from '../../assets/horse-rider-icon.svg';
+import rideruser from '../../assets/helmet.png';
 
 const UserBox = () => {
   const accessToken = localStorage.getItem('token');

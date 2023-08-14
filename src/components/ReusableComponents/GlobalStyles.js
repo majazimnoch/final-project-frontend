@@ -89,6 +89,7 @@ export const ButtonPrimaryRight = styled.button`
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
+
   
   @media (max-width: 1023px) {
     font-size: 24px;

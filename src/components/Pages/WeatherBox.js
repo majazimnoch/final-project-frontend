@@ -49,7 +49,6 @@ const WeatherBox = () => {
   return (
     <WeatherBoxContainer>
       <Weatherheader>
-        <Pinside bold>Check the weather before you go horse riding</Pinside>
         {isLoading ? (
           <p>Fetching weather data...</p>
         ) : typeof weather.main !== 'undefined' ? (
@@ -89,6 +88,10 @@ const WeatherBoxContainer = styled.div`
   align-items: center;
   margin: 1rem 1.5rem;
   text-align:center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  padding: 1rem .5rem;
+  background-color: var(--lemon);
 `;
 
 const Weatherheader = styled.header`

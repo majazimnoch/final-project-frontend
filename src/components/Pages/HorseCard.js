@@ -121,7 +121,7 @@ h3 {
 }
 
 p {
-  color: var(--primaryBlack);
+  color: var(--softPurple);
   font-size: 1rem;
 }
 `;
