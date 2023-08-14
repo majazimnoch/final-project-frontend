@@ -55,6 +55,10 @@ export const StyledLinkAdd = styled(Link)`
     color: var(--primaryBlack);
     transition: 0.2s;
   }
+
+  &:visited {
+  color: var(--primaryBlack);
+} 
 `;
 
 const LinksBox = styled.div`
