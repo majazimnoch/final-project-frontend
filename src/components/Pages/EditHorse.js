@@ -221,6 +221,7 @@ align-items: center;
 justify-content: center;
 width: 100%;
 gap: 1rem;
+margin-bottom: 2rem;
 
 @media (max-width: 1023px) {
     flex-direction: column;
