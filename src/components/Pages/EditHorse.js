@@ -72,6 +72,7 @@ const EditHorse = ({ setCollapsed }) => {
     // .then(() => {
     //  navigate(`/horses/${params.horseId}`)
     // })
+    window.alert('Your horse has been edited. You can go back.');
   }
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
@@ -148,7 +149,9 @@ const EditHorse = ({ setCollapsed }) => {
           </ExtraInfoBox>
         </FormQuestionsBox>
         <ButtonDiv>
-          <ButtonAdd type="submit">Save your horse</ButtonAdd>
+          <ButtonAdd type="submit">
+            Save your horse
+          </ButtonAdd>
           <ButtonAdd><Link to="/welcomepage">Go back</Link></ButtonAdd>
         </ButtonDiv>
       </FormAdd>

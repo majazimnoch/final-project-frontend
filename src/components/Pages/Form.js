@@ -50,6 +50,8 @@ const Form = ({ setCollapsed }) => {
         dispatch(horses.actions.setNewHorse(data.response))
         window.location.reload();
       })
+
+    window.alert('Your horse has been added successfully. You can go back.');
   }
 
   const handleHorseName = (event) => {

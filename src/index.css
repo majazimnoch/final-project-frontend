@@ -42,7 +42,7 @@ a {
 }
 
 a:link {
-color: var(--softPurple);
+color: var(--primaryBlack);
 }
 a:visited {
   color: var(--primaryBlack);
