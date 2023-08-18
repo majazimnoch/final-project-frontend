@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
 import { Pinside } from 'components/ReusableComponents/GlobalStyles';
 import Input from './Input';
@@ -17,7 +17,7 @@ const EditHorse = ({ setCollapsed }) => {
   const [description, setDescription] = useState('')
   const [instructions, setInstructions] = useState([])
   const [imageUrl, setImageUrl] = useState('')
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const options = {
@@ -69,9 +69,9 @@ const EditHorse = ({ setCollapsed }) => {
       })
     }
     fetch(API_URL(`horses/${params.horseId}`), options)
-      .then(() => {
-        navigate(`/horses/${params.horseId}`)
-      })
+    // .then(() => {
+    //  navigate(`/horses/${params.horseId}`)
+    // })
   }
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
