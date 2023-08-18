@@ -18,6 +18,9 @@ Using our backend endpoints in frontend code so the outcome is functional was ou
 ## Some of the Java Script functions we used:
 - Math.floor ( WeatherBox: used to round a floating-point number down to the nearest integer)
 
+## Deployed app
+- https://horsey-app.netlify.app/
+
 ## NPM packages installed for the frontend repo:
 - npm i
 - npm i react-router-dom
