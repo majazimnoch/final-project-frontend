@@ -13,7 +13,7 @@ const HorseDetails = ({ horseInfo }) => {
   const [horseImage, setHorseImage] = useState('');
 
   useEffect(() => {
-    setHorseImage(horseInfo.imageUrl)
+    setHorseImage(horseInfo[0].horse.imageUrl)
     fetch('https://source.unsplash.com/500x500/?horses')
       .then((response) => {
         setHorseImage(response.url);
@@ -25,25 +25,26 @@ const HorseDetails = ({ horseInfo }) => {
 
   // Turning characteristics string into array (to be able to display the characteristics in a list). The string is split at each comma.
   const CharacteristicsIntoList = horseInfo.map((horse) => {
-    if (horse.characteristics.length === 0) {
+    console.log(horse)
+    if (horse.horse.characteristics.length === 0) {
       return (
         ['No characteristics yet - use the Edit-button below to add some']
       )
     }
     return (
-      horse.characteristics[0].split(',')
+      horse.horse.characteristics[0].split(',')
     )
   })
 
   // Turning the instructions string into an array (to be able to display the instructions in a list). The string is split at each line-break.
   const InstructionsIntoList = horseInfo.map((horse) => {
-    if (horse.instructions.length === 0) {
+    if (horse.horse.instructions.length === 0) {
       return (
         ['No instructions yet - use the Edit-button below to add some']
       )
     }
     return (
-      horse.instructions[0].split('\n')
+      horse.horse.instructions[0].split('\n')
     )
   })
 
@@ -56,10 +57,10 @@ const HorseDetails = ({ horseInfo }) => {
         return (
           <TwoParts>
             <LeftHorsedetail>
-              <MainHorseDiv key={horse._id}>
+              <MainHorseDiv key={horse.horse._id}>
                 <HorseIntro>
-                  <h1>{horse.name}</h1>
-                  <p>{horse.description}</p>
+                  <h1>{horse.horse.name}</h1>
+                  <p>{horse.horse.description}</p>
                 </HorseIntro>
                 <HorseInstructionsDiv>
                   <Characteristics>
@@ -86,10 +87,10 @@ const HorseDetails = ({ horseInfo }) => {
               {!horse.imageUrl ? (
                   <><DetailsPicture src={horseImage} alt="Random horse" /><p>You can add a picture of your horse here</p></>
                 ) : (
-                  <DetailsPicture src={horse.imageUrl} alt="Photo of this horse" />
+                  <DetailsPicture src={horse.horse.imageUrl} alt="Photo of this horse" />
                 )}
               <ButtonBoxHorse>
-                <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
+                <StyledLinkAdd to={`/edit/${horseInfo[0]._id}`}>Edit</StyledLinkAdd>
                 <StyledLinkAdd to="/welcomepage">Go back</StyledLinkAdd>
               </ButtonBoxHorse>
             </RightHorsedetail>

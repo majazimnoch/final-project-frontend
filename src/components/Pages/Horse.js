@@ -24,6 +24,7 @@ const Horse = () => {
       .then((res) => res.json())
       .then((data) => {
         setHorse(data.response)
+        console.log(data.response)
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -47,7 +48,7 @@ const Horse = () => {
               })}`}
               </p>
             </UserInfoDiv>
-            <HorseDetails horseInfo={[horseInfo.horse]} />
+            <HorseDetails horseInfo={[horseInfo]} />
           </HorseInfoContainer>
           {/* <ButtonBoxHorse>
             <StyledLinkAdd to={`/edit/${horseInfo._id}`}>Edit</StyledLinkAdd>
