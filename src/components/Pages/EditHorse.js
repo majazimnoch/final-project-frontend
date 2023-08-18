@@ -69,12 +69,10 @@ const EditHorse = ({ setCollapsed }) => {
       })
     }
     fetch(API_URL(`horses/${params.horseId}`), options)
-      .then((res) => res.json())
       .then(() => {
-        navigate(`/horses/${params.horseId}`);
+        navigate(`/horses/${params.horseId}`)
       })
   }
-
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
   }
