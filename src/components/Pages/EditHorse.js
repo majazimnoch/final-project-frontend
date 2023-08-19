@@ -72,7 +72,9 @@ const EditHorse = ({ setCollapsed }) => {
     // .then(() => {
     //  navigate(`/horses/${params.horseId}`)
     // })
-    window.alert('Your horse has been edited. You can go back.');
+    window.alert('Your horse has been edited. Let\u0027s go back.');
+    window.location = '/welcomepage'
+    // window.location = `horses/${params.horseId}`
   }
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
