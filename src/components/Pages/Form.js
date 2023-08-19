@@ -51,7 +51,8 @@ const Form = ({ setCollapsed }) => {
         window.location.reload();
       })
 
-    window.alert('Your horse has been added successfully. You can go back.');
+    window.alert('Your horse has been added. Let\u0027s go back.');
+    window.location = '/welcomepage'
   }
 
   const handleHorseName = (event) => {

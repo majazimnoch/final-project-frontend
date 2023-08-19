@@ -49,8 +49,8 @@ const EditHorse = ({ setCollapsed }) => {
   const userId = localStorage.getItem('userId');
 
   // Submitting edited horse
-  const onSubmit = (e) => {
-    e.preventDefault()
+  const onSubmit = async (e) => {
+    e.preventDefault();
     const options = {
       method: 'PUT',
       headers: {
@@ -67,15 +67,24 @@ const EditHorse = ({ setCollapsed }) => {
           imageUrl
         }
       })
+    };
+
+    try {
+      const response = await fetch(API_URL(`horses/${params.horseId}`), options);
+      if (response.ok) {
+        // Show alert after successful edit
+        window.alert('Your horse has been edited. Let\'s go back.');
+
+        // Navigate back to the previous page
+        window.history.back();
+      } else {
+        console.error('Error:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-    fetch(API_URL(`horses/${params.horseId}`), options)
-    // .then(() => {
-    //  navigate(`/horses/${params.horseId}`)
-    // })
-    window.alert('Your horse has been edited. Let\u0027s go back.');
-    window.location = '/welcomepage'
-    // window.location = `horses/${params.horseId}`
-  }
+  };
+
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
   }
