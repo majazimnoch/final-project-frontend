@@ -72,10 +72,7 @@ const EditHorse = ({ setCollapsed }) => {
     try {
       const response = await fetch(API_URL(`horses/${params.horseId}`), options);
       if (response.ok) {
-        // Show alert after successful edit
         window.alert('Your horse has been edited. Let\'s go back.');
-
-        // Navigate back to the previous page
         window.history.back();
       } else {
         console.error('Error:', response.statusText);
@@ -109,6 +106,10 @@ const EditHorse = ({ setCollapsed }) => {
   const closeForm = () => {
     setCollapsed(true)
   }
+
+  const simulateHistoryBack = () => {
+    window.history.back();
+  };
 
   return (
     <FormStyledDiv>
@@ -163,7 +164,7 @@ const EditHorse = ({ setCollapsed }) => {
           <ButtonAdd type="submit">
             Save your horse
           </ButtonAdd>
-          <ButtonAdd><Link to="/welcomepage">Go back</Link></ButtonAdd>
+          <ButtonAdd><Link to="/welcomepage" onClick={simulateHistoryBack}>Go back</Link></ButtonAdd>
         </ButtonDiv>
       </FormAdd>
     </FormStyledDiv>
