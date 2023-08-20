@@ -112,7 +112,7 @@ const Login = () => {
             ) : (
               <>
                 <WelcomeHeader>New user? Welcome!</WelcomeHeader>
-                <p>Create a user account in 5 seconds!</p>
+                <p>Create a user account in 10 seconds!</p>
               </>
             )}
             <LoginRegister
@@ -130,11 +130,11 @@ const Login = () => {
           <PSwitchaccount>
             {loginOrRegister === 'login' ? (
               <a href={LoginRegister} onClick={() => setLoginOrRegister('register')}>
-                <bold>I do not have an account yet</bold>
+                <StyledButtonUserSwitch type="button">I do not have an account yet</StyledButtonUserSwitch>
               </a>
             ) : (
               <a href={LoginRegister} onClick={() => setLoginOrRegister('login')}>
-                <bold>I already have an account</bold>
+                <StyledButtonUserSwitch type="button">I already have an account</StyledButtonUserSwitch>
               </a>
             )}
           </PSwitchaccount>
@@ -145,6 +145,27 @@ const Login = () => {
 };
 
 export default Login;
+
+const StyledButtonUserSwitch = styled.button`
+  display: block;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--softPurple);
+  color: var(--primaryWhite);
+  font-size: 16px;
+  border: 1.5px solid var(--softPurple);
+  border-radius: 30px;
+  height: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--lemon);
+    color: var(--primaryBlack);
+    transition: 0.2s;
+  }
+`
 
 const StyledPlayfulHorse = styled.img`
   height: 100px;
@@ -171,7 +192,7 @@ const LoginWrapper = styled.div`
   flex-direction: row;
   padding: 4rem;
   gap: 3rem;
-  min-height: 100vh;
+  min-height: 90vh;
 
   @media (max-width: 1023px) {
     padding: 1rem;
@@ -180,7 +201,6 @@ const LoginWrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
-  
 `;
 
 const TextLoginBox = styled.div``;

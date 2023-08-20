@@ -8,6 +8,7 @@ export const StyledButton = styled.button`
   border-radius: 30px;
   height: 50px;
   padding: 0 40px;
+  cursor: pointer;
   
   &:hover {
     background-color: var(--softPurple);
