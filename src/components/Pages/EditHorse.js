@@ -180,7 +180,7 @@ justify-content: flex-end;
 align-items: center;
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 border-radius: 10px;
-padding: 1rem .5rem;
+padding: 1rem 1.5rem;
 
 @media (max-width: 1023px) {
 flex-direction: column;
@@ -215,6 +215,7 @@ const FormStyledDiv = styled.div`
 display: flex;
 flex-direction: column;
 min-width: 200px;
+margin-top: 2rem;
 `;
 
 const CreateHorseDiv = styled.div`

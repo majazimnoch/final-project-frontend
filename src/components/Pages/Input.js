@@ -10,6 +10,7 @@ const StyledInput = styled.input`
   border: 1px var(--primaryBlack) solid;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   font-family: var(--fontParagraph);
+  font-size: 14px;
   ::placeholder {
     font-family: var(--fontParagraph);
     font-size: 14px;

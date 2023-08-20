@@ -90,7 +90,7 @@ const WeatherBoxContainer = styled.div`
   text-align:center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
-  padding: 1rem .5rem;
+  padding: 1.5rem .5rem;
   background-color: var(--lemon);
 `;
 
@@ -115,12 +115,15 @@ height: 64px;
 `;
 
 const ButtonWeather = styled.button`
-background-color: var(--primaryWhite);
-color: var(--primaryBlack);
+background-color: var(--claret);
+color: var(--primaryWhite);
 font-size: var(--fontSize);
-border: 1.5px solid var(--softPurple);
+border: 1.5px solid var(--primaryWhite);
 border-radius: 30px;
 height: 40px;
+cursor: pointer;
+display: block;
+width: 95%;
 
 &:hover {
   background-color: var(--softPurple);
@@ -136,6 +139,8 @@ const InputWeather = styled.input`
 height: 3rem;
 padding: 0 1rem;
 border-radius: 10px;
+display: block;
+width: 85%;
 
 border: 1px var(--primaryBlack) solid;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

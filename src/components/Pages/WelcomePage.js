@@ -66,7 +66,7 @@ export const StyledLinkAdd = styled(Link)`
 const LinksBox = styled.div`
 display: flex;
 flex-direction: column;
-gap: 3rem;
+gap: .3rem;
 margin-top: 1rem;
 
 @media (max-width: 1023px) {
@@ -75,10 +75,6 @@ min-width: 100%;
 
 `;
 const ButtonsCorner = styled.div`
-display: block;
-
-
-
 `;
 
 const ProfileContainer = styled.div`
@@ -166,6 +162,9 @@ padding: 1rem .5rem;
 color: var(--primaryWhite);
 border: none;
 margin-bottom: 2rem;
+font-size: 24px;
+cursor: pointer;
+transition: 0.2s;
 
 ${(styling) => styling.mobilebutton && css`
 margin: 1.5rem;
@@ -177,6 +176,10 @@ margin: 1.5rem;
 }
 
 &::after {
+  color: var(--primaryWhite);
+}
+
+&::before {
   color: var(--primaryWhite);
 }
 `
