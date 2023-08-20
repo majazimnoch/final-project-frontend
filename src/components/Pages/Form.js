@@ -25,7 +25,6 @@ const Form = ({ setCollapsed }) => {
   const accessToken = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
 
-  // Submitting new horse
   const onSubmit = async (event) => {
     event.preventDefault();
     const options = {
@@ -44,17 +43,22 @@ const Form = ({ setCollapsed }) => {
           imageUrl
         }
       })
-    }
-    fetch(API_URL('horses'), options)
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(horses.actions.setNewHorse(data.response))
-        window.location.reload();
-      })
+    };
 
-    window.alert('Your horse has been added. Let\'s go back.');
-    window.history.back();
-  }
+    try {
+      const response = await fetch(API_URL('horses'), options);
+      if (response.ok) {
+        const data = await response.json();
+        dispatch(horses.actions.setNewHorse(data.response));
+        window.alert('Your horse has been added. Let\'s go back.');
+        window.history.back();
+      } else {
+        console.error('Error:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   const handleHorseName = (event) => {
     setHorseName(event.target.value)
