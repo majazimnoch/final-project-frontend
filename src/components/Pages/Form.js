@@ -26,7 +26,8 @@ const Form = ({ setCollapsed }) => {
   const userId = localStorage.getItem('userId');
 
   // Submitting new horse
-  const onSubmit = () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
     const options = {
       method: 'POST',
       headers: {
@@ -51,8 +52,8 @@ const Form = ({ setCollapsed }) => {
         window.location.reload();
       })
 
-    window.alert('Your horse has been added. Let\u0027s go back.');
-    window.location = '/welcomepage'
+    window.alert('Your horse has been added. Let\'s go back.');
+    window.history.back();
   }
 
   const handleHorseName = (event) => {
