@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import UserBox from 'components/Pages/UserBox';
 import WeatherBox from 'components/Pages/WeatherBox';
 import Logout from 'components/Pages/Logout';
 import UserPage from 'components/Pages/UserPage';
-import { ButtonPrimaryRight } from 'components/ReusableComponents/GlobalStyles';
 import RandomFacts from './Facts/RandomFacts';
 import Horseheader from './Horseheader';
 
@@ -15,6 +14,9 @@ const WelcomePage = () => {
       <LeftColumn>
         <UserBox />
         <WeatherBox />
+        <MobileOnlyAddHorseDiv>
+          <BigButton mobilebutton><Link to="/mypage">Add horses</Link></BigButton>
+        </MobileOnlyAddHorseDiv>
       </LeftColumn>
       <MiddleColumn>
         <Horseheader />
@@ -23,7 +25,7 @@ const WelcomePage = () => {
       <RightColumn>
         <LinksBox>
           <ButtonsCorner>
-            <ButtonPrimaryRight><Link to="/mypage">Add horses</Link></ButtonPrimaryRight>
+            <BigButton><Link to="/mypage">Add horses</Link></BigButton>
             <Logout />
           </ButtonsCorner>
           <RandomFacts />
@@ -73,12 +75,9 @@ min-width: 100%;
 
 `;
 const ButtonsCorner = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-gap: 2rem;
-padding-top: 25px;
-padding-bottom: 67px;
+display: block;
+
+
 
 `;
 
@@ -146,3 +145,38 @@ const DivSearchLogout = styled.div`
 display:flex;
 flex-direction: column;
 gap: 1rem;`
+
+const MobileOnlyAddHorseDiv = styled.div`
+display: flex;
+justify-content: center;
+margin: 2rem 0;
+ @media (min-width: 1024px) {
+  display: none;
+  }`
+
+export const BigButton = styled.button`
+width:100%;
+display:block;
+text-align:center;
+height: 100px;
+background-color: var(--softPurple);
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+padding: 1rem .5rem;
+color: var(--primaryWhite);
+border: none;
+margin-bottom: 2rem;
+
+${(styling) => styling.mobilebutton && css`
+margin: 1.5rem;
+`}
+
+&:hover {
+  background-color: var(--lemon);
+  color: var(--primaryBlack);
+}
+
+&::after {
+  color: var(--primaryWhite);
+}
+`
